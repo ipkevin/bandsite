@@ -22,10 +22,6 @@
 }
 
 
-// ADD FONT STYLES - maybe mixins?  Or can extend
-
-
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -35,9 +31,56 @@
     font-weight: normal;
 }
 
-h1, p {
-    font-style: italic;
+h1 { // Page Header
+
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+    font-weight: bold;
+    
+    @include tablet-query {
+        font-size: 3.75rem; /* 60px */
+        line-height: 4.25rem; /* 68px */
+        font-weight: bold;
+    }
 }
+
+h2 { // Section header
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem; /* 32px */
+    font-weight: bold;
+    
+    @include tablet-query {
+        font-size: 2.25rem; /* 36px */
+        line-height: 2.75rem; /* 44px */
+        font-weight: bold;
+    }
+}
+
+h3 { // Subheader
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.375rem; /* 22px */
+    font-weight: 600;
+    
+    @include tablet-query {
+        font-size: 1.5rem; /* 24px */
+        line-height: 2rem; /* 32px */
+        font-weight: 600;
+    }
+}
+
+p {
+    font-size: 0.8125rem; /* 13px */
+    line-height: 1.125rem; /* 18px */
+    font-weight: normal;
+
+    @include tablet-query {
+        font-size: 0.875rem; /* 14px */
+        line-height: 1.375rem; /* 22px */
+        font-weight: normal;
+    }
+}
+
+
 
 .header {
     background-color: $BandSite-Black;
@@ -45,8 +88,15 @@ h1, p {
     flex-direction: column;
     flex-wrap: nowrap;
 
+    
+    @include tablet-query {
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: $space-desktab-between;    
+    }
+
     &__logo {
-        padding: $space-mobile-between 0; // CHANGE HORIZ to match styleguide
+        padding: $space-mobile-between; // CHANGE HORIZ to match styleguide
         text-align: center;
     }
     &__menu {
@@ -55,21 +105,56 @@ h1, p {
         justify-content: space-evenly;
 
         list-style-type: none;
+
+        @include tablet-query {
+            justify-content: flex-start;
+            gap: $space-desktab-between;
+        }
     }
     &__item {
         // Have to set flex-basis to 0 first to ensure will grow as equal widths
         // Alternative would be to just set width 50%
         flex-grow: 1;
         flex-basis: 0;
+
+        @include tablet-query {
+            flex-grow: 0;
+            flex-basis: content;
+        }
     }
     &__item-link {
+        // @extend p;
         display: block;
         padding: $space-mobile-between;
         text-align: center;
-        color: white;
+        color: $Silver;
         text-decoration: none;
+        border-bottom: 4px solid $BandSite-Black; // add this so that border added on hover won't push down rest of site. I guess could do it as offset underline instead
+
+        @include tablet-query {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
     &__item-link:hover {
-        border-bottom: 3px solid white;
+        border-bottom: 4px solid white;
+        color: $White;
+        font-weight: 600;
+    }
+}
+
+.hero {
+    background: center/cover url('../assets/Images/hero-bio.jpg');
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: multiply;
+
+    height: 70vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__title {
+        color: white;
+        padding: $space-mobile-between;
     }
 }
