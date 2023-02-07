@@ -46,9 +46,15 @@ h1, p {
   list-style-type: none;
 }
 .header__item {
-  padding: 1rem;
+  width: 50%;
 }
 .header__item-link {
+  display: block;
+  padding: 1rem;
+  text-align: center;
   color: white;
   text-decoration: none;
+}
+.header__item-link:hover {
+  border-bottom: 3px solid white;
 }/*# sourceMappingURL=bio.css.map */

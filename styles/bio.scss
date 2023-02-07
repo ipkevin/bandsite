@@ -57,11 +57,17 @@ h1, p {
         list-style-type: none;
     }
     &__item {
-        padding: $space-mobile-between;
+        width: 50%; 
+        // using 50% instead of flex-grow because smaller screensizes have uneven button widths due to min-content
     }
     &__item-link {
+        display: block;
+        padding: $space-mobile-between;
+        text-align: center;
         color: white;
         text-decoration: none;
     }
-
+    &__item-link:hover {
+        border-bottom: 3px solid white;
+    }
 }
