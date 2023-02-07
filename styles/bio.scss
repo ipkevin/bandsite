@@ -1,1 +1,67 @@
-@use 'partials/mixins-vars' as *;
+@use 'partials/variables' as *;
+@use 'partials/mixins' as *;
+
+// Import fonts
+@font-face { 
+    font-family: "AvenirNext"; 
+    src: url("../assets/Font/AvenirNextLTPro-Bold.otf") format("opentype"); 
+    font-weight: bold; 
+    font-style: normal; 
+} 
+@font-face { 
+    font-family: "AvenirNext"; 
+    src: url("../assets/Font/AvenirNextLTPro-Regular.otf") format("opentype"); 
+    font-weight: normal; 
+    font-style: normal; 
+} 
+@font-face { 
+    font-family: "AvenirNext"; 
+    src: url("../assets/Font/AvenirNextLTPro-Demi.otf") format("opentype"); 
+    font-weight: 600; 
+    font-style: normal; 
+}
+
+
+// ADD FONT STYLES - maybe mixins?  Or can extend
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: "AvenirNext";
+    font-weight: normal;
+}
+
+h1, p {
+    font-style: italic;
+}
+
+.header {
+    background-color: $BandSite-Black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    &__logo {
+        padding: $space-mobile-between 0; // CHANGE HORIZ to match styleguide
+        text-align: center;
+    }
+    &__menu {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+
+        list-style-type: none;
+    }
+    &__item {
+        padding: $space-mobile-between;
+    }
+    &__item-link {
+        color: white;
+        text-decoration: none;
+    }
+
+}
