@@ -57,8 +57,10 @@ h1, p {
         list-style-type: none;
     }
     &__item {
-        width: 50%; 
-        // using 50% instead of flex-grow because smaller screensizes have uneven button widths due to min-content
+        // Have to set flex-basis to 0 first to ensure will grow as equal widths
+        // Alternative would be to just set width 50%
+        flex-grow: 1;
+        flex-basis: 0;
     }
     &__item-link {
         display: block;
