@@ -1,0 +1,24 @@
+@mixin tablet-query {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+@mixin desktop-query {
+    @media screen and (min-width: 1280px) {
+        @content;
+    }
+}
+
+// Colors
+$BandSite-Black: #323232;
+$Silver: #AFAFAF;
+$White: #FFFFFF;
+$BandSite-DarkBlack: #000000;
+$Mercury: #E1E1E1;
+$Alabaster: #FAFAFA;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
