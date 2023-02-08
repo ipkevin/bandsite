@@ -99,13 +99,17 @@ p {
     }
 
     &__logo {
-        padding: $space-mobile-between; // CHANGE HORIZ to match styleguide
+        padding: $space-mobile-between;
+        padding-bottom: 0;
         text-align: center;
+    }
+    &__logo-img {
+        width: 9.5rem;
     }
     &__menu {
         display: flex;
         flex-flow: row nowrap;
-        justify-content: space-evenly;
+        justify-content: center;
 
         list-style-type: none;
 
@@ -126,21 +130,26 @@ p {
         }
     }
     &__item-link {
-        // @extend p;
         display: block;
         padding: $space-mobile-between;
-        text-align: center;
-        color: $Silver;
-        text-decoration: none;
-        border-bottom: 4px solid $BandSite-Black; // add this so that border added on hover won't push down rest of site. I guess could do it as offset underline instead
+        padding-bottom: $space-btwn-less-underline-mobile;
+        // Use dark border instead of disabled to prevent the border from pushing down content when it appears
+        border-bottom: $menu-underline-mobile solid $BandSite-Black; 
 
+        font-size: 1.05rem;
+        text-align: center;
+        text-decoration: none;
+        color: $Silver;
+
+        
+        // 
         @include tablet-query {
             padding-left: 0;
             padding-right: 0;
         }
     }
     &__item-link:hover {
-        border-bottom: 4px solid white;
+        border-bottom-color: white;
         color: $White;
         font-weight: 600;
     }

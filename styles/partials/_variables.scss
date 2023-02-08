@@ -14,4 +14,8 @@ $space-desktab-between: 2.25rem;
 
 $space-mobile-prehead: 1.5rem; // 24px
 $space-mobile-posthead: 1rem; // 16px
-$space-mobile-between: 1rem;
+$space-mobile-between: 1.2rem; // 1rem = 16px, but doesn't visually match mock
+
+$menu-underline-mobile: 0.3rem; // 4px;
+$space-btwn-less-underline-mobile: $space-mobile-between - $menu-underline-mobile;
+
