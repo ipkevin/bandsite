@@ -33,9 +33,9 @@
 
 h1 { // Page Header
 
-    font-size: 1.5rem; /* 24px */
-    line-height: 2rem; /* 32px */
-    font-weight: bold;
+    font-size: 1.95rem; // 1.5rem; /* 24px */
+    line-height: 2.3rem; /* 32px */
+    font-weight: 600;
 
     margin-top: $space-mobile-prehead;
     margin-bottom: $space-mobile-posthead;
@@ -91,16 +91,19 @@ p {
     flex-direction: column;
     flex-wrap: nowrap;
 
+    padding-top: $space-mobile-between;
+
     
     @include tablet-query {
         flex-flow: row nowrap;
         align-items: center;
         gap: $space-desktab-between;    
+
+        padding: calc($space-desktab-between - 1rem) 0 0 $space-desktab-between;
     }
 
     &__logo {
-        padding: $space-mobile-between;
-        padding-bottom: 0;
+        padding: 0 $space-mobile-between;
         text-align: center;
     }
     &__logo-img {
@@ -165,8 +168,8 @@ p {
 
     &__title {
         color: white;
-        font-size: 1.95rem;
-        font-weight: 600;
+        // font-size: 1.95rem;
+        // font-weight: 600;
 
         padding: $space-mobile-between;
     }
