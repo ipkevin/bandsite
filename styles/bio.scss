@@ -48,9 +48,9 @@ h1 { // Page Header
 }
 
 h2 { // Section header
-    font-size: 1.5rem; /* 24px */
-    line-height: 2rem; /* 32px */
-    font-weight: bold;
+    font-size: 1.95rem; // 1.5rem; /* 24px */
+    line-height: 2.2rem; // 2rem;/* 32px */
+    font-weight: 600; // bold;
     
     @include tablet-query {
         font-size: 2.25rem; /* 36px */
@@ -176,9 +176,6 @@ p {
     padding: 0 $space-mobile-between;
 
     &__title {
-        font-size: 1.95rem;
-        font-weight: 600;
-
         margin-top: $space-mobile-prehead+0.5rem;
         margin-bottom: $space-mobile-posthead;
     }
@@ -212,22 +209,21 @@ p {
 
 .gallery {
     background-color: $Alabaster;
-    padding: $space-mobile-between;
+    padding: 0 $space-mobile-between;
 
     display: flex;
     flex-flow: column nowrap;
     
-
+    &__title {
+        margin-top: $space-mobile-prehead+0.5rem;
+        margin-bottom: $space-mobile-posthead;
+    }
     &__photo-list {
         display: flex;
         flex-flow: column nowrap;
-        // flex-flow: row wrap;
- 
         gap: $space-mobile-between;
+
+        margin-bottom: $space-mobile-between;
     }
 
-    &__photo {
-        // display: block;
-       // flex-shrink: 1;
-    }
 }

@@ -41,9 +41,9 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5rem; /* 24px */
-  line-height: 2rem; /* 32px */
-  font-weight: bold;
+  font-size: 1.95rem;
+  line-height: 2.2rem;
+  font-weight: 600;
 }
 @media screen and (min-width: 768px) {
   h2 {
@@ -164,8 +164,6 @@ p {
   padding: 0 1.2rem;
 }
 .story__title {
-  font-size: 1.95rem;
-  font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
@@ -198,12 +196,17 @@ p {
 
 .gallery {
   background-color: #FAFAFA;
-  padding: 1.2rem;
+  padding: 0 1.2rem;
   display: flex;
   flex-flow: column nowrap;
+}
+.gallery__title {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 .gallery__photo-list {
   display: flex;
   flex-flow: column nowrap;
   gap: 1.2rem;
+  margin-bottom: 1.2rem;
 }/*# sourceMappingURL=bio.css.map */
