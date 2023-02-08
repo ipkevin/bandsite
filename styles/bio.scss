@@ -36,6 +36,9 @@ h1 { // Page Header
     font-size: 1.5rem; /* 24px */
     line-height: 2rem; /* 32px */
     font-weight: bold;
+
+    margin-top: $space-mobile-prehead;
+    margin-bottom: $space-mobile-posthead;
     
     @include tablet-query {
         font-size: 3.75rem; /* 60px */
@@ -156,5 +159,34 @@ p {
     &__title {
         color: white;
         padding: $space-mobile-between;
+    }
+}
+
+.story {
+    padding: $space-mobile-between;
+
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.gallery {
+    background-color: $Alabaster;
+    padding: $space-mobile-between;
+
+    display: flex;
+    flex-flow: column nowrap;
+    
+
+    &__photo-list {
+        display: flex;
+        flex-flow: column nowrap;
+        // flex-flow: row wrap;
+ 
+        gap: $space-mobile-between;
+    }
+
+    &__photo {
+        // display: block;
+       // flex-shrink: 1;
     }
 }
