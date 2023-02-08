@@ -190,7 +190,7 @@ p {
         line-height: 1.8rem;
     }
     &__quote {
-        margin-bottom: $space-mobile-between / 4;
+        margin-bottom: calc($space-mobile-between / 4);
     }
     &__quote-author {
         margin-bottom: $space-mobile-between + 0.8rem;
@@ -226,4 +226,60 @@ p {
         margin-bottom: $space-mobile-between;
     }
 
+}
+
+.footer {
+
+    background-color: $BandSite-Black;
+    padding: 0 $space-mobile-between;
+
+    &__title {
+        color: white;
+        padding-top: $space-mobile-prehead+0.7rem;
+        margin-bottom: $space-mobile-posthead+0.4rem;
+    }
+    &__social {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 2.4rem;
+        margin-bottom: $space-mobile-between+0.4rem;
+    }
+    &__social-image {
+        height: 1.9rem;
+    }
+    &__contact-list {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        
+        margin-bottom: 3.5rem;
+    }
+    &__contact {
+        // outline: 1px solid yellow;
+    }
+    &__subtitle {
+        color: white;
+        font-weight: 600;
+        margin-top: 0.5rem;
+        margin-bottom: $space-mobile-between+0.3rem;
+    }
+    &__copy {
+        color: white;
+        margin-bottom: $space-mobile-between+0.3rem;
+    }
+    &__email {
+        color: white;
+        text-decoration: none;
+    }
+    &__email:hover {
+        text-decoration: underline;
+    }
+    &__logo-mobile {
+        @extend .header__logo-img;   
+    }
+    &__copyright {
+        color: white;
+        font-size: 0.9rem;
+        padding: $space-mobile-between 0;
+    }
 }

@@ -97,7 +97,7 @@ p {
   padding-bottom: 0;
   text-align: center;
 }
-.header__logo-img {
+.header__logo-img, .footer__logo-mobile {
   width: 9.5rem;
 }
 .header__menu {
@@ -209,4 +209,51 @@ p {
   flex-flow: column nowrap;
   gap: 1.2rem;
   margin-bottom: 1.2rem;
+}
+
+.footer {
+  background-color: #323232;
+  padding: 0 1.2rem;
+}
+.footer__title {
+  color: white;
+  padding-top: 2.2rem;
+  margin-bottom: 1.4rem;
+}
+.footer__social {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2.4rem;
+  margin-bottom: 1.6rem;
+}
+.footer__social-image {
+  height: 1.9rem;
+}
+.footer__contact-list {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  margin-bottom: 3.5rem;
+}
+.footer__subtitle {
+  color: white;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.footer__copy {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+.footer__email {
+  color: white;
+  text-decoration: none;
+}
+.footer__email:hover {
+  text-decoration: underline;
+}
+.footer__copyright {
+  color: white;
+  font-size: 0.9rem;
+  padding: 1.2rem 0;
 }/*# sourceMappingURL=bio.css.map */
