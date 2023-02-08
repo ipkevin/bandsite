@@ -29,14 +29,14 @@ h1 {
   font-size: 1.95rem;
   line-height: 2.3rem; /* 32px */
   font-weight: 600;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   h1 {
-    font-size: 3.75rem; /* 60px */
-    line-height: 4.25rem; /* 68px */
-    font-weight: bold;
+    font-size: 4.7rem;
+    line-height: 5.1rem;
+    font-weight: 600;
   }
 }
 
@@ -47,9 +47,9 @@ h2 {
 }
 @media screen and (min-width: 768px) {
   h2 {
-    font-size: 2.25rem; /* 36px */
-    line-height: 2.75rem; /* 44px */
-    font-weight: bold;
+    font-size: 2.8rem;
+    line-height: 3.4rem;
+    font-weight: 600;
   }
 }
 
@@ -160,17 +160,43 @@ p {
   justify-content: flex-start;
   align-items: center;
 }
+@media screen and (min-width: 768px) {
+  .hero {
+    height: 59vw;
+  }
+}
 .hero__title {
   color: white;
   padding: 1.2rem;
+}
+@media screen and (min-width: 768px) {
+  .hero__title {
+    padding: 2.65rem;
+  }
 }
 
 .story {
   padding: 0 1.2rem;
 }
+@media screen and (min-width: 768px) {
+  .story {
+    padding: 0 2.65rem;
+  }
+}
 .story__title {
   margin-top: 2rem;
   margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .story__title {
+    margin-top: 4.2rem;
+    margin-bottom: 2.25rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .story__wrapper {
+    padding: 0 5.3rem;
+  }
 }
 .story__image {
   height: 49vw;
@@ -222,7 +248,7 @@ p {
 }
 .footer__title {
   color: white;
-  padding-top: 2.2rem;
+  padding-top: 2.7rem;
   margin-bottom: 1.4rem;
 }
 .footer__social {

@@ -41,9 +41,9 @@ h1 { // Page Header
     margin-bottom: $space-mobile-posthead;
     
     @include tablet-query {
-        font-size: 3.75rem; /* 60px */
-        line-height: 4.25rem; /* 68px */
-        font-weight: bold;
+        font-size: 4.7rem; // 3.75rem; /* 60px */
+        line-height: 5.1rem; // 4.25rem; /* 68px */
+        font-weight: 600;
     }
 }
 
@@ -53,9 +53,9 @@ h2 { // Section header
     font-weight: 600; // bold;
     
     @include tablet-query {
-        font-size: 2.25rem; /* 36px */
-        line-height: 2.75rem; /* 44px */
-        font-weight: bold;
+        font-size: 2.8rem; //2.25rem; /* 36px */
+        line-height: 3.4rem; // 2.75rem; /* 44px */
+        font-weight: 600;
     }
 }
 
@@ -161,6 +161,7 @@ p {
     }
 }
 
+
 .hero {
     background: center/cover url('../assets/Images/hero-bio.jpg');
     background-color: rgba(90,90,90,0.65);
@@ -171,23 +172,45 @@ p {
     justify-content: flex-start;
     align-items: center;
 
+    @include tablet-query {
+        height: 59vw;
+    }
+
     &__title {
         color: white;
         // font-size: 1.95rem;
         // font-weight: 600;
 
         padding: $space-mobile-between;
+
+        @include tablet-query {
+            padding: $space-desktab-between;
+        }
     }
 }
 
 .story {
     padding: 0 $space-mobile-between;
 
-    &__title {
-        margin-top: $space-mobile-prehead+0.5rem;
-        margin-bottom: $space-mobile-posthead;
+    @include tablet-query {
+        padding: 0 $space-desktab-between;
     }
-    &__image {
+
+    &__title {
+        margin-top: $space-mobile-prehead;
+        margin-bottom: $space-mobile-posthead;
+
+        @include tablet-query {
+            margin-top: $space-desktab-prehead;
+            margin-bottom: $space-desktab-posthead;
+        }
+    }
+    &__wrapper {
+        @include tablet-query {
+            padding: 0 calc($space-desktab-between *2);
+        }
+    }
+    &__image {  // TO DO: CROP THIS IMG INSTEAD OF STRETCH RESIZE (compare with mock)
         height: 49vw;
         width: 100%;
         margin-bottom: $space-mobile-between;
@@ -204,7 +227,7 @@ p {
         margin-bottom: $space-mobile-between + 0.8rem;
     }
     &__subtitle {
-        margin-top: $space-mobile-prehead;
+        margin-top: $space-mobile-prehead - 0.5rem;
         margin-bottom: $space-mobile-between;
     }
     &__copy-box {
@@ -223,7 +246,7 @@ p {
     flex-flow: column nowrap;
     
     &__title {
-        margin-top: $space-mobile-prehead+0.5rem;
+        margin-top: $space-mobile-prehead;
         margin-bottom: $space-mobile-posthead;
     }
     &__photo-list {
