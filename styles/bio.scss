@@ -60,9 +60,9 @@ h2 { // Section header
 }
 
 h3 { // Subheader
-    font-size: 0.875rem; /* 14px */
+    font-size: 1.15rem; // 0.875rem; /* 14px */
     line-height: 1.375rem; /* 22px */
-    font-weight: 600;
+    font-weight: normal;
     
     @include tablet-query {
         font-size: 1.5rem; /* 24px */
@@ -72,8 +72,8 @@ h3 { // Subheader
 }
 
 p {
-    font-size: 0.8125rem; /* 13px */
-    line-height: 1.125rem; /* 18px */
+    font-size: 1.05rem; // 0.8125rem; /* 13px */
+    line-height: 1.5rem; // 1.125rem; /* 18px */
     font-weight: normal;
 
     @include tablet-query {
@@ -141,14 +141,12 @@ p {
         text-decoration: none;
         color: $Silver;
 
-        
-        // 
         @include tablet-query {
             padding-left: 0;
             padding-right: 0;
         }
     }
-    &__item-link:hover {
+    &__item-link:hover, &__item-link--active {
         border-bottom-color: white;
         color: $White;
         font-weight: 600;
@@ -157,25 +155,59 @@ p {
 
 .hero {
     background: center/cover url('../assets/Images/hero-bio.jpg');
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(90,90,90,0.65);
     background-blend-mode: multiply;
 
-    height: 70vw;
+    height: 59vw;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
     &__title {
         color: white;
+        font-size: 1.95rem;
+        font-weight: 600;
+
         padding: $space-mobile-between;
     }
 }
 
 .story {
-    padding: $space-mobile-between;
+    padding: 0 $space-mobile-between;
 
-    display: flex;
-    flex-flow: column nowrap;
+    &__title {
+        font-size: 1.95rem;
+        font-weight: 600;
+
+        margin-top: $space-mobile-prehead+0.5rem;
+        margin-bottom: $space-mobile-posthead;
+    }
+    &__image {
+        height: 49vw;
+        width: 100%;
+        margin-bottom: $space-mobile-between;
+    }
+    &__quote, &__quote-author {
+        font-size: 1.14rem;
+        font-weight: 600;
+        line-height: 1.8rem;
+    }
+    &__quote {
+        margin-bottom: $space-mobile-between / 4;
+    }
+    &__quote-author {
+        margin-bottom: $space-mobile-between + 0.8rem;
+    }
+    &__subtitle {
+        margin-top: $space-mobile-prehead;
+        margin-bottom: $space-mobile-between;
+    }
+    &__copy-box {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: $space-mobile-between;
+        margin-bottom: $space-mobile-between;
+    }
 }
 
 .gallery {
