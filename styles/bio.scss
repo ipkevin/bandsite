@@ -90,21 +90,23 @@ p {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-
-    padding-top: $space-mobile-between;
-
     
     @include tablet-query {
         flex-flow: row nowrap;
         align-items: center;
         gap: $space-desktab-between;    
 
-        padding: calc($space-desktab-between - 1rem) 0 0 $space-desktab-between;
+        //padding: calc($space-desktab-between - 1rem) 0 0 $space-desktab-between;
     }
 
     &__logo {
-        padding: 0 $space-mobile-between;
+        padding: $space-mobile-between $space-mobile-between 0 $space-mobile-between;
         text-align: center;
+
+        @include tablet-query {
+            padding: $space-desktab-vert-between $space-desktab-between;
+            padding-bottom: $space-desktab-vert-between - 0.5rem; // need this as logo svg has extra blank space at bottom
+        }
     }
     &__logo-img {
         width: 9.5rem;
@@ -118,7 +120,7 @@ p {
 
         @include tablet-query {
             justify-content: flex-start;
-            gap: $space-desktab-between;
+            gap: calc($space-desktab-between * 2);
         }
     }
     &__item {
@@ -147,6 +149,9 @@ p {
         @include tablet-query {
             padding-left: 0;
             padding-right: 0;
+            padding: $space-desktab-vert-between 0;
+
+            border-bottom-width: $menu-underline-mobile;
         }
     }
     &__item-link:hover, &__item-link--active {
