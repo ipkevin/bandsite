@@ -65,8 +65,8 @@ h3 { // Subheader
     font-weight: normal;
     
     @include tablet-query {
-        font-size: 1.5rem; /* 24px */
-        line-height: 2rem; /* 32px */
+        font-size: 1.9rem; // 1.5rem; /* 24px */
+        line-height: 2.4rem; // 2rem; /* 32px */
         font-weight: 600;
     }
 }
@@ -77,8 +77,8 @@ p {
     font-weight: normal;
 
     @include tablet-query {
-        font-size: 0.875rem; /* 14px */
-        line-height: 1.375rem; /* 22px */
+        font-size: 1.15rem; // 0.875rem; /* 14px */
+        line-height: 1.8rem; // 1.375rem; /* 22px */
         font-weight: normal;
     }
 }
@@ -214,27 +214,57 @@ p {
         height: 49vw;
         width: 100%;
         margin-bottom: $space-mobile-between;
+
+        @include tablet-query {
+            height: 40vw;
+            margin-bottom: $space-desktab-between;
+        }
     }
     &__quote, &__quote-author {
         font-size: 1.14rem;
         font-weight: 600;
         line-height: 1.8rem;
+
+        @include tablet-query {
+            font-size: 1.8rem;
+            line-height: 2.4rem;
+        }
     }
     &__quote {
         margin-bottom: calc($space-mobile-between / 4);
+        
+        @include tablet-query {
+            margin-bottom: calc($space-desktab-between / 4);
+        }
     }
     &__quote-author {
         margin-bottom: $space-mobile-between + 0.8rem;
+
+        @include tablet-query {
+            font-size: 1.25rem;
+
+            margin-bottom: $space-desktab-between + 1rem;
+        }
     }
     &__subtitle {
         margin-top: $space-mobile-prehead - 0.5rem;
         margin-bottom: $space-mobile-between;
+
+        @include tablet-query {
+            margin-top: $space-desktab-prehead;
+            margin-bottom: $space-desktab-posthead;
+        }
     }
     &__copy-box {
         display: flex;
         flex-flow: column nowrap;
         gap: $space-mobile-between;
         margin-bottom: $space-mobile-between;
+
+        @include tablet-query {
+            flex-direction: row;
+            margin-bottom: $space-desktab-between;
+        }
     }
 }
 
@@ -245,9 +275,17 @@ p {
     display: flex;
     flex-flow: column nowrap;
     
+    @include tablet-query {
+        padding: 0 $space-desktab-between;
+    }
     &__title {
         margin-top: $space-mobile-prehead;
         margin-bottom: $space-mobile-posthead;
+
+        @include tablet-query {
+            margin-top: $space-desktab-prehead;
+            margin-bottom: $space-desktab-posthead;
+        }
     }
     &__photo-list {
         display: flex;
