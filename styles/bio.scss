@@ -300,15 +300,19 @@ p {
 
         @include tablet-query {
             flex-flow: row wrap;
-            gap: 3vw;
-            //flex-direction: space-between;
+            gap: 3vw; // not necessary to get gap but enlarges gap to match mock
 
             margin-bottom: $space-desktab-between;
         }
     }
     &__photo {
         @include tablet-query {
-            width: 30%;
+            //width: 30%;  // width alone would replace using mid-width:0 & flex-basis:30%
+
+            min-width: 0; // allows images to shrink to < orig size when used with flex basis
+            flex-basis: 30%;
+
+            flex-grow: 1; // expands the images slightly to fill up unused space
         }
     }
 

@@ -300,7 +300,9 @@ p {
 }
 @media screen and (min-width: 768px) {
   .gallery__photo {
-    width: 30%;
+    min-width: 0;
+    flex-basis: 30%;
+    flex-grow: 1;
   }
 }
 
