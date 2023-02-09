@@ -108,6 +108,9 @@ p {
             padding: $space-desktab-vert-between $space-desktab-between;
             padding-bottom: $space-desktab-vert-between - 0.5rem; // need this as logo svg has extra blank space at bottom
         }
+        @include desktop-query {
+            padding-left: $space-desktop-sidepadding;
+        }
     }
     &__logo-img {
         width: 9.5rem;
@@ -177,6 +180,10 @@ p {
     @include tablet-query {
         height: 59vw;
     }
+    @include desktop-query {
+        height: 50vw;
+        max-height: 50rem;
+    }
 
     &__title {
         color: white;
@@ -187,6 +194,9 @@ p {
 
         @include tablet-query {
             padding: $space-desktab-between;
+        }
+        @include desktop-query {
+            padding-left: $space-desktop-sidepadding;
         }
     }
 }
@@ -202,6 +212,9 @@ p {
         @include tablet-query {
             padding: 0 $space-desktab-between;
         }
+        @include desktop-query {
+            padding: 0 $space-desktop-sidepadding;
+        }
     }
 
     &__title {
@@ -214,9 +227,14 @@ p {
         }
     }
     &__sub-wrapper {
+        /* adds extra indent on story photo & body */
         @include tablet-query {
             padding: 0 calc($space-desktab-between *2);
         }
+        @include desktop-query {
+            padding: 0 calc($space-desktab-between *2.7);
+        }
+        
     }
     &__image {  // TO DO: CROP THIS IMG INSTEAD OF STRETCH RESIZE (compare with mock)
         height: 49vw;
@@ -226,6 +244,10 @@ p {
         @include tablet-query {
             height: 40vw;
             margin-bottom: $space-desktab-between;
+        }
+        @include desktop-query {
+            height: 35vw;
+            max-height: 37.9rem;
         }
     }
     &__quote, &__quote-author {
@@ -289,6 +311,9 @@ p {
         @include tablet-query {
             padding: 0 $space-desktab-between;
         }
+        @include desktop-query {
+            padding: 0 $space-desktop-sidepadding;
+        }
     }
     &__title {
         margin-top: $space-mobile-prehead;
@@ -311,6 +336,9 @@ p {
             gap: 3vw; // not necessary to get gap but enlarges gap to match mock
 
             margin-bottom: $space-desktab-between;
+        }
+        @include desktop-query {
+            gap: 2rem; // 1.7vw;
         }
     }
     &__photo {
@@ -341,6 +369,13 @@ p {
             padding-top: $space-desktab-prehead;
     
             position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
+        }
+        @include desktop-query {
+           
+            padding: 0 $space-desktop-sidepadding;
+            padding-top: $space-desktab-prehead;
+            position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
+        
         }
     }
     &__top-group {
@@ -414,6 +449,9 @@ p {
             position: absolute;
             top: $space-desktab-prehead + 0.5rem;
             right: $space-desktab-between;
+        }
+        @include desktop-query {
+            right: $space-desktop-sidepadding;
         }
     }
     &__copyright {

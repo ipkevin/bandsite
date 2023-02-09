@@ -105,6 +105,11 @@ p {
     padding-bottom: 1.75rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .header__logo {
+    padding-left: 11rem;
+  }
+}
 .header__logo-img, .footer__logo-mobile {
   width: 9.5rem;
 }
@@ -169,6 +174,12 @@ p {
     height: 59vw;
   }
 }
+@media screen and (min-width: 1280px) {
+  .hero {
+    height: 50vw;
+    max-height: 50rem;
+  }
+}
 .hero__title {
   color: white;
   padding: 1.2rem;
@@ -176,6 +187,11 @@ p {
 @media screen and (min-width: 768px) {
   .hero__title {
     padding: 2.65rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__title {
+    padding-left: 11rem;
   }
 }
 
@@ -191,6 +207,11 @@ p {
     padding: 0 2.65rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .story__wrapper {
+    padding: 0 11rem;
+  }
+}
 .story__title {
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -201,9 +222,17 @@ p {
     margin-bottom: 2.25rem;
   }
 }
+.story__sub-wrapper {
+  /* adds extra indent on story photo & body */
+}
 @media screen and (min-width: 768px) {
   .story__sub-wrapper {
     padding: 0 5.3rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .story__sub-wrapper {
+    padding: 0 7.155rem;
   }
 }
 .story__image {
@@ -215,6 +244,12 @@ p {
   .story__image {
     height: 40vw;
     margin-bottom: 2.65rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .story__image {
+    height: 35vw;
+    max-height: 37.9rem;
   }
 }
 .story__quote, .story__quote-author {
@@ -282,6 +317,11 @@ p {
     padding: 0 2.65rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .gallery__wrapper {
+    padding: 0 11rem;
+  }
+}
 .gallery__title {
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -305,6 +345,11 @@ p {
     margin-bottom: 2.65rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .gallery__photo-list {
+    gap: 2rem;
+  }
+}
 @media screen and (min-width: 768px) {
   .gallery__photo {
     min-width: 0;
@@ -324,6 +369,13 @@ p {
 @media screen and (min-width: 768px) {
   .footer__wrapper {
     padding: 0 2.65rem;
+    padding-top: 4.2rem;
+    position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer__wrapper {
+    padding: 0 11rem;
     padding-top: 4.2rem;
     position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
   }
@@ -389,6 +441,11 @@ p {
     position: absolute;
     top: 4.7rem;
     right: 2.65rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer__logo-mobile {
+    right: 11rem;
   }
 }
 .footer__copyright {
