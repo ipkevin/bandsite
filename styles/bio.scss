@@ -83,22 +83,23 @@ p {
     }
 }
 
-
 /* HEADER SECTION - logo & nav menu */
 .header {
     background-color: $BandSite-Black;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
     
-    @include tablet-query {
-        flex-flow: row nowrap;
-        align-items: center;
-        gap: $space-desktab-between;    
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        
+        @include tablet-query {
+            flex-flow: row nowrap;
+            align-items: center;
+            gap: $space-desktab-between;    
 
-        //padding: calc($space-desktab-between - 1rem) 0 0 $space-desktab-between;
+            //padding: calc($space-desktab-between - 1rem) 0 0 $space-desktab-between;
+        }
     }
-
     &__logo {
         padding: $space-mobile-between $space-mobile-between 0 $space-mobile-between;
         text-align: center;
@@ -124,7 +125,7 @@ p {
         }
     }
     &__item {
-        // Have to set flex-basis to 0 first to ensure will grow as equal widths
+        // Have to set flex-basis to 0 to ensure will grow as equal widths
         // Alternative would be to just set width 50%
         flex-grow: 1;
         flex-basis: 0;
@@ -193,10 +194,14 @@ p {
 
 /* MAIN ARTICLE STORY SECTION */
 .story {
-    padding: 0 $space-mobile-between;
+    background-color: $White;
+    
+    &__wrapper {
+        padding: 0 $space-mobile-between;
 
-    @include tablet-query {
-        padding: 0 $space-desktab-between;
+        @include tablet-query {
+            padding: 0 $space-desktab-between;
+        }
     }
 
     &__title {
@@ -208,7 +213,7 @@ p {
             margin-bottom: $space-desktab-posthead;
         }
     }
-    &__wrapper {
+    &__sub-wrapper {
         @include tablet-query {
             padding: 0 calc($space-desktab-between *2);
         }
@@ -274,13 +279,16 @@ p {
 /* GALLERY SECTION */
 .gallery {
     background-color: $Alabaster;
-    padding: 0 $space-mobile-between;
-
-    display: flex;
-    flex-flow: column nowrap;
     
-    @include tablet-query {
-        padding: 0 $space-desktab-between;
+    &__wrapper {
+        padding: 0 $space-mobile-between;
+
+        display: flex;
+        flex-flow: column nowrap;
+        
+        @include tablet-query {
+            padding: 0 $space-desktab-between;
+        }
     }
     &__title {
         margin-top: $space-mobile-prehead;
@@ -323,16 +331,18 @@ p {
 .footer {
 
     background-color: $BandSite-Black;
-    padding: 0 $space-mobile-between;
-    padding-top: $space-mobile-prehead+0.7rem;
-
-    @include tablet-query {
-        padding: 0 $space-desktab-between;
-        padding-top: $space-desktab-prehead;
-
-        position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
+    
+    &__wrapper {
+        padding: 0 $space-mobile-between;
+        padding-top: $space-mobile-prehead+0.7rem;
+    
+        @include tablet-query {
+            padding: 0 $space-desktab-between;
+            padding-top: $space-desktab-prehead;
+    
+            position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
+        }
     }
-
     &__top-group {
         display: flex;
         flex-flow: column nowrap;
@@ -411,4 +421,13 @@ p {
         font-size: 0.9rem;
         padding: $space-mobile-between 0;
     }
+}
+
+
+
+.wrapper-max {
+    /* generic wrapper for to keep content within a max width */
+    width: 100%;
+    max-width: 1735px;
+    margin: 0 auto;
 }
