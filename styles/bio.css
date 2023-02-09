@@ -79,6 +79,7 @@ p {
   }
 }
 
+/* HEADER SECTION - logo & nav menu */
 .header {
   background-color: #323232;
   display: flex;
@@ -151,6 +152,7 @@ p {
   font-weight: 600;
 }
 
+/* HERO SECTION */
 .hero {
   background: center/cover url("../assets/Images/hero-bio.jpg");
   background-color: rgba(90, 90, 90, 0.65);
@@ -175,6 +177,7 @@ p {
   }
 }
 
+/* MAIN ARTICLE STORY SECTION */
 .story {
   padding: 0 1.2rem;
 }
@@ -260,6 +263,7 @@ p {
   }
 }
 
+/* GALLERY SECTION */
 .gallery {
   background-color: #FAFAFA;
   padding: 0 1.2rem;
@@ -300,6 +304,7 @@ p {
   }
 }
 
+/* FOOTER SECTION */
 .footer {
   background-color: #323232;
   padding: 0 1.2rem;
