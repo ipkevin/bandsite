@@ -97,7 +97,6 @@ p {
             align-items: center;
             gap: $space-desktab-between;    
 
-            //padding: calc($space-desktab-between - 1rem) 0 0 $space-desktab-between;
         }
     }
     &__logo {
@@ -190,8 +189,6 @@ p {
 
     &__title {
         color: white;
-        // font-size: 1.95rem;
-        // font-weight: 600;
 
         padding: $space-mobile-between;
 
@@ -239,10 +236,11 @@ p {
         }
         
     }
-    &__image {  // TO DO: CROP THIS IMG INSTEAD OF STRETCH RESIZE (compare with mock)
+    &__image { 
         height: 49vw;
         width: 100%;
         margin-bottom: $space-mobile-between;
+        object-fit: cover;
 
         @include tablet-query {
             height: 40vw;

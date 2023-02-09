@@ -240,6 +240,8 @@ p {
   height: 49vw;
   width: 100%;
   margin-bottom: 1.2rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media screen and (min-width: 768px) {
   .story__image {
