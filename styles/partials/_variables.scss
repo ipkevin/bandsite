@@ -1,23 +1,17 @@
-// Colors used across site
-$BandSite-Black: #323232;
-$Silver: #AFAFAF;
-$White: #FFFFFF;
-$BandSite-DarkBlack: #000000;
-$Mercury: #E1E1E1;
-$Alabaster: #FAFAFA;
-
-// Key padding sizes per styleguide
-// Assuming 16px default font size
-$space-desktab-prehead: 4.2rem; // 3rem; // 48px // for h2
-$space-desktab-posthead: 2.25rem; // 36px
-$space-desktab-between: 2.65rem; //2.25rem; // 36px
+// Key gap sizes per grid in styleguide (Though I ended up changing them greatly)
+// Assumes 16px reference default font size
+$space-desktab-prehead: 4.2rem; 
+$space-desktab-posthead: 2.25rem; 
+$space-desktab-between: 2.65rem; 
 $space-desktab-vert-between: 2.25rem;
 
-$space-mobile-prehead: 2rem; // 1.5rem; // 24px // mainly used for h2
-$space-mobile-posthead: 1rem; // 16px
-$space-mobile-between: 1.2rem; // 1rem = 16px, but doesn't visually match mock
+$space-mobile-prehead: 2rem; 
+$space-mobile-posthead: 1rem; 
+$space-mobile-between: 1.2rem; 
 
-$menu-underline-mobile: 0.25rem; // 4px;
+$menu-underline-mobile: 0.25rem;
+// Below will be used to calculate vertical padding on nav menu items. Inactive Nav menu underline is a border with same color as bkgrd. Since borders add to box size, we need to subtract its width when calculating margins needed.
 $space-btwn-less-underline-mobile: $space-mobile-between - $menu-underline-mobile;
 
-$space-desktop-sidepadding: 11rem; // 10%;
+// The additional horiz padding needed on desktop breakpoint for Story content
+$space-desktop-sidepadding: 11rem;

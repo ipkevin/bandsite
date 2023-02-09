@@ -1,5 +1,6 @@
 @use 'partials/variables' as *;
 @use 'partials/mixins' as *;
+@use 'partials/colors' as *;
 
 // Import fonts
 @font-face { 
@@ -126,7 +127,7 @@ p {
             gap: calc($space-desktab-between * 2);
         }
     }
-    &__item {
+    &__item { /* a container around a nav link */
         // Have to set flex-basis to 0 to ensure will grow as equal widths
         // Alternative would be to just set width 50%
         flex-grow: 1;
@@ -141,7 +142,7 @@ p {
         display: block;
         padding: $space-mobile-between;
         padding-bottom: $space-btwn-less-underline-mobile;
-        // Use dark border instead of disabled to prevent the border from pushing down content when it appears
+        // Use dark border instead of hiding to prevent the border from pushing down content when it appears
         border-bottom: $menu-underline-mobile solid $BandSite-Black; 
 
         font-size: 1.05rem;
@@ -287,6 +288,8 @@ p {
         }
     }
     &__copy-box {
+        /* enables 2 column layout on story copy */
+        
         display: flex;
         flex-flow: column nowrap;
         gap: $space-mobile-between;
@@ -436,6 +439,7 @@ p {
     &__email {
         color: white;
         text-decoration: none;
+        font-size: inherit;
     }
     &__email:hover {
         text-decoration: underline;
@@ -454,15 +458,15 @@ p {
     }
     &__copyright {
         color: white;
-        font-size: 0.9rem;
+
         padding: $space-mobile-between 0;
     }
 }
 
-
-
+/* Set a max-width on the content so that it doesn't stretch
+across the entirety of super hi-res screens.
+Make sure this rule comes after all of the other wrapper rules. */
 .wrapper-max {
-    /* generic wrapper for to keep content within a max width */
     width: 100%;
     max-width: 1735px;
     margin: 0 auto;

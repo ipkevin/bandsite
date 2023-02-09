@@ -125,7 +125,7 @@ p {
     gap: 5.3rem;
   }
 }
-.header__item {
+.header__item { /* a container around a nav link */
   flex-grow: 1;
   flex-basis: 0;
 }
@@ -294,6 +294,7 @@ p {
   }
 }
 .story__copy-box {
+  /* enables 2 column layout on story copy */
   display: flex;
   flex-flow: column nowrap;
   gap: 1.2rem;
@@ -434,6 +435,7 @@ p {
 .footer__email {
   color: white;
   text-decoration: none;
+  font-size: inherit;
 }
 .footer__email:hover {
   text-decoration: underline;
@@ -452,12 +454,13 @@ p {
 }
 .footer__copyright {
   color: white;
-  font-size: 0.9rem;
   padding: 1.2rem 0;
 }
 
+/* Set a max-width on the content so that it doesn't stretch
+across the entirety of super hi-res screens.
+Make sure this rule comes after all of the other wrapper rules. */
 .wrapper-max {
-  /* generic wrapper for to keep content within a max width */
   width: 100%;
   max-width: 1735px;
   margin: 0 auto;
