@@ -293,6 +293,18 @@ p {
         gap: $space-mobile-between;
 
         margin-bottom: $space-mobile-between;
+
+        @include tablet-query {
+            flex-flow: row wrap;
+            gap: 3vw;
+
+            margin-bottom: $space-desktab-between;
+        }
+    }
+    &__photo {
+        @include tablet-query {
+            width: 30%;
+        }
     }
 
 }
@@ -301,11 +313,34 @@ p {
 
     background-color: $BandSite-Black;
     padding: 0 $space-mobile-between;
+    padding-top: $space-mobile-prehead+0.7rem;
 
+    @include tablet-query {
+        padding: 0 $space-desktab-between;
+        padding-top: $space-desktab-prehead;
+
+        position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
+    }
+
+    &__top-group {
+        display: flex;
+        flex-flow: column nowrap;
+
+        @include tablet-query { 
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: $space-desktab-between;
+        }
+    }
     &__title {
         color: white;
-        padding-top: $space-mobile-prehead+0.7rem;
+        
         margin-bottom: $space-mobile-posthead+0.4rem;
+
+        @include tablet-query {
+           // padding-top: $space-desktab-prehead;
+        }
     }
     &__social {
         display: flex;
@@ -322,6 +357,14 @@ p {
         justify-content: flex-start;
         
         margin-bottom: 3.5rem;
+
+        @include tablet-query {
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 5%;
+
+            margin-bottom: 0.5rem;
+        }
     }
     &__contact {
         // outline: 1px solid yellow;
@@ -345,6 +388,12 @@ p {
     }
     &__logo-mobile {
         @extend .header__logo-img;   
+
+        @include tablet-query {
+            position: absolute;
+            top: $space-desktab-prehead + 0.5rem;
+            right: $space-desktab-between;
+        }
     }
     &__copyright {
         color: white;
