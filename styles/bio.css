@@ -220,14 +220,17 @@ p {
     margin-bottom: 0.5rem;
   }
 }
-.footer__subtitle {
+.footer__contact {
   color: white;
-  font-weight: 600;
+}
+.footer__subtitle {
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
 }
+.footer__subtitle-text {
+  font-weight: 600;
+}
 .footer__copy {
-  color: white;
   margin-bottom: 1.5rem;
 }
 .footer__email {

@@ -1,7 +1,7 @@
 @use './variables' as *;
 @use './mixins' as *;
 @use './colors' as *;
-@use './fonts';
+@use './fonts' as *;
 
 * {
     box-sizing: border-box;
@@ -216,15 +216,16 @@ p {
     }
     &__contact {
         // outline: 1px solid yellow;
+        color: white;
     }
     &__subtitle {
-        color: white;
-        font-weight: 600;
         margin-top: 0.5rem;
         margin-bottom: $space-mobile-between+0.3rem;
     }
+    &__subtitle-text {
+        font-weight: 600;
+    }
     &__copy {
-        color: white;
         margin-bottom: $space-mobile-between+0.3rem;
     }
     &__email {
