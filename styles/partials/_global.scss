@@ -1,0 +1,264 @@
+@use './variables' as *;
+@use './mixins' as *;
+@use './colors' as *;
+@use './fonts';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: "AvenirNext";
+    font-weight: normal;
+}
+
+h1 { // Page Header
+
+    font-size: 1.95rem; // 1.5rem; /* 24px */
+    line-height: 2.3rem; /* 32px */
+    font-weight: 600;
+
+    margin-top: $space-mobile-prehead;
+    margin-bottom: $space-mobile-posthead;
+    
+    @include tablet-query {
+        font-size: 4.7rem; // 3.75rem; /* 60px */
+        line-height: 5.1rem; // 4.25rem; /* 68px */
+        font-weight: 600;
+    }
+}
+
+h2 { // Section header
+    font-size: 1.95rem; // 1.5rem; /* 24px */
+    line-height: 2.2rem; // 2rem;/* 32px */
+    font-weight: 600; // bold;
+    
+    @include tablet-query {
+        font-size: 2.8rem; //2.25rem; /* 36px */
+        line-height: 3.4rem; // 2.75rem; /* 44px */
+        font-weight: 600;
+    }
+}
+
+h3 { // Subheader
+    font-size: 1.15rem; // 0.875rem; /* 14px */
+    line-height: 1.375rem; /* 22px */
+    font-weight: normal;
+    
+    @include tablet-query {
+        font-size: 1.9rem; // 1.5rem; /* 24px */
+        line-height: 2.4rem; // 2rem; /* 32px */
+        font-weight: 600;
+    }
+}
+
+p {
+    font-size: 1.05rem; // 0.8125rem; /* 13px */
+    line-height: 1.5rem; // 1.125rem; /* 18px */
+    font-weight: normal;
+
+    @include tablet-query {
+        font-size: 1.15rem; // 0.875rem; /* 14px */
+        line-height: 1.8rem; // 1.375rem; /* 22px */
+        font-weight: normal;
+    }
+}
+
+/* HEADER SECTION - logo & nav menu */
+.header {
+    background-color: $BandSite-Black;
+    
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        
+        @include tablet-query {
+            flex-flow: row nowrap;
+            align-items: center;
+            gap: $space-desktab-between;    
+        }
+    }
+    &__logo {
+        padding: $space-mobile-between $space-mobile-between 0 $space-mobile-between;
+        text-align: center;
+
+        @include tablet-query {
+            padding: $space-desktab-vert-between $space-desktab-between;
+            padding-bottom: $space-desktab-vert-between - 0.5rem; 
+               // need the 0.5rem adjustment as logo svg has extra blank space at bottom
+        }
+        @include desktop-query {
+            padding-left: $space-desktop-sidepadding;
+        }
+    }
+    &__logo-img {
+        width: 9.5rem;
+    }
+    &__menu {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+
+        list-style-type: none;
+
+        @include tablet-query {
+            justify-content: flex-start;
+            gap: calc($space-desktab-between * 2);
+        }
+    }
+    &__item { /* a container around a nav link */
+        // Have to set flex-basis to 0 to ensure will grow as equal widths
+        // Alternative would be to just set width 50%
+        flex-grow: 1;
+        flex-basis: 0;
+
+        @include tablet-query {
+            flex-grow: 0;
+            flex-basis: content;
+        }
+    }
+    &__item-link {
+        display: block;
+        padding: $space-mobile-between;
+        padding-bottom: $space-btwn-less-underline-mobile;
+        // Use dark border instead of hiding to prevent the border from pushing down content when it appears
+        border-bottom: $menu-underline-mobile solid $BandSite-Black; 
+
+        font-size: 1.05rem;
+        text-align: center;
+        text-decoration: none;
+        color: $Silver;
+
+        @include tablet-query {
+            padding-left: 0;
+            padding-right: 0;
+            padding: $space-desktab-vert-between 0;
+
+            border-bottom-width: $menu-underline-mobile;
+        }
+    }
+    &__item-link:hover, &__item-link--active {
+        border-bottom-color: white;
+        color: $White;
+        font-weight: 600;
+    }
+}
+
+
+
+/* FOOTER SECTION */
+.footer {
+
+    background-color: $BandSite-Black;
+    
+    &__wrapper {
+        padding: 0 $space-mobile-between;
+        padding-top: $space-mobile-prehead+0.7rem;
+    
+        @include tablet-query {
+            padding: 0 $space-desktab-between;
+            padding-top: $space-desktab-prehead;
+    
+            position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
+        }
+        @include desktop-query {
+           
+            padding: 0 $space-desktop-sidepadding;
+            padding-top: $space-desktab-prehead;
+            position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
+        
+        }
+    }
+    &__top-group {
+        display: flex;
+        flex-flow: column nowrap;
+
+        @include tablet-query { 
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: $space-desktab-between;
+        }
+    }
+    &__title {
+        color: white;
+        
+        margin-bottom: $space-mobile-posthead+0.4rem;
+
+        @include tablet-query {
+           // padding-top: $space-desktab-prehead;
+        }
+    }
+    &__social {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 2.4rem;
+        margin-bottom: $space-mobile-between+0.4rem;
+    }
+    &__social-image {
+        height: 1.9rem;
+    }
+    &__contact-list {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        
+        margin-bottom: 3.5rem;
+
+        @include tablet-query {
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 5%;
+
+            margin-bottom: 0.5rem;
+        }
+    }
+    &__contact {
+        // outline: 1px solid yellow;
+    }
+    &__subtitle {
+        color: white;
+        font-weight: 600;
+        margin-top: 0.5rem;
+        margin-bottom: $space-mobile-between+0.3rem;
+    }
+    &__copy {
+        color: white;
+        margin-bottom: $space-mobile-between+0.3rem;
+    }
+    &__email {
+        color: white;
+        text-decoration: none;
+        font-size: inherit;
+    }
+    &__email:hover {
+        text-decoration: underline;
+    }
+    &__logo-mobile {
+        @extend .header__logo-img;   
+
+        @include tablet-query {
+            position: absolute;
+            top: $space-desktab-prehead + 0.5rem;
+            right: $space-desktab-between;
+        }
+        @include desktop-query {
+            right: $space-desktop-sidepadding;
+        }
+    }
+    &__copyright {
+        color: white;
+
+        padding: $space-mobile-between 0;
+    }
+}
+
+/* Set a max-width on the content so that it doesn't stretch
+across the entirety of super hi-res screens.
+Make sure this rule comes after all of the other wrapper rules. */
+.wrapper-max {
+    width: 100%;
+    max-width: 1735px;
+    margin: 0 auto;
+}

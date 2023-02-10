@@ -159,6 +159,111 @@ p {
   font-weight: 600;
 }
 
+/* FOOTER SECTION */
+.footer {
+  background-color: #323232;
+}
+.footer__wrapper {
+  padding: 0 1.2rem;
+  padding-top: 2.7rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__wrapper {
+    padding: 0 2.65rem;
+    padding-top: 4.2rem;
+    position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer__wrapper {
+    padding: 0 11rem;
+    padding-top: 4.2rem;
+    position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
+  }
+}
+.footer__top-group {
+  display: flex;
+  flex-flow: column nowrap;
+}
+@media screen and (min-width: 768px) {
+  .footer__top-group {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2.65rem;
+  }
+}
+.footer__title {
+  color: white;
+  margin-bottom: 1.4rem;
+}
+.footer__social {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2.4rem;
+  margin-bottom: 1.6rem;
+}
+.footer__social-image {
+  height: 1.9rem;
+}
+.footer__contact-list {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  margin-bottom: 3.5rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__contact-list {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 5%;
+    margin-bottom: 0.5rem;
+  }
+}
+.footer__subtitle {
+  color: white;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.footer__copy {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+.footer__email {
+  color: white;
+  text-decoration: none;
+  font-size: inherit;
+}
+.footer__email:hover {
+  text-decoration: underline;
+}
+@media screen and (min-width: 768px) {
+  .footer__logo-mobile {
+    position: absolute;
+    top: 4.7rem;
+    right: 2.65rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer__logo-mobile {
+    right: 11rem;
+  }
+}
+.footer__copyright {
+  color: white;
+  padding: 1.2rem 0;
+}
+
+/* Set a max-width on the content so that it doesn't stretch
+across the entirety of super hi-res screens.
+Make sure this rule comes after all of the other wrapper rules. */
+.wrapper-max {
+  width: 100%;
+  max-width: 1735px;
+  margin: 0 auto;
+}
+
 /* HERO SECTION */
 .hero {
   background: center/cover url("../assets/Images/hero-bio.jpg");
@@ -354,114 +459,15 @@ p {
     gap: 2rem;
   }
 }
+.gallery__photo {
+  filter: brightness(65%);
+}
 @media screen and (min-width: 768px) {
   .gallery__photo {
     width: 30%;
     flex-grow: 1;
   }
 }
-
-/* FOOTER SECTION */
-.footer {
-  background-color: #323232;
-}
-.footer__wrapper {
-  padding: 0 1.2rem;
-  padding-top: 2.7rem;
-}
-@media screen and (min-width: 768px) {
-  .footer__wrapper {
-    padding: 0 2.65rem;
-    padding-top: 4.2rem;
-    position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
-  }
-}
-@media screen and (min-width: 1280px) {
-  .footer__wrapper {
-    padding: 0 11rem;
-    padding-top: 4.2rem;
-    position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
-  }
-}
-.footer__top-group {
-  display: flex;
-  flex-flow: column nowrap;
-}
-@media screen and (min-width: 768px) {
-  .footer__top-group {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2.65rem;
-  }
-}
-.footer__title {
-  color: white;
-  margin-bottom: 1.4rem;
-}
-.footer__social {
-  display: flex;
-  flex-flow: row nowrap;
-  gap: 2.4rem;
-  margin-bottom: 1.6rem;
-}
-.footer__social-image {
-  height: 1.9rem;
-}
-.footer__contact-list {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  margin-bottom: 3.5rem;
-}
-@media screen and (min-width: 768px) {
-  .footer__contact-list {
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 5%;
-    margin-bottom: 0.5rem;
-  }
-}
-.footer__subtitle {
-  color: white;
-  font-weight: 600;
-  margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-.footer__copy {
-  color: white;
-  margin-bottom: 1.5rem;
-}
-.footer__email {
-  color: white;
-  text-decoration: none;
-  font-size: inherit;
-}
-.footer__email:hover {
-  text-decoration: underline;
-}
-@media screen and (min-width: 768px) {
-  .footer__logo-mobile {
-    position: absolute;
-    top: 4.7rem;
-    right: 2.65rem;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .footer__logo-mobile {
-    right: 11rem;
-  }
-}
-.footer__copyright {
-  color: white;
-  padding: 1.2rem 0;
-}
-
-/* Set a max-width on the content so that it doesn't stretch
-across the entirety of super hi-res screens.
-Make sure this rule comes after all of the other wrapper rules. */
-.wrapper-max {
-  width: 100%;
-  max-width: 1735px;
-  margin: 0 auto;
+.gallery__photo:hover {
+  filter: brightness(1);
 }/*# sourceMappingURL=bio.css.map */
