@@ -128,7 +128,7 @@ p {
         font-size: 1.05rem;
         text-align: center;
         text-decoration: none;
-        color: $Silver;
+        color: $Mercury;
 
         @include tablet-query {
             padding-left: 0;
@@ -256,7 +256,7 @@ p {
 
 /* Set a max-width on the content so that it doesn't stretch
 across the entirety of super hi-res screens.
-Make sure this rule comes after all of the other wrapper rules. */
+If other *wrapper rules set width and come before this, then they may override. */
 .wrapper-max {
     width: 100%;
     max-width: 1735px;
