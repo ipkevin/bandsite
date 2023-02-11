@@ -12,11 +12,11 @@ The page was styled to match the mockups at the below widths:
 
 Specific styling choices:
 * Hero Title scales continuously at smaller screen sizes: 
-** I matched the mockup at 320p, but then scaled the title in the hero banner up continuously until it hit the tablet breakpoint.  It just looks better to have it scaling up at the smaller viewport sizes.
+    * I matched the mockup at 320p, but then scaled the title in the hero banner up continuously until it hit the tablet breakpoint.  It just looks better to have it scaling up at the smaller viewport sizes.
 * Hero Banner scales but has a max height: 
-** The hero banner images scales up in size continously until it hits a maximum height. Then it stops growing vertically as otherwise it would look too huge and push content down to below the fold after a certain point.
+    * The hero banner images scales up in size continously until it hits a maximum height. Then it stops growing vertically as otherwise it would look too huge and push content down to below the fold after a certain point.
 * Content Area has a max width:
-** I limited the max width of the content area (images & text) to 1735px so that it would remain manageable on super wide screens. However, the background colors & images continue to extend with the screen for aesthetic reasons.
+    * I limited the max width of the content area (images & text) to 1735px so that it would remain manageable on super wide screens. However, the background colors & images continue to extend with the screen for aesthetic reasons.
 
 ## Installation
 
