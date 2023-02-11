@@ -10,7 +10,8 @@ $space-mobile-posthead: 1rem;
 $space-mobile-between: 1.2rem; 
 
 $menu-underline-mobile: 0.25rem;
-// Below will be used to calculate vertical padding on nav menu items. Inactive Nav menu underline is a border with same color as bkgrd. Since borders add to box size, we need to subtract its width when calculating margins needed.
+// Below will be used to calculate vertical padding on nav menu items. 
+// Inactive Nav menu underline is a border with same color as bkgrd. Since borders add to box size, we need to subtract its width when calculating margins needed.
 $space-btwn-less-underline-mobile: $space-mobile-between - $menu-underline-mobile;
 
 // The additional horiz padding needed on desktop breakpoint for Story content

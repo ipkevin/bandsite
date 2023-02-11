@@ -27,7 +27,7 @@
 
 h1 {
   font-size: 1.95rem;
-  line-height: 2.3rem; /* 32px */
+  line-height: 2.3rem;
   font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -55,7 +55,7 @@ h2 {
 
 h3 {
   font-size: 1.15rem;
-  line-height: 1.375rem; /* 22px */
+  line-height: 1.375rem;
   font-weight: normal;
 }
 @media screen and (min-width: 768px) {
@@ -140,17 +140,19 @@ p {
   padding: 1.2rem;
   padding-bottom: 0.95rem;
   border-bottom: 0.25rem solid #323232;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   text-align: center;
   text-decoration: none;
   color: #E1E1E1;
 }
 @media screen and (min-width: 768px) {
   .header__item-link {
-    padding-left: 0;
-    padding-right: 0;
     padding: 2.25rem 0;
-    border-bottom-width: 0.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header__item-link {
+    padding: 2.75rem 0;
   }
 }
 .header__item-link:hover, .header__item-link--active {
@@ -447,6 +449,7 @@ If other *wrapper rules set width and come before this, then they may override. 
 .gallery__photo-list {
   display: flex;
   flex-flow: column nowrap;
+  justify-content: space-around;
   gap: 1.2rem;
   margin-bottom: 1.2rem;
 }

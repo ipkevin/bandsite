@@ -146,7 +146,7 @@
 .gallery {
     background-color: $Alabaster;
     
-    &__wrapper {
+    &__wrapper { 
         padding: 0 $space-mobile-between;
 
         display: flex;
@@ -171,23 +171,25 @@
     &__photo-list {
         display: flex;
         flex-flow: column nowrap;
-        gap: $space-mobile-between;
+        justify-content: space-around;
+        gap: $space-mobile-between; 
+        // using this to ensure gap width matches mock; otherwise not strictly necessary to get a gap
 
         margin-bottom: $space-mobile-between;
 
         @include tablet-query {
             flex-flow: row wrap;
-            gap: 3vw; // not necessary to get gap but enlarges gap to match mock
+            gap: 3vw;
 
             margin-bottom: $space-desktab-between;
         }
         @include desktop-query {
-            gap: 2rem; // 1.7vw;
+            gap: 2rem; 
         }
     }
     &__photo {
         filter: brightness(65%);
-
+        
         @include tablet-query {
             width: 30%; 
             flex-grow: 1;
