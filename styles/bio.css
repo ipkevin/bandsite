@@ -159,7 +159,7 @@ p, .header__item-link {
 }
 .footer__wrapper {
   padding: 0 1rem;
-  padding-top: 2.2rem;
+  padding-top: 1.8rem;
 }
 @media screen and (min-width: 768px) {
   .footer__wrapper {
@@ -189,22 +189,22 @@ p, .header__item-link {
 }
 .footer__title {
   color: white;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1rem;
 }
 .footer__social {
   display: flex;
   flex-flow: row nowrap;
-  gap: 2.4rem;
-  margin-bottom: 1.4rem;
+  gap: 2rem;
+  margin-bottom: 0.6rem;
 }
 .footer__social-image {
-  height: 1.9rem;
+  height: 1.45rem;
 }
 .footer__contact-list {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.5rem;
 }
 @media screen and (min-width: 768px) {
   .footer__contact-list {
@@ -219,13 +219,13 @@ p, .header__item-link {
 }
 .footer__subtitle {
   margin-top: 0.5rem;
-  margin-bottom: 1.3rem;
+  margin-bottom: 1rem;
 }
 .footer__subtitle-text {
   font-weight: 600;
 }
 .footer__copy {
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.1rem;
 }
 .footer__email {
   color: white;
@@ -249,7 +249,8 @@ p, .header__item-link {
 }
 .footer__copyright {
   color: white;
-  padding: 1rem 0;
+  font-size: 0.68rem;
+  padding: 0.6rem 0 1rem 0;
 }
 
 /* Set a max-width on the content so that it doesn't stretch
