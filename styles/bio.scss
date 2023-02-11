@@ -21,10 +21,14 @@
 
     @include tablet-query {
         height: 59vw;
+        
+        // limit height as hero being too huge pushes content below the fold
+        max-height: 40rem; // 640px; 
     }
     @include desktop-query {
         height: 50vw;
-        max-height: 50rem;
+
+
     }
 
 

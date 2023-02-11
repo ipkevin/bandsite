@@ -320,12 +320,12 @@ If other *wrapper rules set width and come before this, then they may override. 
 @media screen and (min-width: 768px) {
   .hero {
     height: 59vw;
+    max-height: 40rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .hero {
     height: 50vw;
-    max-height: 50rem;
   }
 }
 .hero__title {
