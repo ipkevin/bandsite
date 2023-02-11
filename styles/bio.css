@@ -87,6 +87,11 @@ p, .header__item-link {
     gap: 2.25rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .header__wrapper {
+    gap: 1.5rem;
+  }
+}
 .header__logo {
   padding: 1rem 1rem 0 1rem;
   text-align: center;
@@ -98,7 +103,8 @@ p, .header__item-link {
 }
 @media screen and (min-width: 1280px) {
   .header__logo {
-    padding-left: 11rem;
+    padding-left: 8rem;
+    padding-top: 0.3rem;
   }
 }
 .header__menu {
@@ -111,6 +117,11 @@ p, .header__item-link {
   .header__menu {
     justify-content: flex-start;
     gap: 2.75rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header__menu {
+    gap: 2.25rem;
   }
 }
 .header__item { /* a container around a nav link */
@@ -143,7 +154,8 @@ p, .header__item-link {
 }
 @media screen and (min-width: 1280px) {
   .header__item-link {
-    padding: 2.75rem 0;
+    padding-top: 2.25rem;
+    padding-bottom: 1.5rem;
   }
 }
 .header__item-link:hover, .header__item-link--active {
@@ -169,7 +181,7 @@ p, .header__item-link {
 }
 @media screen and (min-width: 1280px) {
   .footer__wrapper {
-    padding: 0 11rem;
+    padding: 0 8rem;
     padding-top: 3rem;
     position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
   }
@@ -184,6 +196,11 @@ p, .header__item-link {
     justify-content: flex-start;
     align-items: baseline;
     gap: 1.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer__top-group {
+    gap: 2.25rem;
   }
 }
 .footer__title-flex-item {
@@ -224,6 +241,11 @@ p, .header__item-link {
     margin-bottom: 0.5rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .footer__contact-list {
+    gap: 2.25rem;
+  }
+}
 .footer__contact {
   color: white;
 }
@@ -259,7 +281,7 @@ p, .header__item-link {
 }
 @media screen and (min-width: 1280px) {
   .footer__logo-mobile {
-    right: 11rem;
+    right: 8rem;
   }
 }
 .footer__copyright {
@@ -319,7 +341,7 @@ If other *wrapper rules set width and come before this, then they may override. 
 }
 @media screen and (min-width: 1280px) {
   .hero__title {
-    padding-left: 11rem;
+    padding-left: 8rem;
   }
 }
 
@@ -337,7 +359,7 @@ If other *wrapper rules set width and come before this, then they may override. 
 }
 @media screen and (min-width: 1280px) {
   .story__wrapper {
-    padding: 0 11rem;
+    padding: 0 8rem;
   }
 }
 .story__title {
@@ -350,6 +372,11 @@ If other *wrapper rules set width and come before this, then they may override. 
     margin-bottom: 1.5rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .story__title {
+    margin-bottom: 2.25rem;
+  }
+}
 .story__sub-wrapper {
   /* adds extra indent on story photo & body */
 }
@@ -360,7 +387,7 @@ If other *wrapper rules set width and come before this, then they may override. 
 }
 @media screen and (min-width: 1280px) {
   .story__sub-wrapper {
-    padding: 0 6.075rem;
+    padding: 0 5.5125rem;
   }
 }
 .story__image {
@@ -444,7 +471,7 @@ If other *wrapper rules set width and come before this, then they may override. 
 }
 @media screen and (min-width: 1280px) {
   .gallery__wrapper {
-    padding: 0 11rem;
+    padding: 0 8rem;
   }
 }
 .gallery__title {
@@ -455,6 +482,11 @@ If other *wrapper rules set width and come before this, then they may override. 
   .gallery__title {
     margin-top: 3rem;
     margin-bottom: 1.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .gallery__title {
+    margin-bottom: 2.25rem;
   }
 }
 .gallery__photo-list {
@@ -473,7 +505,7 @@ If other *wrapper rules set width and come before this, then they may override. 
 }
 @media screen and (min-width: 1280px) {
   .gallery__photo-list {
-    gap: 2rem;
+    gap: 1.4rem;
   }
 }
 .gallery__photo {

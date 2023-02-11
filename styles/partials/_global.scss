@@ -14,12 +14,11 @@
 
 h1 { // Page Header title in Hero
 
-    font-size: 1.5rem;// 1.95rem; 
-    ///line-height: 1rem; //2.3rem; 
+    font-size: 1.5rem;
     font-weight: 600;
     
     @include tablet-query {
-        font-size: 3.75rem; //4.7rem; 
+        font-size: 3.75rem;
         font-weight: 600;
     }
 }
@@ -40,7 +39,6 @@ h3 { // Subheader titles
     
     @include tablet-query {
         font-size: 1.5rem;
-        // line-height: 2rem;
         font-weight: 600;
     }
 }
@@ -71,6 +69,9 @@ p {
             align-items: center;
             gap: $space-desktab-between;    
         }
+        @include desktop-query {
+            gap: $space-desktab-between-reduced;
+        }
     }
     &__logo {
         
@@ -79,11 +80,10 @@ p {
         
         @include tablet-query {
             padding: 0 $space-desktab-between;
-           // padding-bottom: $space-desktab-vert-between - 0.5rem; 
-               // need the 0.5rem adjustment as logo svg has extra blank space at bottom
         }
         @include desktop-query {
             padding-left: $space-desktop-sidepadding;
+            padding-top: 0.3rem;
         }
     }
     &__logo-img {
@@ -99,6 +99,9 @@ p {
         @include tablet-query {
             justify-content: flex-start;
             gap: $space-desktab-between + 0.5rem;
+        }
+        @include desktop-query {
+            gap: $space-desktab-between;
         }
     }
     &__item { /* a container around a nav link */
@@ -136,7 +139,8 @@ p {
             padding-bottom: $space-btwn-less-underline-desktab;
         }
         @include desktop-query {
-           padding: $space-desktab-vert-between+0.5rem 0;
+           padding-top: $space-desktab-between;
+           padding-bottom: $space-desktab-between-reduced;
         }
     }
     &__item-link:hover, &__item-link--active {
@@ -181,6 +185,9 @@ p {
             align-items: baseline;
             gap: $space-desktab-between-reduced;
         }
+        @include desktop-query {
+            gap: $space-desktab-between;
+        }
     }
     &__title-flex-item {
         /* utility class to set width of 'get in touch' flex item and thus
@@ -219,6 +226,9 @@ p {
             gap: $space-desktab-between-reduced;
 
             margin-bottom: 0.5rem;
+        }
+        @include desktop-query {
+            gap: $space-desktab-between;
         }
     }
     &__contact {
