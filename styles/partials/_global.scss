@@ -178,15 +178,24 @@ p {
         @include tablet-query { 
             flex-direction: row;
             justify-content: flex-start;
-            align-items: center;
-            gap: $space-desktab-between;
+            align-items: baseline;
+            gap: $space-desktab-between-reduced;
         }
+    }
+    &__title-flex-item {
+        /* utility class to set width of 'get in touch' flex item and thus
+        ensure that that row's columns are aligned with the contact list columns below 
+        (in conjunction with identical gap size) */
+        width: 13.6rem;
     }
     &__title {
         color: white;
         
         margin-bottom: $space-mobile-posthead;
 
+        @include tablet-query {
+            margin-bottom: $space-desktab-between-reduced;
+        }
     }
     &__social {
         display: flex;
@@ -207,13 +216,17 @@ p {
         @include tablet-query {
             flex-direction: row;
             justify-content: flex-start;
-            gap: 5%;
+            gap: $space-desktab-between-reduced;
 
             margin-bottom: 0.5rem;
         }
     }
     &__contact {
         color: white;
+
+        @include tablet-query{
+            width: 13.6rem; // Getting specific to match alignment in mock
+        }
     }
     &__subtitle {
         margin-top: 0.5rem;

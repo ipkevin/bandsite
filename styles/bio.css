@@ -182,13 +182,24 @@ p, .header__item-link {
   .footer__top-group {
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
-    gap: 2.25rem;
+    align-items: baseline;
+    gap: 1.5rem;
   }
+}
+.footer__title-flex-item {
+  /* utility class to set width of 'get in touch' flex item and thus
+  ensure that that row's columns are aligned with the contact list columns below 
+  (in conjunction with identical gap size) */
+  width: 13.6rem;
 }
 .footer__title {
   color: white;
   margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__title {
+    margin-bottom: 1.5rem;
+  }
 }
 .footer__social {
   display: flex;
@@ -209,12 +220,17 @@ p, .header__item-link {
   .footer__contact-list {
     flex-direction: row;
     justify-content: flex-start;
-    gap: 5%;
+    gap: 1.5rem;
     margin-bottom: 0.5rem;
   }
 }
 .footer__contact {
   color: white;
+}
+@media screen and (min-width: 768px) {
+  .footer__contact {
+    width: 13.6rem;
+  }
 }
 .footer__subtitle {
   margin-top: 0.5rem;
@@ -298,6 +314,7 @@ If other *wrapper rules set width and come before this, then they may override. 
 @media screen and (min-width: 768px) {
   .hero__title {
     padding: 2.25rem;
+    font-size: 3.75rem;
   }
 }
 @media screen and (min-width: 1280px) {
