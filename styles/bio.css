@@ -26,55 +26,50 @@
 }
 
 h1 {
-  font-size: 1.95rem;
-  line-height: 2.3rem;
+  font-size: 1.5rem;
+  line-height: 1rem;
   font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   h1 {
-    font-size: 4.7rem;
-    line-height: 5.1rem;
+    font-size: 3.75rem;
     font-weight: 600;
   }
 }
 
 h2 {
-  font-size: 1.95rem;
-  line-height: 2.2rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 @media screen and (min-width: 768px) {
   h2 {
-    font-size: 2.8rem;
-    line-height: 3.4rem;
-    font-weight: 600;
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    font-weight: bold;
   }
 }
 
 h3 {
-  font-size: 1.15rem;
-  line-height: 1.375rem;
-  font-weight: normal;
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 @media screen and (min-width: 768px) {
   h3 {
-    font-size: 1.9rem;
-    line-height: 2.4rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
     font-weight: 600;
   }
 }
 
-p {
-  font-size: 1.05rem;
-  line-height: 1.5rem;
+p, .header__item-link {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
   font-weight: normal;
 }
 @media screen and (min-width: 768px) {
-  p {
-    font-size: 1.15rem;
-    line-height: 1.8rem;
+  p, .header__item-link {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
     font-weight: normal;
   }
 }
@@ -92,16 +87,16 @@ p {
   .header__wrapper {
     flex-flow: row nowrap;
     align-items: center;
-    gap: 2.65rem;
+    gap: 2.25rem;
   }
 }
 .header__logo {
-  padding: 1.2rem 1.2rem 0 1.2rem;
+  padding: 1rem 1rem 0 1rem;
   text-align: center;
 }
 @media screen and (min-width: 768px) {
   .header__logo {
-    padding: 2.25rem 2.65rem;
+    padding: 2.25rem 2.25rem;
     padding-bottom: 1.75rem;
   }
 }
@@ -109,9 +104,6 @@ p {
   .header__logo {
     padding-left: 11rem;
   }
-}
-.header__logo-img, .footer__logo-mobile {
-  width: 9.5rem;
 }
 .header__menu {
   display: flex;
@@ -122,7 +114,7 @@ p {
 @media screen and (min-width: 768px) {
   .header__menu {
     justify-content: flex-start;
-    gap: 5.3rem;
+    gap: 4.5rem;
   }
 }
 .header__item { /* a container around a nav link */
@@ -137,10 +129,10 @@ p {
 }
 .header__item-link {
   display: block;
-  padding: 1.2rem;
-  padding-bottom: 0.95rem;
-  border-bottom: 0.25rem solid #323232;
-  font-size: 1.1rem;
+  padding: 0 1rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 0.2rem solid #323232;
   text-align: center;
   text-decoration: none;
   color: #E1E1E1;
@@ -166,20 +158,20 @@ p {
   background-color: #323232;
 }
 .footer__wrapper {
-  padding: 0 1.2rem;
-  padding-top: 2.7rem;
+  padding: 0 1rem;
+  padding-top: 2.2rem;
 }
 @media screen and (min-width: 768px) {
   .footer__wrapper {
-    padding: 0 2.65rem;
-    padding-top: 4.2rem;
+    padding: 0 2.25rem;
+    padding-top: 3rem;
     position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
   }
 }
 @media screen and (min-width: 1280px) {
   .footer__wrapper {
     padding: 0 11rem;
-    padding-top: 4.2rem;
+    padding-top: 3rem;
     position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
   }
 }
@@ -192,7 +184,7 @@ p {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 2.65rem;
+    gap: 2.25rem;
   }
 }
 .footer__title {
@@ -203,7 +195,7 @@ p {
   display: flex;
   flex-flow: row nowrap;
   gap: 2.4rem;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.4rem;
 }
 .footer__social-image {
   height: 1.9rem;
@@ -227,13 +219,13 @@ p {
 }
 .footer__subtitle {
   margin-top: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.3rem;
 }
 .footer__subtitle-text {
   font-weight: 600;
 }
 .footer__copy {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.3rem;
 }
 .footer__email {
   color: white;
@@ -246,8 +238,8 @@ p {
 @media screen and (min-width: 768px) {
   .footer__logo-mobile {
     position: absolute;
-    top: 4.7rem;
-    right: 2.65rem;
+    top: 3.5rem;
+    right: 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -257,7 +249,7 @@ p {
 }
 .footer__copyright {
   color: white;
-  padding: 1.2rem 0;
+  padding: 1rem 0;
 }
 
 /* Set a max-width on the content so that it doesn't stretch
@@ -293,11 +285,12 @@ If other *wrapper rules set width and come before this, then they may override. 
 }
 .hero__title {
   color: white;
-  padding: 1.2rem;
+  font-size: 7.5vw;
+  padding: 1rem;
 }
 @media screen and (min-width: 768px) {
   .hero__title {
-    padding: 2.65rem;
+    padding: 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -311,11 +304,11 @@ If other *wrapper rules set width and come before this, then they may override. 
   background-color: #FFFFFF;
 }
 .story__wrapper {
-  padding: 0 1.2rem;
+  padding: 0 1rem;
 }
 @media screen and (min-width: 768px) {
   .story__wrapper {
-    padding: 0 2.65rem;
+    padding: 0 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -324,12 +317,12 @@ If other *wrapper rules set width and come before this, then they may override. 
   }
 }
 .story__title {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
 }
 @media screen and (min-width: 768px) {
   .story__title {
-    margin-top: 4.2rem;
+    margin-top: 3rem;
     margin-bottom: 2.25rem;
   }
 }
@@ -338,25 +331,25 @@ If other *wrapper rules set width and come before this, then they may override. 
 }
 @media screen and (min-width: 768px) {
   .story__sub-wrapper {
-    padding: 0 5.3rem;
+    padding: 0 4.5rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .story__sub-wrapper {
-    padding: 0 7.155rem;
+    padding: 0 6.075rem;
   }
 }
 .story__image {
   height: 49vw;
   width: 100%;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.6rem;
   -o-object-fit: cover;
      object-fit: cover;
 }
 @media screen and (min-width: 768px) {
   .story__image {
     height: 40vw;
-    margin-bottom: 2.65rem;
+    margin-bottom: 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -366,9 +359,9 @@ If other *wrapper rules set width and come before this, then they may override. 
   }
 }
 .story__quote, .story__quote-author {
-  font-size: 1.14rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  line-height: 1.8rem;
+  line-height: 1.7;
 }
 @media screen and (min-width: 768px) {
   .story__quote, .story__quote-author {
@@ -377,29 +370,28 @@ If other *wrapper rules set width and come before this, then they may override. 
   }
 }
 .story__quote {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 }
 @media screen and (min-width: 768px) {
   .story__quote {
-    margin-bottom: 0.6625rem;
+    margin-bottom: 0.5625rem;
   }
 }
 .story__quote-author {
-  margin-bottom: 2rem;
+  margin-bottom: 1.45rem;
 }
 @media screen and (min-width: 768px) {
   .story__quote-author {
     font-size: 1.25rem;
-    margin-bottom: 3.65rem;
+    margin-bottom: 3.25rem;
   }
 }
 .story__subtitle {
-  margin-top: 1.5rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .story__subtitle {
-    margin-top: 4.2rem;
+    margin-top: 3rem;
     margin-bottom: 2.25rem;
   }
 }
@@ -407,13 +399,13 @@ If other *wrapper rules set width and come before this, then they may override. 
   /* enables 2 column layout on story copy */
   display: flex;
   flex-flow: column nowrap;
-  gap: 1.2rem;
-  margin-bottom: 1.2rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .story__copy-box {
     flex-direction: row;
-    margin-bottom: 2.65rem;
+    margin-bottom: 2.25rem;
   }
 }
 
@@ -422,13 +414,13 @@ If other *wrapper rules set width and come before this, then they may override. 
   background-color: #FAFAFA;
 }
 .gallery__wrapper {
-  padding: 0 1.2rem;
+  padding: 0 1rem;
   display: flex;
   flex-flow: column nowrap;
 }
 @media screen and (min-width: 768px) {
   .gallery__wrapper {
-    padding: 0 2.65rem;
+    padding: 0 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -437,12 +429,12 @@ If other *wrapper rules set width and come before this, then they may override. 
   }
 }
 .gallery__title {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
 }
 @media screen and (min-width: 768px) {
   .gallery__title {
-    margin-top: 4.2rem;
+    margin-top: 3rem;
     margin-bottom: 2.25rem;
   }
 }
@@ -450,14 +442,14 @@ If other *wrapper rules set width and come before this, then they may override. 
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
-  gap: 1.2rem;
-  margin-bottom: 1.2rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .gallery__photo-list {
     flex-flow: row wrap;
     gap: 3vw;
-    margin-bottom: 2.65rem;
+    margin-bottom: 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
