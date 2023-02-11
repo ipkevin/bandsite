@@ -183,7 +183,6 @@ p, .header__item-link {
   .footer__wrapper {
     padding: 0 8rem;
     padding-top: 3rem;
-    position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
   }
 }
 .footer__top-group {
@@ -206,7 +205,7 @@ p, .header__item-link {
 .footer__title-flex-item {
   /* utility class to set width of 'get in touch' flex item and thus
   ensure that that row's columns are aligned with the contact list columns below 
-  (in conjunction with identical gap size) */
+  (in conjunction with identical gap sizes) */
   width: 13.6rem;
 }
 .footer__title {
@@ -299,7 +298,7 @@ p, .header__item-link {
 
 /* Set a max-width on the content so that it doesn't stretch
 across the entirety of super hi-res screens.
-If other *wrapper rules set width and come before this, then they may override. */
+NOTE: If other *wrapper rules set width and come after this, then they will override. */
 .wrapper-max {
   width: 100%;
   max-width: 1735px;

@@ -12,6 +12,8 @@
     font-weight: normal;
 }
 
+// Font sizes & weights from the styleguide
+// Assumes reference font size of 16px
 h1 { // Page Header title in Hero
 
     font-size: 1.5rem;
@@ -22,7 +24,6 @@ h1 { // Page Header title in Hero
         font-weight: 600;
     }
 }
-
 h2 { // Section titles
     font-size: 1.5rem; // 24px 
     font-weight: 600; 
@@ -32,7 +33,6 @@ h2 { // Section titles
         font-weight: 600;
     }
 }
-
 h3 { // Subheader titles
     font-size: 0.875rem;
     font-weight: 600;
@@ -42,15 +42,14 @@ h3 { // Subheader titles
         font-weight: 600;
     }
 }
-
 p {
-    font-size: 0.8125rem; // 1.05rem; 
-    line-height: 1.125rem; //1.5rem; 
+    font-size: 0.8125rem;  
+    line-height: 1.125rem;  
     font-weight: normal;
 
     @include tablet-query {
-        font-size: 0.875rem; // 1.15rem;
-        line-height: 1.375rem; //1.8rem; 
+        font-size: 0.875rem; 
+        line-height: 1.375rem; 
         font-weight: normal;
     }
 }
@@ -85,9 +84,6 @@ p {
             padding-left: $space-desktop-sidepadding;
             padding-top: 0.3rem;
         }
-    }
-    &__logo-img {
-        // width: 9.5rem;
     }
     &__menu {
         display: flex;
@@ -168,11 +164,8 @@ p {
             position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
         }
         @include desktop-query {
-           
             padding: 0 $space-desktop-sidepadding;
             padding-top: $space-desktab-prehead;
-            position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
-        
         }
     }
     &__top-group {
@@ -192,7 +185,7 @@ p {
     &__title-flex-item {
         /* utility class to set width of 'get in touch' flex item and thus
         ensure that that row's columns are aligned with the contact list columns below 
-        (in conjunction with identical gap size) */
+        (in conjunction with identical gap sizes) */
         width: 13.6rem;
     }
     &__title {
@@ -257,7 +250,6 @@ p {
         text-decoration: underline;
     }
     &__logo-mobile {
-        @extend .header__logo-img;   
 
         @include tablet-query {
             position: absolute;
@@ -283,7 +275,7 @@ p {
 
 /* Set a max-width on the content so that it doesn't stretch
 across the entirety of super hi-res screens.
-If other *wrapper rules set width and come before this, then they may override. */
+NOTE: If other *wrapper rules set width and come after this, then they will override. */
 .wrapper-max {
     width: 100%;
     max-width: 1735px;
