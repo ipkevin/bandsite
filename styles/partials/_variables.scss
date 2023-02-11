@@ -1,9 +1,10 @@
 // Key gap sizes per grid in styleguide
 // Assumes 16px reference default font size
-$space-desktab-prehead: 3rem;  
-$space-desktab-posthead: 2.25rem; 
+$space-desktab-prehead: 3rem;  // 48px
+$space-desktab-posthead: 2.25rem; // 36px
 $space-desktab-between: 2.25rem;  
-$space-desktab-vert-between: 2.25rem;
+$space-desktab-between-reduced: 1.5rem;
+$space-desktab-vert-between: 2.25rem; // REPLACE WITH ABOVE
 
 $space-mobile-prehead: 1.5rem;
 $space-mobile-posthead: 1rem; 
@@ -14,6 +15,7 @@ $menu-underline-mobile: 0.2rem;
 // Below will be used to calculate vertical padding on nav menu items. 
 // Inactive Nav menu underline is a border with same color as bkgrd. Since borders add to box size, we need to subtract its width when calculating margins needed.
 $space-btwn-less-underline-mobile: $space-mobile-between-reduced - $menu-underline-mobile;
+$space-btwn-less-underline-desktab: $space-desktab-between-reduced - $menu-underline-mobile;
 
 // The additional horiz padding needed on desktop breakpoint for Story content
 $space-desktop-sidepadding: 11rem;

@@ -15,36 +15,32 @@
 h1 { // Page Header title in Hero
 
     font-size: 1.5rem;// 1.95rem; 
-    line-height: 1rem; //2.3rem; 
+    ///line-height: 1rem; //2.3rem; 
     font-weight: 600;
     
     @include tablet-query {
         font-size: 3.75rem; //4.7rem; 
-        //line-height: 2rem; //5.1rem; 
         font-weight: 600;
     }
 }
 
 h2 { // Section titles
     font-size: 1.5rem; // 24px 
-    //line-height: 2rem; //2.2rem; 
     font-weight: 600; 
     
     @include tablet-query {
-        font-size: 2.25rem; //2.8rem; 
-        line-height: 2.75rem; // 3.4rem;
-        font-weight: bold;
+        font-size: 2.25rem;
+        font-weight: 600;
     }
 }
 
 h3 { // Subheader titles
-    font-size: 0.875rem; //1.15rem; 
-    //line-height: 1.375rem; 
+    font-size: 0.875rem;
     font-weight: 600;
     
     @include tablet-query {
-        font-size: 1.5rem; // 1.9rem; 
-        line-height: 2rem; // 2.4rem; 
+        font-size: 1.5rem;
+        // line-height: 2rem;
         font-weight: 600;
     }
 }
@@ -82,8 +78,8 @@ p {
         text-align: center;
         
         @include tablet-query {
-            padding: $space-desktab-vert-between $space-desktab-between;
-            padding-bottom: $space-desktab-vert-between - 0.5rem; 
+            padding: 0 $space-desktab-between;
+           // padding-bottom: $space-desktab-vert-between - 0.5rem; 
                // need the 0.5rem adjustment as logo svg has extra blank space at bottom
         }
         @include desktop-query {
@@ -102,7 +98,7 @@ p {
 
         @include tablet-query {
             justify-content: flex-start;
-            gap: calc($space-desktab-between * 2);
+            gap: $space-desktab-between + 0.5rem;
         }
     }
     &__item { /* a container around a nav link */
@@ -134,7 +130,10 @@ p {
         color: $Mercury;
 
         @include tablet-query {
-            padding: $space-desktab-vert-between 0;
+            padding-top: $space-desktab-between-reduced;
+            padding-right: 0;
+            padding-left: 0; 
+            padding-bottom: $space-btwn-less-underline-desktab;
         }
         @include desktop-query {
            padding: $space-desktab-vert-between+0.5rem 0;
@@ -250,6 +249,12 @@ p {
         color: white;
         font-size: 0.68rem;
         padding: $space-mobile-between-reduced 0 $space-mobile-between 0;
+
+        @include tablet-query {
+            font-size: 0.8125rem; // back to default p size, couldn't use @extend on media query
+            padding-top: $space-desktab-between-reduced;
+            padding-bottom: $space-desktab-between;
+        }
     }
 }
 

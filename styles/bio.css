@@ -27,7 +27,6 @@
 
 h1 {
   font-size: 1.5rem;
-  line-height: 1rem;
   font-weight: 600;
 }
 @media screen and (min-width: 768px) {
@@ -44,8 +43,7 @@ h2 {
 @media screen and (min-width: 768px) {
   h2 {
     font-size: 2.25rem;
-    line-height: 2.75rem;
-    font-weight: bold;
+    font-weight: 600;
   }
 }
 
@@ -56,7 +54,6 @@ h3 {
 @media screen and (min-width: 768px) {
   h3 {
     font-size: 1.5rem;
-    line-height: 2rem;
     font-weight: 600;
   }
 }
@@ -96,8 +93,7 @@ p, .header__item-link {
 }
 @media screen and (min-width: 768px) {
   .header__logo {
-    padding: 2.25rem 2.25rem;
-    padding-bottom: 1.75rem;
+    padding: 0 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -114,7 +110,7 @@ p, .header__item-link {
 @media screen and (min-width: 768px) {
   .header__menu {
     justify-content: flex-start;
-    gap: 4.5rem;
+    gap: 2.75rem;
   }
 }
 .header__item { /* a container around a nav link */
@@ -139,7 +135,10 @@ p, .header__item-link {
 }
 @media screen and (min-width: 768px) {
   .header__item-link {
-    padding: 2.25rem 0;
+    padding-top: 1.5rem;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 1.3rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -252,6 +251,13 @@ p, .header__item-link {
   font-size: 0.68rem;
   padding: 0.6rem 0 1rem 0;
 }
+@media screen and (min-width: 768px) {
+  .footer__copyright {
+    font-size: 0.8125rem;
+    padding-top: 1.5rem;
+    padding-bottom: 2.25rem;
+  }
+}
 
 /* Set a max-width on the content so that it doesn't stretch
 across the entirety of super hi-res screens.
@@ -324,7 +330,7 @@ If other *wrapper rules set width and come before this, then they may override. 
 @media screen and (min-width: 768px) {
   .story__title {
     margin-top: 3rem;
-    margin-bottom: 2.25rem;
+    margin-bottom: 1.5rem;
   }
 }
 .story__sub-wrapper {
@@ -332,7 +338,7 @@ If other *wrapper rules set width and come before this, then they may override. 
 }
 @media screen and (min-width: 768px) {
   .story__sub-wrapper {
-    padding: 0 4.5rem;
+    padding: 0 3.825rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -350,7 +356,7 @@ If other *wrapper rules set width and come before this, then they may override. 
 @media screen and (min-width: 768px) {
   .story__image {
     height: 40vw;
-    margin-bottom: 2.25rem;
+    margin-bottom: 1.5rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -364,18 +370,14 @@ If other *wrapper rules set width and come before this, then they may override. 
   font-weight: 600;
   line-height: 1.7;
 }
-@media screen and (min-width: 768px) {
-  .story__quote, .story__quote-author {
-    font-size: 1.8rem;
-    line-height: 2.4rem;
-  }
-}
 .story__quote {
   margin-bottom: 0.25rem;
 }
 @media screen and (min-width: 768px) {
   .story__quote {
-    margin-bottom: 0.5625rem;
+    margin-bottom: 0.65rem;
+    font-size: 1.38rem;
+    line-height: 1.9rem;
   }
 }
 .story__quote-author {
@@ -383,7 +385,7 @@ If other *wrapper rules set width and come before this, then they may override. 
 }
 @media screen and (min-width: 768px) {
   .story__quote-author {
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin-bottom: 3.25rem;
   }
 }
@@ -392,8 +394,7 @@ If other *wrapper rules set width and come before this, then they may override. 
 }
 @media screen and (min-width: 768px) {
   .story__subtitle {
-    margin-top: 3rem;
-    margin-bottom: 2.25rem;
+    margin-bottom: 1.5rem;
   }
 }
 .story__copy-box {
@@ -436,7 +437,7 @@ If other *wrapper rules set width and come before this, then they may override. 
 @media screen and (min-width: 768px) {
   .gallery__title {
     margin-top: 3rem;
-    margin-bottom: 2.25rem;
+    margin-bottom: 1.5rem;
   }
 }
 .gallery__photo-list {

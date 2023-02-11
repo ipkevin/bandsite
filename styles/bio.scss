@@ -64,13 +64,13 @@
         
         @include tablet-query {
             margin-top: $space-desktab-prehead;
-            margin-bottom: $space-desktab-posthead;
+            margin-bottom: $space-desktab-between-reduced;
         }
     }
     &__sub-wrapper {
         /* adds extra indent on story photo & body */
         @include tablet-query {
-            padding: 0 calc($space-desktab-between *2);
+            padding: 0 calc($space-desktab-between *1.7);
         }
         @include desktop-query {
             padding: 0 calc($space-desktab-between *2.7);
@@ -85,7 +85,7 @@
 
         @include tablet-query {
             height: 40vw;
-            margin-bottom: $space-desktab-between;
+            margin-bottom: $space-desktab-between-reduced;
         }
         @include desktop-query {
             height: 35vw;
@@ -96,24 +96,22 @@
         font-size: 0.85rem;
         font-weight: 600;
         line-height: 1.7;
-
-        @include tablet-query {
-            font-size: 1.8rem;
-            line-height: 2.4rem;
-        }
     }
     &__quote {
         margin-bottom: calc($space-mobile-between / 4);
         
         @include tablet-query {
-            margin-bottom: calc($space-desktab-between / 4);
+            margin-bottom: $space-desktab-between - 1.6rem;
+
+            font-size: 1.38rem;
+            line-height: 1.9rem;
         }
     }
     &__quote-author {
         margin-bottom: $space-mobile-between + 0.45rem;
 
         @include tablet-query {
-            font-size: 1.25rem;
+            font-size: 1rem;
 
             margin-bottom: $space-desktab-between + 1rem;
         }
@@ -122,8 +120,7 @@
         margin-bottom: $space-mobile-between;
 
         @include tablet-query {
-            margin-top: $space-desktab-prehead;
-            margin-bottom: $space-desktab-posthead;
+            margin-bottom: $space-desktab-between-reduced;
         }
     }
     &__copy-box {
@@ -164,7 +161,7 @@
 
         @include tablet-query {
             margin-top: $space-desktab-prehead;
-            margin-bottom: $space-desktab-posthead;
+            margin-bottom: $space-desktab-between-reduced;
         }
     }
     &__photo-list {
