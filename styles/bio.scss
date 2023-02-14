@@ -248,8 +248,6 @@
         border-radius: 50%;        
         object-fit:cover;
 
- 
-
         @include tablet-query {
             width: 3rem;
             height: 3rem;
@@ -257,19 +255,17 @@
     }
     &__top-image {
         margin-top: $space-mobile-between + 0.3rem;
-        // @include tablet-query{
-        //     margin-top: $space-desktab-between;
-        // }
     }
     &__copy {
-        width: 85%;
+       flex-grow:1;
     }
     &__form {
         display: flex;
         flex-flow: column nowrap;
         justify-content: flex-start;
 
-        width: 100%;
+        // width: 100%;
+        flex-grow:1;
         padding: 0;
     }
     &__label {
