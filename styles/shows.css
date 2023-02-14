@@ -369,16 +369,49 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
   padding-top: 2rem;
   padding-bottom: 1rem;
 }
-.shows__title {
+@media screen and (min-width: 768px) {
+  .shows__wrapper {
+    /* adding an extra left & right padding as per mockup */
+    padding: 0 1rem;
+    padding-top: 2.925rem;
+    padding-bottom: 2.25rem;
+  }
+}
+.shows__title { /* Shows big title */
   margin-bottom: 0.7rem;
   padding: 0 1rem;
 }
+@media screen and (min-width: 768px) {
+  .shows__title {
+    margin-bottom: 2.25rem;
+  }
+}
 .shows__header {
-  /* only appears on tablet & above */
+  /* table header row only shown at tablet & above */
   list-style-type: none;
   display: none;
 }
+@media screen and (min-width: 768px) {
+  .shows__header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 1.3rem;
+  }
+}
+.shows__header-title {
+  /* column headings */
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  color: #AFAFAF;
+  text-transform: uppercase;
+  width: 25%;
+}
+.shows__header-title:last-of-type {
+  width: 50%;
+}
 .shows__item {
+  /* A block or row of show info (incl button) */
   list-style-type: none;
   border-bottom: 2px solid #E1E1E1;
   padding: 1rem;
@@ -389,7 +422,18 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
 .shows__item--selected {
   background-color: #E1E1E1;
 }
+@media screen and (min-width: 768px) {
+  .shows__item {
+    /* display show info in a horizontal row for tablet & wider */
+    display: flex;
+    align-content: center;
+    flex-flow: row nowrap;
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+  }
+}
 .shows__item-header {
+  /* row headers only visible on mobile */
   font-size: 0.65rem;
   line-height: 1.25rem;
   font-weight: 600;
@@ -397,7 +441,14 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
   text-transform: uppercase;
   margin-bottom: 0.3rem;
 }
+@media screen and (min-width: 768px) {
+  .shows__item-header {
+    /* hide the row headers on tablet & above */
+    display: none;
+  }
+}
 .shows__item-copy {
+  /* single data point for a show */
   font-size: 0.8125rem;
   line-height: 1.125rem;
   margin-bottom: 1rem;
@@ -405,10 +456,26 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
 .shows__item-copy--date {
   font-weight: 600;
 }
+@media screen and (min-width: 768px) {
+  .shows__item-copy {
+    /* ensure show columns same width */
+    width: 25%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .shows__item-button {
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
 .shows__item-link {
-  display: block;
+  display: inline-block;
   min-width: 9.375rem;
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 1.7rem;
   border-radius: 0.25rem;
   background-color: #323232;
   text-align: center;
