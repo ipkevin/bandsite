@@ -311,22 +311,25 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
   background-color: rgba(50, 50, 50, 0.5);
   background-blend-mode: multiply;
   max-height: 100%;
+}
+.hero-shows__wrapper {
   padding-top: 2rem;
   padding-bottom: 1.6rem;
   display: flex;
   flex-direction: column;
 }
 @media screen and (min-width: 768px) {
-  .hero-shows {
+  .hero-shows__wrapper {
     padding-top: 3.825rem;
     padding-bottom: 3.6rem;
   }
 }
 @media screen and (min-width: 1280px) {
-  .hero-shows {
+  .hero-shows__wrapper {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    gap: 4.5rem;
     height: 39.5rem;
   }
 }
@@ -336,6 +339,11 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
 @media screen and (min-width: 768px) {
   .hero-shows__copy {
     padding-left: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero-shows__copy {
+    padding-left: 8rem;
   }
 }
 .hero-shows__title {
@@ -349,6 +357,12 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
     width: 35rem;
     margin-top: 0.8rem;
     margin-bottom: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero-shows__title {
+    width: 37vw;
+    max-width: 36rem;
   }
 }
 .hero-shows__subtitle {
@@ -365,6 +379,11 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
     padding: 0 2.25rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .hero-shows__embed {
+    width: 1000px;
+  }
+}
 
 /* SHOWS SECTION */
 .shows__wrapper {
@@ -379,6 +398,14 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
     padding-bottom: 2.25rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .shows__wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+}
 .shows__title { /* Shows big title */
   margin-bottom: 0.7rem;
   padding: 0 1rem;
@@ -386,6 +413,17 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
 @media screen and (min-width: 768px) {
   .shows__title {
     margin-bottom: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__title {
+    padding: 0;
+    width: 23.5%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__list {
+    width: 76.5%;
   }
 }
 .shows__header {
@@ -400,6 +438,11 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
     padding: 0 1.3rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .shows__header {
+    padding: 0 1.4rem;
+  }
+}
 .shows__header-title {
   /* column headings */
   font-size: 0.75rem;
@@ -409,8 +452,23 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
   text-transform: uppercase;
   width: 25%;
 }
-.shows__header-title:last-of-type {
+@media screen and (min-width: 1280px) {
+  .shows__header-title--date {
+    width: 35%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__header-title--venue {
+    width: 24%;
+  }
+}
+.shows__header-title--location {
   width: 50%;
+}
+@media screen and (min-width: 1280px) {
+  .shows__header-title--location {
+    width: 41%;
+  }
 }
 .shows__item {
   /* A block or row of show info (incl button) */
@@ -434,8 +492,14 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
     padding-right: 1.3rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .shows__item {
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+  }
+}
 .shows__item-header {
-  /* row headers only visible on mobile */
+  /* Row headers only visible on mobile */
   font-size: 0.65rem;
   line-height: 1.25rem;
   font-weight: 600;
@@ -450,13 +514,10 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
   }
 }
 .shows__item-copy {
-  /* single data point for a show */
+  /* Date, venue or location info */
   font-size: 0.8125rem;
   line-height: 1.125rem;
   margin-bottom: 1rem;
-}
-.shows__item-copy--date {
-  font-weight: 600;
 }
 @media screen and (min-width: 768px) {
   .shows__item-copy {
@@ -467,6 +528,25 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
     align-items: center;
   }
 }
+.shows__item-copy--date {
+  font-weight: 600;
+}
+@media screen and (min-width: 1280px) {
+  .shows__item-copy--date {
+    width: 35%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__item-copy--venue {
+    width: 24%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows__item-copy--location {
+    width: 20%;
+  }
+}
+.shows__item-button { /* buy tickets button container */ }
 @media screen and (min-width: 768px) {
   .shows__item-button {
     width: 25%;
@@ -474,7 +554,12 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
     justify-content: flex-end;
   }
 }
-.shows__item-link {
+@media screen and (min-width: 1280px) {
+  .shows__item-button {
+    width: 21%;
+  }
+}
+.shows__item-link { /* actual buy tickets button link */
   display: inline-block;
   min-width: 9.375rem;
   padding: 0.8rem 1.7rem;

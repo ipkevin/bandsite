@@ -28,12 +28,14 @@
 
     <main>
         <section class="hero-shows">
-            <div class="hero-shows__copy">
-                <h3 class="hero-shows__subtitle">Beautiful Beasts Album</h3>
-                <h1 class="hero-shows__title">Queen of Yellow x For the Stings</h1>
-            </div>
-            <div class="hero-shows__player">
-                <iframe class="hero-shows__embed" width="100%" scrolling="no" frameborder="no" allow="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/336546382&color=%23ece2ea&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+            <div class="hero-shows__wrapper wrapper-max">
+                <div class="hero-shows__copy">
+                    <h3 class="hero-shows__subtitle">Beautiful Beasts Album</h3>
+                    <h1 class="hero-shows__title">Queen of Yellow x For The Stings</h1>
+                </div>
+                <div class="hero-shows__player">
+                    <iframe class="hero-shows__embed" width="100%" scrolling="no" frameborder="no" allow="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/336546382&color=%23ece2ea&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                </div>
             </div>
         </section>
 
@@ -43,35 +45,35 @@
                 <h2 class="shows__title">Shows</h2>
                 <div class="shows__list">
                     <ul class="shows__header">
-                        <li class="shows__header-title">Date</li>
-                        <li class="shows__header-title">Venue</li>
-                        <li class="shows__header-title">Location</li>
+                        <li class="shows__header-title shows__header-title--date">Date</li>
+                        <li class="shows__header-title shows__header-title--venue">Venue</li>
+                        <li class="shows__header-title shows__header-title--location">Location</li>
                     </ul>
                     <ul class="shows__item">
                         <li class="shows__item-header">Date</li>
                         <li class="shows__item-copy shows__item-copy--date">Mon Sept 06 2021</li>
                         <li class="shows__item-header">Venue</li>
-                        <li class="shows__item-copy">Ronald Lane</li>
+                        <li class="shows__item-copy shows__item-copy--venue">Ronald Lane</li>
                         <li class="shows__item-header">Location</li>
-                        <li class="shows__item-copy">San Francisco, CA</li>
+                        <li class="shows__item-copy shows__item-copy--location">San Francisco, CA</li>
                         <li class="shows__item-button"><a class="shows__item-link" href="#">Buy Tickets</a></li>
                     </ul>
                     <ul class="shows__item shows__item--selected">
                         <li class="shows__item-header">Date</li>
                         <li class="shows__item-copy shows__item-copy--date">Mon Sept 06 2021</li>
                         <li class="shows__item-header">Venue</li>
-                        <li class="shows__item-copy">Ronald Lane</li>
+                        <li class="shows__item-copy shows__item-copy--venue">Ronald Lane</li>
                         <li class="shows__item-header">Location</li>
-                        <li class="shows__item-copy">San Francisco, CA</li>
+                        <li class="shows__item-copy shows__item-copy--location">San Francisco, CA</li>
                         <li class="shows__item-button"><a class="shows__item-link" href="#">Buy Tickets</a></li>
                     </ul>
                     <ul class="shows__item">
                         <li class="shows__item-header">Date</li>
                         <li class="shows__item-copy shows__item-copy--date">Mon Sept 06 2021</li>
                         <li class="shows__item-header">Venue</li>
-                        <li class="shows__item-copy">Ronald Lane</li>
+                        <li class="shows__item-copy shows__item-copy--venue">Ronald Lane</li>
                         <li class="shows__item-header">Location</li>
-                        <li class="shows__item-copy">San Francisco, CA</li>
+                        <li class="shows__item-copy shows__item-copy--location">San Francisco, CA</li>
                         <li class="shows__item-button"><a class="shows__item-link" href="#">Buy Tickets</a></li>
                     </ul>
                 </div>
@@ -144,7 +146,6 @@
                 Copyright The Bees Knees © 2021 All Rights Reserved
             </p>
         </div>
-
     </footer>
     <script src="../scripts/build-shows-page.js"></script>
 </body>

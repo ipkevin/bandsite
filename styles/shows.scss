@@ -13,23 +13,28 @@
     background-blend-mode: multiply;
 
     max-height: 100%;
-    padding-top: calc($space-mobile-between * 2);
-    padding-bottom: calc($space-mobile-between * 1.6);
 
-    display: flex;
-    flex-direction: column;
+    &__wrapper {
+        padding-top: calc($space-mobile-between * 2);
+        padding-bottom: calc($space-mobile-between * 1.6);
 
-    @include tablet-query {
-        padding-top: calc($space-desktab-between * 1.7);
-        padding-bottom: calc($space-desktab-between * 1.6);
-    }
-
-    @include desktop-query {
-        // display hero content side-by-side
         display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
-        height: 39.5rem;
+        flex-direction: column;
+
+        @include tablet-query {
+            padding-top: calc($space-desktab-between * 1.7);
+            padding-bottom: calc($space-desktab-between * 1.6);
+        }
+    
+        @include desktop-query {
+            // display hero content side-by-side
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            gap: calc($space-desktab-between * 2);
+    
+            height: 39.5rem;
+        }
     }
 
     &__copy {
@@ -37,6 +42,9 @@
 
         @include tablet-query {
             padding-left: $space-desktab-between;
+        }
+        @include desktop-query {
+            padding-left: $space-desktop-sidepadding;
         }
     }
     &__title {
@@ -51,6 +59,10 @@
             width: 35rem;
             margin-top: $space-mobile-between - 0.2rem; 
             margin-bottom: $space-desktab-between;  
+        }
+        @include desktop-query {
+            width: 37vw; //31rem;
+            max-width: 36rem;
         }
     }
     &__subtitle {
@@ -68,6 +80,11 @@
 
         @include tablet-query{
             padding: 0 $space-desktab-between;
+        }
+        @include desktop-query {
+            width: 1000px;
+            // padding-left: 0;
+            //padding-right: $space-desktop-sidepadding;
         }
     }
 }
@@ -87,6 +104,14 @@
             padding-bottom: $space-desktab-between;
             
         }
+        @include desktop-query {
+            // display title & dates list side-by-side
+            display: flex;
+            flex-flow: row nowrap;
+
+            padding-left: $space-desktop-sidepadding;
+            padding-right: $space-desktop-sidepadding;
+        }
     }
     &__title { /* Shows big title */
         margin-bottom: $space-mobile-posthead - 0.3rem;
@@ -95,7 +120,18 @@
         @include tablet-query{
             margin-bottom: $space-desktab-posthead;
         }
+        @include desktop-query {
+            padding: 0;
+            width: 23.5%;
+        }
     }
+
+    &__list {
+        @include desktop-query {
+            width: 76.5%;
+        }
+    }
+
     &__header {
         /* table header row only shown at tablet & above */
         list-style-type: none;
@@ -106,21 +142,42 @@
             justify-content: flex-start;
             padding: 0 $space-mobile-between + 0.3rem;
         }
-        &-title {
-            /* column headings */
-            font-size: 0.75rem; 
-            line-height: 1.25rem;
-            font-weight: 600;
-            color: $Silver;
-            text-transform: uppercase;
+        @include desktop-query {
+            padding: 0 $space-mobile-between + 0.4rem;
+        }
+    }
+    &__header-title {
+        /* column headings */
 
-            width: 25%;
-            //flex-grow: 1;
+        font-size: 0.75rem; 
+        line-height: 1.25rem;
+        font-weight: 600;
+        color: $Silver;
+        text-transform: uppercase;
 
-            &:last-of-type {
-                width: 50%;
+        width: 25%;
+
+        // To ensure columns are aligned between header & copy below it,
+        // the below header widths must match the widths of the copy columns (.shows__item-copy--*)
+        &--date {
+            @include desktop-query {
+                width: 35%;
             }
         }
+        &--venue {
+            @include desktop-query {
+                width: 24%;
+            }
+        }
+        &--location {
+            width: 50%;
+            @include desktop-query {
+                width: 41%;
+            }
+        }
+
+
+
     }
     
     
@@ -148,10 +205,14 @@
             padding-left: $space-mobile-between + 0.3rem;
             padding-right: $space-mobile-between + 0.3rem;
         }
+        @include desktop-query {
+            padding-left: $space-mobile-between + 0.4rem;
+            padding-right: $space-mobile-between + 0.4rem;
+        }
         
 
         &-header {
-            /* row headers only visible on mobile */
+            /* Row headers only visible on mobile */
             font-size: 0.65rem; // 0.75rem; 
             line-height: 1.25rem;
             font-weight: 600;
@@ -166,14 +227,10 @@
             }
         }
         &-copy {
-            /* single data point for a show */
+            /* Date, venue or location info */
             font-size: $p-font-size-mob;
             line-height: $p-line-height-mob;
             margin-bottom: $space-mobile-between;
-
-            &--date {
-                font-weight: 600;
-            }
 
             @include tablet-query {
                 /* ensure show columns same width */
@@ -184,20 +241,43 @@
                 display: flex;
                 align-items: center;
             }
+
+            // Desktop Widths of these copy columns
+            // Must match desktop widths of the header columns
+            &--date {
+                font-weight: 600;
+                @include desktop-query {
+                    width: 35%;
+                }
+            }
+            &--venue {
+                @include desktop-query {
+                    width: 24%;
+                }
+            }
+            &--location {
+                @include desktop-query {
+                    width: 20%;
+                }
+            }
         }
         
-        &-button {
+        &-button { /* buy tickets button container */
             @include tablet-query{
                 width: 25%;
                 display: flex;
-                justify-content: flex-end;
+                justify-content: flex-end; // makes button right aligned
+            }
+            @include desktop-query {
+                width: 21%; 
+                // careful, width needs to work with other copy widths to ensure columns are aligned with headers
             }
         }
-        &-link {
+        &-link { /* actual buy tickets button link */
             display: inline-block;
             min-width: 9.375rem; //150px
     
-            padding: 0.8rem 1.7rem; // 2rem; // 2rem matches styleguide but not mock
+            padding: 0.8rem 1.7rem; // 2rem matches styleguide but not mock
 
             border-radius: 0.25rem;
             background-color: $BandSite-Black;
@@ -210,8 +290,6 @@
             &:hover {
                 background-color: $BandSite-DarkBlack;
             }
-
-
         }
     }
 
