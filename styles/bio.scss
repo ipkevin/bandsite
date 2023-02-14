@@ -215,29 +215,102 @@
 
     &__wrapper {
         padding: $space-mobile-between;
+
+        @include tablet-query {
+            padding: $space-desktab-between;
+        }
     }
 
+    &__list {
+        @include tablet-query {
+            padding-left: $space-desktab-prehead + 0.5rem;
+            padding-right: $space-desktab-prehead + 0.5rem;
+        }
+    }
     &__item { /* a comment in the comments list */
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
         gap: $space-mobile-between;
 
-        border-bottom: 2px solid $Mercury;
+        border-bottom: 1px solid $Mercury;
         padding: $space-mobile-between 0;
+
+        @include tablet-query {
+            padding: $space-desktab-between-reduced 0;
+        }
 
     }
     &__image {
-        
-        border-radius: 50%;
+        width: 2.2rem;
+        height: 2.2rem;
         background-color: $Mercury;
+        border-radius: 50%;        
+        object-fit:cover;
 
-        width: 25%;
+ 
+
+        @include tablet-query {
+            width: 3rem;
+            height: 3rem;
+        }
     }
+    &__top-image {
+        margin-top: $space-mobile-between + 0.3rem;
+        // @include tablet-query{
+        //     margin-top: $space-desktab-between;
+        // }
+    }
+    &__copy {
+        width: 85%;
+    }
+    &__form {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+
+        width: 100%;
+        padding: 0;
+    }
+    &__label {
+        font-size: 0.7rem; 
+        line-height: 1.25rem;
+        font-weight: normal;
+        color: $Silver;
+        text-transform: uppercase;
+    }
+    &__input {
+        margin-bottom: $space-mobile-between;
+        border-radius: 0.25rem; // 4px;
+        padding: 0.75rem; // 12px;
+        
+        min-height: 36px;
+        border: 1px solid $Mercury;
+
+        font-size: $p-font-size-mob;
+        background-color: $Alabaster;
+
+        @include tablet-query {
+            min-height: 48px;
+            margin-bottom: $space-desktab-between-reduced;
+        }
+
+        &-textarea {
+            height: 6rem;
+        }
+    }
+    &__button {
+        font-weight: normal;
+
+        @include tablet-query{
+            align-self: flex-end;
+        }
+    }
+
     &__post-header { /* contains name & date */
         display: flex;
         justify-content: space-between;
-        margin-bottom: $space-mobile-between;
+        margin-bottom: $space-mobile-between-reduced;
     }
     &__post-name {
         font-weight: 600;
@@ -245,4 +318,9 @@
     &__post-date {
         color: $Silver;
     }
+
+}
+
+.form {
+
 }

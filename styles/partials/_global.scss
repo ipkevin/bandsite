@@ -147,8 +147,25 @@ p {
     }
 }
 
+/* GENERIC BUTTON */
+.button {
+    display: inline-block;
+    min-width: 9.375rem; //150px
 
+    padding: 0.8rem 1.7rem; // 2rem matches styleguide but not mock
 
+    border-radius: 0.25rem;
+    background-color: $BandSite-Black;
+
+    text-align: center;
+    color: $White;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    &:hover {
+        background-color: $BandSite-DarkBlack;
+    }
+}
 /* FOOTER SECTION */
 .footer {
 

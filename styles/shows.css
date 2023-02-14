@@ -164,6 +164,23 @@ p, .header__item-link {
   font-weight: 600;
 }
 
+/* GENERIC BUTTON */
+.button {
+  display: inline-block;
+  min-width: 9.375rem;
+  padding: 0.8rem 1.7rem;
+  border-radius: 0.25rem;
+  background-color: #323232;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.button:hover {
+  background-color: #000000;
+}
+
 /* FOOTER SECTION */
 .footer {
   background-color: #323232;
@@ -558,19 +575,4 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
   .shows__item-button {
     width: 21%;
   }
-}
-.shows__item-link { /* actual buy tickets button link */
-  display: inline-block;
-  min-width: 9.375rem;
-  padding: 0.8rem 1.7rem;
-  border-radius: 0.25rem;
-  background-color: #323232;
-  text-align: center;
-  color: #FFFFFF;
-  font-weight: 600;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.shows__item-link:hover {
-  background-color: #000000;
 }/*# sourceMappingURL=shows.css.map */
