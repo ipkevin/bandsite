@@ -3,3 +3,139 @@
 @use 'partials/colors' as *;
 @use 'partials/fonts';
 @use 'partials/global' as *;
+
+
+/* HERO BANNER ON SHOWS PAGE */
+.hero-shows {
+
+    background: center/cover url('../assets/Images/hero-shows.jpg');
+    background-color: rgba(50,50,50,0.5);
+    background-blend-mode: multiply;
+
+    max-height: 100%;
+    padding-top: calc($space-mobile-between * 2);
+    padding-bottom: calc($space-mobile-between * 1.6);
+
+    display: flex;
+    flex-direction: column;
+
+    @include tablet-query {
+        padding-top: calc($space-desktab-between * 1.7);
+        padding-bottom: calc($space-desktab-between * 1.6);
+    }
+
+    &__copy {
+        padding-left: $space-mobile-between;
+
+        @include tablet-query {
+            padding-left: $space-desktab-between;
+        }
+    }
+    &__title {
+        color: $White;
+        margin-top: $space-mobile-prehead - 0.3rem;   
+        margin-bottom: $space-mobile-posthead;   
+        
+        @include tablet-query {
+            margin-top: $space-mobile-between - 0.2rem;   
+        }
+
+        &--2nd-line {
+            margin-top: 0;
+            line-height: 0.5em;
+
+            @include tablet-query {
+                margin-bottom: calc($space-desktab-between * 2);
+            }
+        }
+    }
+    &__subtitle {
+        color: $White;
+    }
+    &__player {
+        
+        // DELETE THIS CLASS AND ELEMENT IF NO USE
+    }
+    &__embed {
+        height: 30vw;
+        max-height: 140px;
+        max-width: 490px;
+        padding: 0 $space-mobile-between;
+
+        @include tablet-query{
+            padding: 0 $space-desktab-between;
+        }
+    }
+}
+
+
+/* SHOWS SECTION */
+.shows {
+    
+    &__wrapper {
+        padding-top: calc($space-mobile-between * 2);
+        padding-bottom: $space-mobile-between;
+    }
+    &__title {
+        margin-bottom: $space-mobile-posthead - 0.3rem;
+        padding: 0 $space-mobile-between;
+    }
+    &__header {
+        /* only appears on tablet & above */
+        list-style-type: none;
+        display: none;
+    }
+    &__item {
+        list-style-type: none;
+        border-bottom: 2px solid $Mercury;
+        // The styleguide says border-width 1px but the mockup is def 2px
+
+        padding: $space-mobile-between;
+
+        &:hover {
+            background-color: $Alabaster;
+        }
+        &--selected {
+            background-color: $Mercury;
+        }
+        &-header {
+            font-size: 0.65rem; // 0.75rem; 
+            line-height: 1.25rem;
+            font-weight: 600;
+            color: $Silver;
+            text-transform: uppercase;
+
+            margin-bottom: calc($space-mobile-between-reduced / 2);
+        }
+        &-copy {
+            font-size: $p-font-size-mob;
+            line-height: $p-line-height-mob;
+
+            margin-bottom: $space-mobile-between;
+
+            &--date {
+                font-weight: 600;
+            }
+        }
+
+        &-link {
+            display: block;
+            min-width: 9.375rem; //150px
+            padding: 0.8rem 2rem;
+
+            border-radius: 0.25rem;
+            background-color: $BandSite-Black;
+            
+            text-align: center;
+            color: $White;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            &:hover {
+                background-color: $BandSite-DarkBlack;
+            }
+
+        }
+    }
+
+}

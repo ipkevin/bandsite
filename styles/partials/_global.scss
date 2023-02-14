@@ -43,13 +43,13 @@ h3 { // Subheader titles
     }
 }
 p {
-    font-size: 0.8125rem;  
-    line-height: 1.125rem;  
+    font-size: $p-font-size-mob;
+    line-height: $p-line-height-mob;  
     font-weight: normal;
 
     @include tablet-query {
-        font-size: 0.875rem; 
-        line-height: 1.375rem; 
+        font-size: $p-font-size-tab; 
+        line-height: $p-font-size-tab; 
         font-weight: normal;
     }
 }

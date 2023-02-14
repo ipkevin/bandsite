@@ -18,3 +18,10 @@ $space-btwn-less-underline-desktab: $space-desktab-between-reduced - $menu-under
 
 // The additional horiz padding needed on desktop breakpoint for Story content
 $space-desktop-sidepadding: 8rem;
+
+
+// Holding <p>'s font properties in vars as used in other tags as well
+$p-font-size-mob: 0.8125rem;  
+$p-line-height-mob: 1.125rem;  
+$p-font-size-tab: 0.875rem; 
+$p-line-height-tab: 1.375rem; 
