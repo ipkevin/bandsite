@@ -207,3 +207,42 @@
         }
     }
 }
+
+/* COMMENTS SECTION */
+
+.comments {
+    background-color: $White;
+
+    &__wrapper {
+        padding: $space-mobile-between;
+    }
+
+    &__item { /* a comment in the comments list */
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: $space-mobile-between;
+
+        border-bottom: 2px solid $Mercury;
+        padding: $space-mobile-between 0;
+
+    }
+    &__image {
+        
+        border-radius: 50%;
+        background-color: $Mercury;
+
+        width: 25%;
+    }
+    &__post-header { /* contains name & date */
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $space-mobile-between;
+    }
+    &__post-name {
+        font-weight: 600;
+    }
+    &__post-date {
+        color: $Silver;
+    }
+}

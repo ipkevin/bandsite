@@ -518,4 +518,36 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
 }
 .gallery__photo:hover {
   filter: brightness(1);
+}
+
+/* COMMENTS SECTION */
+.comments {
+  background-color: #FFFFFF;
+}
+.comments__wrapper {
+  padding: 1rem;
+}
+.comments__item { /* a comment in the comments list */
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 2px solid #E1E1E1;
+  padding: 1rem 0;
+}
+.comments__image {
+  border-radius: 50%;
+  background-color: #E1E1E1;
+  width: 25%;
+}
+.comments__post-header { /* contains name & date */
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.comments__post-name {
+  font-weight: 600;
+}
+.comments__post-date {
+  color: #AFAFAF;
 }/*# sourceMappingURL=bio.css.map */
