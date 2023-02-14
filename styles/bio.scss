@@ -219,12 +219,22 @@
         @include tablet-query {
             padding: $space-desktab-between;
         }
+        @include desktop-query {
+            padding-top: $space-desktab-prehead;
+            padding-left: $space-desktop-sidepadding;
+            padding-right: $space-desktop-sidepadding;
+        }
     }
 
     &__list {
         @include tablet-query {
             padding-left: $space-desktab-prehead + 0.5rem;
             padding-right: $space-desktab-prehead + 0.5rem;
+        }
+        @include desktop-query {
+            padding-left: calc($space-desktop-sidepadding * 2);
+            padding-right: calc($space-desktop-sidepadding * 2);
+            // padding-right: $space-desktop-sidepadding;
         }
     }
     &__item { /* a comment in the comments list */

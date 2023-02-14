@@ -549,10 +549,23 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
     padding: 2.25rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .comments__wrapper {
+    padding-top: 3rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+}
 @media screen and (min-width: 768px) {
   .comments__list {
     padding-left: 3.5rem;
     padding-right: 3.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .comments__list {
+    padding-left: 16rem;
+    padding-right: 16rem;
   }
 }
 .comments__item { /* a comment in the comments list */
