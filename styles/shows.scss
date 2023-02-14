@@ -24,6 +24,14 @@
         padding-bottom: calc($space-desktab-between * 1.6);
     }
 
+    @include desktop-query {
+        // display hero content side-by-side
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        height: 39.5rem;
+    }
+
     &__copy {
         padding-left: $space-mobile-between;
 
@@ -32,21 +40,17 @@
         }
     }
     &__title {
-        color: $White;
+
+        width: 15rem;
         margin-top: $space-mobile-prehead - 0.3rem;   
         margin-bottom: $space-mobile-posthead;   
         
+        color: $White;
+
         @include tablet-query {
-            margin-top: $space-mobile-between - 0.2rem;   
-        }
-
-        &--2nd-line {
-            margin-top: 0;
-            line-height: 0.5em;
-
-            @include tablet-query {
-                margin-bottom: calc($space-desktab-between * 2);
-            }
+            width: 35rem;
+            margin-top: $space-mobile-between - 0.2rem; 
+            margin-bottom: $space-desktab-between;  
         }
     }
     &__subtitle {

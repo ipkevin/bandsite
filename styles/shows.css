@@ -322,6 +322,14 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
     padding-bottom: 3.6rem;
   }
 }
+@media screen and (min-width: 1280px) {
+  .hero-shows {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 39.5rem;
+  }
+}
 .hero-shows__copy {
   padding-left: 1rem;
 }
@@ -331,22 +339,16 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
   }
 }
 .hero-shows__title {
-  color: #FFFFFF;
+  width: 15rem;
   margin-top: 1.2rem;
   margin-bottom: 1rem;
+  color: #FFFFFF;
 }
 @media screen and (min-width: 768px) {
   .hero-shows__title {
+    width: 35rem;
     margin-top: 0.8rem;
-  }
-}
-.hero-shows__title--2nd-line {
-  margin-top: 0;
-  line-height: 0.5em;
-}
-@media screen and (min-width: 768px) {
-  .hero-shows__title--2nd-line {
-    margin-bottom: 4.5rem;
+    margin-bottom: 2.25rem;
   }
 }
 .hero-shows__subtitle {
