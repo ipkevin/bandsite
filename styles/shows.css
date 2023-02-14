@@ -1,0 +1,306 @@
+@font-face {
+  font-family: "AvenirNext";
+  src: url("../assets/Font/AvenirNextLTPro-Bold.otf") format("opentype"), url("../assets/Font/AvenirNextLTPro-Bold.woff2") format("woff2"), url("../assets/Font/AvenirNextLTPro-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AvenirNext";
+  src: url("../assets/Font/AvenirNextLTPro-Regular.otf") format("opentype"), url("../assets/Font/AvenirNextLTPro-Regular.woff2") format("woff2"), url("../assets/Font/AvenirNextLTPro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "AvenirNext";
+  src: url("../assets/Font/AvenirNextLTPro-Demi.otf") format("opentype"), url("../assets/Font/AvenirNextLTPro-Demi.woff2") format("woff2"), url("../assets/Font/AvenirNextLTPro-Demi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: "AvenirNext";
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3.75rem;
+    font-weight: 600;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  h2 {
+    font-size: 2.25rem;
+    font-weight: 600;
+  }
+}
+
+h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+}
+
+p, .header__item-link {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: normal;
+}
+@media screen and (min-width: 768px) {
+  p, .header__item-link {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: normal;
+  }
+}
+
+/* HEADER SECTION - logo & nav menu */
+.header {
+  background-color: #323232;
+}
+.header__wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+@media screen and (min-width: 768px) {
+  .header__wrapper {
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header__wrapper {
+    gap: 1.5rem;
+  }
+}
+.header__logo {
+  padding: 1rem 1rem 0 1rem;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .header__logo {
+    padding: 0 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header__logo {
+    padding-left: 8rem;
+    padding-top: 0.3rem;
+  }
+}
+.header__menu {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  list-style-type: none;
+}
+@media screen and (min-width: 768px) {
+  .header__menu {
+    justify-content: flex-start;
+    gap: 2.75rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header__menu {
+    gap: 2.25rem;
+  }
+}
+.header__item { /* a container around a nav link */
+  flex-grow: 1;
+  flex-basis: 0;
+}
+@media screen and (min-width: 768px) {
+  .header__item {
+    flex-grow: 0;
+    flex-basis: content;
+  }
+}
+.header__item-link {
+  display: block;
+  padding: 0 1rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 0.2rem solid #323232;
+  text-align: center;
+  text-decoration: none;
+  color: #E1E1E1;
+}
+@media screen and (min-width: 768px) {
+  .header__item-link {
+    padding-top: 1.5rem;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 1.3rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header__item-link {
+    padding-top: 2.25rem;
+    padding-bottom: 1.5rem;
+  }
+}
+.header__item-link:hover, .header__item-link--active {
+  border-bottom-color: white;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* FOOTER SECTION */
+.footer {
+  background-color: #323232;
+}
+.footer__wrapper {
+  padding: 0 1rem;
+  padding-top: 1.8rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__wrapper {
+    padding: 0 2.25rem;
+    padding-top: 3rem;
+    position: relative; /* for positioning of bandsite logo at >= tablet breakpoints */
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer__wrapper {
+    padding: 0 8rem;
+    padding-top: 3rem;
+  }
+}
+.footer__top-group {
+  display: flex;
+  flex-flow: column nowrap;
+}
+@media screen and (min-width: 768px) {
+  .footer__top-group {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer__top-group {
+    gap: 2.25rem;
+  }
+}
+.footer__title-flex-item {
+  /* utility class to set width of 'get in touch' flex item and thus
+  ensure that that row's columns are aligned with the contact list columns below 
+  (in conjunction with identical gap sizes) */
+  width: 13.6rem;
+}
+.footer__title {
+  color: white;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__title {
+    margin-bottom: 1.5rem;
+  }
+}
+.footer__social {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2rem;
+  margin-bottom: 0.6rem;
+}
+.footer__social-image {
+  height: 1.45rem;
+}
+.footer__contact-list {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  margin-bottom: 2.5rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__contact-list {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer__contact-list {
+    gap: 2.25rem;
+  }
+}
+.footer__contact {
+  color: white;
+}
+@media screen and (min-width: 768px) {
+  .footer__contact {
+    width: 13.6rem;
+  }
+}
+.footer__subtitle {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+.footer__subtitle-text {
+  font-weight: 600;
+}
+.footer__copy {
+  margin-bottom: 1.1rem;
+}
+.footer__email {
+  color: white;
+  text-decoration: none;
+  font-size: inherit;
+}
+.footer__email:hover {
+  text-decoration: underline;
+}
+@media screen and (min-width: 768px) {
+  .footer__logo-mobile {
+    position: absolute;
+    top: 3.5rem;
+    right: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer__logo-mobile {
+    right: 8rem;
+  }
+}
+.footer__copyright {
+  color: white;
+  font-size: 0.68rem;
+  padding: 0.6rem 0 1rem 0;
+}
+@media screen and (min-width: 768px) {
+  .footer__copyright {
+    font-size: 0.8125rem;
+    padding-top: 1.5rem;
+    padding-bottom: 2.25rem;
+  }
+}
+
+/* Set a max-width on the content so that it doesn't stretch
+across the entirety of super hi-res screens.
+NOTE: If other *wrapper rules set width and come after this, then they will override. */
+.wrapper-max {
+  width: 100%;
+  max-width: 1735px;
+  margin: 0 auto;
+}/*# sourceMappingURL=shows.css.map */
