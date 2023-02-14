@@ -49,7 +49,7 @@ p {
 
     @include tablet-query {
         font-size: $p-font-size-tab; 
-        line-height: $p-font-size-tab; 
+        line-height: $p-line-height-tab; 
         font-weight: normal;
     }
 }
