@@ -79,10 +79,11 @@ p {
         
         @include tablet-query {
             padding: 0 $space-desktab-between;
+            padding-top: 0.3rem;
         }
         @include desktop-query {
             padding-left: $space-desktop-sidepadding;
-            padding-top: 0.3rem;
+            //padding-top: 0.3rem;
         }
     }
     &__menu {

@@ -89,7 +89,7 @@ p, .header__item-link {
 }
 @media screen and (min-width: 1280px) {
   .header__wrapper {
-    gap: 1.5rem;
+    gap: 1.7rem;
   }
 }
 .header__logo {
@@ -99,12 +99,12 @@ p, .header__item-link {
 @media screen and (min-width: 768px) {
   .header__logo {
     padding: 0 2.25rem;
+    padding-top: 0.3rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .header__logo {
     padding-left: 8rem;
-    padding-top: 0.3rem;
   }
 }
 .header__menu {
@@ -146,16 +146,16 @@ p, .header__item-link {
 }
 @media screen and (min-width: 768px) {
   .header__item-link {
-    padding-top: 1.5rem;
+    padding-top: 1.7rem;
     padding-right: 0;
     padding-left: 0;
-    padding-bottom: 1.3rem;
+    padding-bottom: 1.5rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .header__item-link {
     padding-top: 2.25rem;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.7rem;
   }
 }
 .header__item-link:hover, .header__item-link--active {
@@ -194,7 +194,7 @@ p, .header__item-link {
     flex-direction: row;
     justify-content: flex-start;
     align-items: baseline;
-    gap: 1.5rem;
+    gap: 1.7rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -214,7 +214,7 @@ p, .header__item-link {
 }
 @media screen and (min-width: 768px) {
   .footer__title {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.7rem;
   }
 }
 .footer__social {
@@ -236,7 +236,7 @@ p, .header__item-link {
   .footer__contact-list {
     flex-direction: row;
     justify-content: flex-start;
-    gap: 1.5rem;
+    gap: 1.7rem;
     margin-bottom: 0.5rem;
   }
 }
@@ -291,7 +291,7 @@ p, .header__item-link {
 @media screen and (min-width: 768px) {
   .footer__copyright {
     font-size: 0.8125rem;
-    padding-top: 1.5rem;
+    padding-top: 1.7rem;
     padding-bottom: 2.25rem;
   }
 }
