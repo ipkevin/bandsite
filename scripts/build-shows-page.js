@@ -1,5 +1,5 @@
 
-// the shows data
+// The shows data
 const concertList = [
 {
     date: "Mon Sept 06 2021",
@@ -33,10 +33,6 @@ const concertList = [
 }
 ];
 
-// iterate thru the array and turn each show into an element
-concertList.forEach( aShow => {
-   displayShow(aShow);
-});
 
 
 // This builds a show info element and adds it to the existing list on the page
@@ -50,8 +46,6 @@ function displayShow(show) {
     // a single show element ('.shows__item'). Will be used to hold the details we are pulling from array.
     let containerElem = document.createElement('ul');
     containerElem.classList.add('shows__item');
-    // add eventListener on this element to change row color when clicked
-    containerElem.setAttribute('onclick','highlightClicked(event)');
 
     // Create date header & data
     let dateHeader = document.createElement('li');
@@ -96,6 +90,13 @@ function displayShow(show) {
     parentElem.appendChild(containerElem);
 }
 
+// Adds eventlisteners to the show elements to handle color change on click 
+function addClickHandlers(){
+    let shows = document.querySelectorAll('.shows__item');
+    shows.forEach( (show) => {
+        show.addEventListener('click',highlightClicked);
+    });
+}
 
 // Adds & removes a highlight effect on any clicked row in shows list
 function highlightClicked(event){
@@ -118,3 +119,14 @@ function highlightClicked(event){
         event.currentTarget.classList.add('shows__item--selected');
     }   
 }
+
+
+
+/*** Setup the page ***/
+
+// iterate thru the array and turn each show into an element
+concertList.forEach( aShow => {
+    displayShow(aShow);
+ });
+ // add the event listeners to all shows rows so that they'll highlight when clicked.
+ addClickHandlers();
