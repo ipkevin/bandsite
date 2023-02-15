@@ -263,6 +263,7 @@
         }
         
         &-button { /* buy tickets button container */
+
             @include tablet-query{
                 width: 25%;
                 display: flex;
@@ -271,6 +272,12 @@
             @include desktop-query {
                 width: 21%; 
                 // careful, width needs to work with other copy widths to ensure columns are aligned with headers
+            }
+        }
+        &-link { /* adjust width of buy tickets button depending on screensize */
+            width: 100%;
+            @include tablet-query {
+                width: initial;
             }
         }
     }

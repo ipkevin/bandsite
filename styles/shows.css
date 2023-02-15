@@ -575,4 +575,12 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
   .shows__item-button {
     width: 21%;
   }
+}
+.shows__item-link { /* adjust width of buy tickets button depending on screensize */
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .shows__item-link {
+    width: initial;
+  }
 }/*# sourceMappingURL=shows.css.map */

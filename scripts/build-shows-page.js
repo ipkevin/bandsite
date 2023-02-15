@@ -74,7 +74,7 @@ function displayShow(show) {
     let buttonElem = document.createElement('li');
     buttonElem.classList.add('shows__item-button');
     let buttonLink = document.createElement('a');
-    buttonLink.classList.add('button');
+    buttonLink.classList.add('button','shows__item-link');
     buttonLink.setAttribute('href','#');
     buttonLink.innerText = "Buy Tickets";
     buttonElem.appendChild(buttonLink);
