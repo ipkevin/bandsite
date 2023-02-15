@@ -30,15 +30,17 @@ formElem.addEventListener('submit',handleSubmit);
     // update the html
 // });
 
+// Handles form submission. Adds form data to the db, then calls
+// other func to update display of comments on the page
 function handleSubmit(event){
     event.preventDefault();
     
     const data = new FormData(event.target);
 
-    // Create & popular a new object with the submitted data
+    // Create & populate a new object with the submitted data
     const newEntry = {};
     newEntry.name = data.get('form-name');
-    newEntry.date = "dummy-01";
+    newEntry.date = "dummy-01"; // use new Date obj here
     newEntry.comment = data.get('form-comment');
     console.log(newEntry);
 
@@ -50,11 +52,14 @@ function handleSubmit(event){
     updateComments();
 }
 
+// Refreshes display of comments on page with latest comments
 function updateComments(){
     if (commentsDB.length > 0) {
 
         // clear the comments__items if they are not hte form (need to add anotehr class to id that)
+        //clearList();
 
+        // now create all of the html for a comment & add the data to it
         commentsDB.forEach( element => {
             
             // create html element and add db data to it.
