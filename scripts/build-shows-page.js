@@ -1,3 +1,5 @@
+
+// the shows data
 const concertList = [
 {
     date: "Mon Sept 06 2021",
@@ -48,7 +50,7 @@ function displayShow(show) {
     // a single show element ('.shows__item'). Will be used to hold the details we are pulling from array.
     let containerElem = document.createElement('ul');
     containerElem.classList.add('shows__item');
-    //*** */ NEED TO ADD ONCLICK ATTRIBUTE HERE TO HANDLE THE CLICKS***//
+    // add eventListener on this element to change row color when clicked
     containerElem.setAttribute('onclick','highlightClicked(event)');
 
     // Create date header & data
@@ -72,7 +74,7 @@ function displayShow(show) {
     locationData.classList.add('shows__item-copy','shows__item-copy--location');
     locationData.innerText = show.location;
 
-    // create the button (always the same)
+    // create the button (always the same, no dynamic info)
     let buttonElem = document.createElement('li');
     buttonElem.classList.add('shows__item-button');
     let buttonLink = document.createElement('a');
@@ -81,7 +83,7 @@ function displayShow(show) {
     buttonLink.innerText = "Buy Tickets";
     buttonElem.appendChild(buttonLink);
 
-    // create a show element by appending all the show info
+    // create a show element by appending all the show elements created above
     containerElem.appendChild(dateHeader);
     containerElem.appendChild(dateData);
     containerElem.appendChild(venueHeader);
