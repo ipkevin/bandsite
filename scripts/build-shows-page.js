@@ -40,15 +40,16 @@ concertList.forEach( aShow => {
 // This builds a show info element and adds it to the existing list on the page
 function displayShow(show) {
 
-    // the element/location in the doc where new shows will be appended to
-    // could prob pass this in as a param, but rest of code is already so hardcoded to a particular block of html
+    // The element/location in the doc where new shows will be appended to
+    // Could prob pass this in as a param, but why bother when rest of code 
+    // is already so hardcoded to a particular block of html
     const parentElem = document.querySelector('.shows__list');
 
     // a single show element ('.shows__item'). Will be used to hold the details we are pulling from array.
     let containerElem = document.createElement('ul');
     containerElem.classList.add('shows__item');
     //*** */ NEED TO ADD ONCLICK ATTRIBUTE HERE TO HANDLE THE CLICKS***//
-    containerElem.setAttribute('onclick','highlightClicked()');
+    containerElem.setAttribute('onclick','highlightClicked(event)');
 
     // Create date header & data
     let dateHeader = document.createElement('li');
@@ -94,12 +95,24 @@ function displayShow(show) {
 }
 
 
-// AddEventHandler on row click 
-
-
-// ClickHandler 
-// Find Clear any other active rows (querySelectAll on the active class, then remove class) 
-// On the current event object, add the active class 
+// Adds & removes a highlight effect on any clicked row in shows list
 function highlightClicked(event){
-    event.target.classList.add('shows__item--selected');
+
+    const className = "shows__item--selected";
+
+    if (event.currentTarget.classList.contains(className)) {
+        // if clicking on already highlighted row, then remove highlight
+        event.currentTarget.classList.remove(className);
+    } else {
+        // else first clear highlights from other rows
+        let alreadyHighlighted = document.querySelectorAll(`.${className}`);
+        if (alreadyHighlighted.length > 0) {
+            alreadyHighlighted.forEach( (element) => {
+                element.classList.remove(className);
+            });
+        }
+        // finally add highlight to clicked row
+        // use currentTarget instead of target to affect the element that had listener on it instead of any nested clicked elements
+        event.currentTarget.classList.add('shows__item--selected');
+    }   
 }

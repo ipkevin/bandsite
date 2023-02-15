@@ -499,6 +499,11 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
 .shows__item--selected {
   background-color: #E1E1E1;
 }
+.shows__item--selected:hover {
+  /* ensures highlighted bkgrd color isn't overridden 
+  by non-highlighted hover effect */
+  background-color: #E1E1E1;
+}
 @media screen and (min-width: 768px) {
   .shows__item {
     /* display show info in a horizontal row for tablet & wider */

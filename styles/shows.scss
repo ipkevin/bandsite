@@ -189,6 +189,12 @@
         }
         &--selected {
             background-color: $Mercury;
+
+            &:hover {
+                /* ensures highlighted bkgrd color isn't overridden 
+                by non-highlighted hover effect */
+                background-color: $Mercury;
+            }
         }
         @include tablet-query {            
             /* display show info in a horizontal row for tablet & wider */
