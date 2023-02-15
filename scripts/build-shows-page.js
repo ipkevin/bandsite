@@ -31,8 +31,6 @@ const concertList = [
 }
 ];
 
-// const showsList = document.querySelector('.shows__list');
-
 // iterate thru the array and turn each show into an element
 concertList.forEach( aShow => {
    displayShow(aShow);
@@ -43,11 +41,14 @@ concertList.forEach( aShow => {
 function displayShow(show) {
 
     // the element/location in the doc where new shows will be appended to
+    // could prob pass this in as a param, but rest of code is already so hardcoded to a particular block of html
     const parentElem = document.querySelector('.shows__list');
 
     // a single show element ('.shows__item'). Will be used to hold the details we are pulling from array.
     let containerElem = document.createElement('ul');
     containerElem.classList.add('shows__item');
+    //*** */ NEED TO ADD ONCLICK ATTRIBUTE HERE TO HANDLE THE CLICKS***//
+    containerElem.setAttribute('onclick','highlightClicked()');
 
     // Create date header & data
     let dateHeader = document.createElement('li');
@@ -92,3 +93,13 @@ function displayShow(show) {
     parentElem.appendChild(containerElem);
 }
 
+
+// AddEventHandler on row click 
+
+
+// ClickHandler 
+// Find Clear any other active rows (querySelectAll on the active class, then remove class) 
+// On the current event object, add the active class 
+function highlightClicked(event){
+    event.target.classList.add('shows__item--selected');
+}
