@@ -68,10 +68,6 @@
     &__subtitle {
         color: $White;
     }
-    &__player {
-        
-        // DELETE THIS CLASS AND ELEMENT IF NO USE
-    }
     &__embed {
         height: 30vw;
         max-height: 140px;
@@ -83,8 +79,6 @@
         }
         @include desktop-query {
             width: 1000px;
-            // padding-left: 0;
-            //padding-right: $space-desktop-sidepadding;
         }
     }
 }
@@ -186,7 +180,7 @@
 
         list-style-type: none;
         border-bottom: 2px solid $Mercury;
-        // The styleguide says border-width 1px but the mockup is def 2px
+        // The styleguide says border-width 1px but the mockup is def 2px on shows page
 
         padding: $space-mobile-between;
 
