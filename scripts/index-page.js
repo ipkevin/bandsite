@@ -1,4 +1,5 @@
 
+
 const formElem = document.getElementById('comments-form');
 console.log(formElem);
 
@@ -25,10 +26,11 @@ formElem.addEventListener('submit',handleSubmit);
 //     event.preventDefault();
 //     handleSubmit(event);
 
-    // sanitize
+    // sanitize & validate
     // pass to add to db function if it's good
     // update the html
 // });
+
 
 // Handles form submission. Adds form data to the db, then calls
 // other func to update display of comments on the page
@@ -90,5 +92,5 @@ function clearList(){
     }
 }
 
-//setTimeout(clearList, 2000);
+setTimeout(clearList, 2000);
 //clearList();
