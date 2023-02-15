@@ -82,8 +82,8 @@ function clearList(){
 
     if (currComments.length > 0){
         currComments.forEach( element => {
-            // avoid removing the post comment form
             if (!element.classList.contains("comments__item--first-form")) {
+                // if not the post comment form, then remove element
                 element.remove();
             }
         });
