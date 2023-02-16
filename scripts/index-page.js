@@ -116,7 +116,14 @@ function displayComment(element) {
         } else if (timeDiff < fourDays) {
             return `${Math.round(timeDiff / oneDay)} days ago`;
         } else {
-            return time2.toLocaleDateString();
+            // Return date in MM/DD/YYYY format,
+            // but first check if need leading 0 added to date
+            time2 = time2.toLocaleDateString();
+            if (time2.indexOf("/") === 1) {
+                return "0"+time2;
+            } else {
+                return time2;
+            }
         }
     }
     // Create name & date elements & add them to their parent
