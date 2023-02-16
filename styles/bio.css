@@ -636,6 +636,9 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
 .comments__input-textarea {
   height: 6rem;
 }
+.comments__input--error {
+  border-color: #D22D2D;
+}
 .comments__button {
   font-weight: normal;
 }

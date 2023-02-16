@@ -1,4 +1,5 @@
 
+// Comments Array
 let commentsDB = [
 {
     name: "Connor Walton",
@@ -18,100 +19,123 @@ let commentsDB = [
 ];
 
 const formElem = document.getElementById('comments-form');
-console.log(formElem);
 
-formElem.addEventListener('submit',handleSubmit);
-// formElem.addEventListener('submit', event => {
-//     event.preventDefault();
-//     handleSubmit(event);
-
-    // sanitize & validate
-    // pass to add to db function if it's good
-    // update the html
-// });
-
-
-// Handles form submission. Adds form data to the db, then calls
-// other func to update display of comments on the page
-function handleSubmit(event){
+// Add eventListener for form submit
+formElem.addEventListener('submit', event => {
     event.preventDefault();
 
-    // Create & populate a new object with the submitted data
-    const newEntry = {};
-    newEntry.name = event.target.name.value; // data.get('name-form');
-    newEntry.date = new Date().toLocaleDateString(); // .toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) ; // "dummy-01"; // use new Date obj here
-    newEntry.comment = event.target.message.value;
-    console.log(newEntry); // REMOVE ME
+    if (isFormValid(event)) {
+        // Create & populate a new comment object with the submitted data
+        const newEntry = {};
+        newEntry.name = event.target.name.value; // data.get('name-form');
+        newEntry.date = new Date().toLocaleDateString(); // .toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) ; // "dummy-01"; // use new Date obj here
+        newEntry.comment = event.target.message.value;
 
-    // add the new data object into the comments 'db' array
-    commentsDB.unshift(newEntry);
-    console.log(commentsDB); // REMOVE ME
+        // push the new comment object into the comments array
+        commentsDB.unshift(newEntry);
 
-    // add posts to page display
-    updateComments();
-    event.target.reset();
+        // Refresh the comments on the page with all of the latest posts
+        updateComments();
+
+        // remove previously entered text from the form fields
+        event.target.reset();
+    }
+});
+
+// Validate input from form. Highlight fields that have a problem.
+// Returns true if form fields are all valid, false otherwise
+function isFormValid(event){
+
+    let errorMsg = "";
+
+    // Validate the name field
+    if (event.target.name.value === "" || event.target.name.value.length < 2) {
+        errorMsg += "- Add a valid name (2 letters or more)\n";
+        event.target.name.classList.add("comments__input--error");
+    } else {
+        // if name field is fine, remove error color from field
+        event.target.name.classList.remove("comments__input--error");
+    }
+    // Validate the message field
+    if (event.target.message.value === "" || event.target.message.value.length < 4) {
+        errorMsg += "- Add a message (4 letters or more)\n";
+        event.target.message.classList.add("comments__input--error");
+    } else {
+        event.target.message.classList.remove("comments__input--error");
+    }
+
+    // Alert user which fields have a problem
+    if (errorMsg === "") {
+        return true;
+    } else {
+        errorMsg = "There was a problem with your submission:\n\n"+errorMsg;
+        alert(errorMsg);
+        return false;
+    }
 }
 
-
-// Page element to which we will add comments
-const commentsElem = document.querySelector(".comments__list");
 
 // Refreshes display of comments on page with latest comments
 function updateComments(){
     if (commentsDB.length > 0) {
 
-        // clear the comments__items if they are not hte form (need to add anotehr class to id that)
+        // clear the comments__items already on the page outside of the form
         clearList();
 
-        // now create all of the html for a comment & add the data to it
-        commentsDB.forEach( element => {
-            console.log(element,"-> in db");
-            // Create name & date elements & add them to their parent
-            let elemA = document.createElement("div");
-            elemA.classList.add("comments__post-header");
-            let elemB = document.createElement("p");
-            elemB.classList.add("comments__post-name");
-            elemB.innerText = element.name;
-            elemA.appendChild(elemB);
-            console.log("elem a: ", elemA.innerHTML);
-            elemB = document.createElement("p");
-            elemB.classList.add("comments__post-date");
-            elemB.innerText = element.date;
-            elemA.appendChild(elemB);
-            console.log("elem a: ",elemA.innerHTML);
+        // Now iterate thru all of the comments from the DB and display them to the page
+        commentsDB.forEach(displayComment);
 
-            // Create comment element, then add name/date/comment to new parent
-            elemB = document.createElement("div");
-            elemB.classList.add("comments__copy");  // new parent
-            elemB.appendChild(elemA);  // appended name & date to parent
-            console.log("elemB: ",elemB.innerHTML);
-            elemA = document.createElement("p");
-            elemA.classList.add("comments__post-body");
-            elemA.innerText = element.comment;
-            elemB.appendChild(elemA); // appended comment to parent
-            console.log("elemB: ",elemB.innerHTML);
-
-            // Add above element to the top level comments__item div
-            elemA = document.createElement("div");
-            elemA.classList.add("comments__item");
-            elemA.appendChild(elemB); 
-            console.log("elemA: ",elemA.innerHTML);
-
-            // Add image element to top level div
-            elemB = document.createElement("img");
-            elemB.classList.add("comments__image");
-            elemB.setAttribute("src","./assets/Images/profile-blank.png");
-            elemB.setAttribute("alt","commenter image");
-            elemA.insertBefore(elemB, elemA.firstChild); // insert <img> before other details
-            console.log("elem a: ",elemA);
-            
-            // Finally apprend new comment element to the list on the page
-            commentsElem.appendChild(elemA);
-        });
     } else {
         alert('no comments in the db!');
     }
 }
+
+
+
+// Takes in a comment object (eg from comments array) and adds it to the page
+function displayComment(element) {
+    
+    // Create name & date elements & add them to their parent
+    let elemA = document.createElement("div");
+    elemA.classList.add("comments__post-header");
+    let elemB = document.createElement("p");
+    elemB.classList.add("comments__post-name");
+    elemB.innerText = element.name;
+    elemA.appendChild(elemB);
+    elemB = document.createElement("p");
+    elemB.classList.add("comments__post-date");
+    elemB.innerText = element.date;
+    elemA.appendChild(elemB);
+
+    // Create comment element, then add name/date/comment to new parent
+    elemB = document.createElement("div");
+    elemB.classList.add("comments__copy");  // new parent
+    elemB.appendChild(elemA);  // appended name & date to parent
+    elemA = document.createElement("p");
+    elemA.classList.add("comments__post-body");
+    elemA.innerText = element.comment;
+    elemB.appendChild(elemA); // appended comment to parent
+
+    // Add above element to the top level comments__item div
+    elemA = document.createElement("div");
+    elemA.classList.add("comments__item");
+    elemA.appendChild(elemB); 
+
+    // Add image element to top level div
+    elemB = document.createElement("img");
+    elemB.classList.add("comments__image");
+    elemB.setAttribute("src","./assets/Images/profile-blank.png");
+    elemB.setAttribute("alt","commenter image");
+    elemA.insertBefore(elemB, elemA.firstChild); // insert <img> before other comment elements as per html structure
+    
+    // Page element to which we will add comments
+    const commentsElem = document.querySelector(".comments__list");
+
+    // Finally append new comment element to the list on the page
+    commentsElem.appendChild(elemA);
+}
+
+
 
 // Removes comments from the page other than the input form 
 function clearList(){
@@ -128,5 +152,5 @@ function clearList(){
 }
 
 
-clearList();
+// On initial load of page, remove any dummy comments and post comments from the DB
 updateComments();

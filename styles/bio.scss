@@ -306,6 +306,9 @@
             height: 6rem;
         }
     }
+    &__input--error {
+        border-color: $color-errorField;
+    }
     &__button {
         font-weight: normal;
 
