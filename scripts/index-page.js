@@ -1,8 +1,4 @@
 
-
-const formElem = document.getElementById('comments-form');
-console.log(formElem);
-
 let commentsDB = [
 {
     name: "Connor Walton",
@@ -21,6 +17,9 @@ let commentsDB = [
 }
 ];
 
+const formElem = document.getElementById('comments-form');
+console.log(formElem);
+
 formElem.addEventListener('submit',handleSubmit);
 // formElem.addEventListener('submit', event => {
 //     event.preventDefault();
@@ -37,60 +36,77 @@ formElem.addEventListener('submit',handleSubmit);
 function handleSubmit(event){
     event.preventDefault();
 
-    
-    /**** FIX ALL OF THIS.  Don't need FormData object at all.  Can just access with event.target.fieldname.value!! */
-
-    const data = new FormData(event.target);
-
     // Create & populate a new object with the submitted data
     const newEntry = {};
-    newEntry.name = event.target.name_form.value; // data.get('name-form');
-    newEntry.date = Date.now(); // "dummy-01"; // use new Date obj here
-    newEntry.comment = data.get('comment-form');
-    console.log(newEntry);
+    newEntry.name = event.target.name.value; // data.get('name-form');
+    newEntry.date = new Date().toLocaleDateString(); // .toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) ; // "dummy-01"; // use new Date obj here
+    newEntry.comment = event.target.message.value;
+    console.log(newEntry); // REMOVE ME
 
-    // add the new data object into the comments 'db'
-    commentsDB.splice(0,0,newEntry);
-    console.log(commentsDB);
+    // add the new data object into the comments 'db' array
+    commentsDB.unshift(newEntry);
+    console.log(commentsDB); // REMOVE ME
 
     // add posts to page display
     updateComments();
+    event.target.reset();
 }
 
 
-
-{/* 
-<div class="comments__item">
-    <img class="comments__image">
-    <div class="comments__copy">
-        <div class="comments__post-header">
-            <p class="comments__post-name">Connor Walton</p>
-            <p class="comments__post-date">02/17/2021</p>
-        </div>
-        <p class="comments__post-body">
-            This is art. This is inexplicable magic expresed in the purest way.
-        </p>
-    </div>
-</div> 
-*/}
-
+// Page element to which we will add comments
+const commentsElem = document.querySelector(".comments__list");
 
 // Refreshes display of comments on page with latest comments
 function updateComments(){
     if (commentsDB.length > 0) {
 
         // clear the comments__items if they are not hte form (need to add anotehr class to id that)
-        //clearList();
+        clearList();
 
         // now create all of the html for a comment & add the data to it
         commentsDB.forEach( element => {
+            console.log(element,"-> in db");
+            // Create name & date elements & add them to their parent
+            let elemA = document.createElement("div");
+            elemA.classList.add("comments__post-header");
+            let elemB = document.createElement("p");
+            elemB.classList.add("comments__post-name");
+            elemB.innerText = element.name;
+            elemA.appendChild(elemB);
+            console.log("elem a: ", elemA.innerHTML);
+            elemB = document.createElement("p");
+            elemB.classList.add("comments__post-date");
+            elemB.innerText = element.date;
+            elemA.appendChild(elemB);
+            console.log("elem a: ",elemA.innerHTML);
+
+            // Create comment element, then add name/date/comment to new parent
+            elemB = document.createElement("div");
+            elemB.classList.add("comments__copy");  // new parent
+            elemB.appendChild(elemA);  // appended name & date to parent
+            console.log("elemB: ",elemB.innerHTML);
+            elemA = document.createElement("p");
+            elemA.classList.add("comments__post-body");
+            elemA.innerText = element.comment;
+            elemB.appendChild(elemA); // appended comment to parent
+            console.log("elemB: ",elemB.innerHTML);
+
+            // Add above element to the top level comments__item div
+            elemA = document.createElement("div");
+            elemA.classList.add("comments__item");
+            elemA.appendChild(elemB); 
+            console.log("elemA: ",elemA.innerHTML);
+
+            // Add image element to top level div
+            elemB = document.createElement("img");
+            elemB.classList.add("comments__image");
+            elemB.setAttribute("src","./assets/Images/profile-blank.png");
+            elemB.setAttribute("alt","commenter image");
+            elemA.insertBefore(elemB, elemA.firstChild); // insert <img> before other details
+            console.log("elem a: ",elemA);
             
-            // create html element and add db data to it.
-            let newComment = document.createElement('div');
-            newComment.classList.add('comments__item');
-            
-            // apprend to comments list
-        
+            // Finally apprend new comment element to the list on the page
+            commentsElem.appendChild(elemA);
         });
     } else {
         alert('no comments in the db!');
@@ -111,5 +127,6 @@ function clearList(){
     }
 }
 
-setTimeout(clearList, 2000);
-//clearList();
+
+clearList();
+updateComments();
