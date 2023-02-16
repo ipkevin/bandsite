@@ -282,8 +282,11 @@
         font-weight: normal;
         color: $Silver;
         text-transform: uppercase;
+
+        display:block;
     }
     &__input {
+        // display: block;
         margin-bottom: $space-mobile-between;
         border-radius: 0.25rem; // 4px;
         padding: 0.75rem; // 12px;

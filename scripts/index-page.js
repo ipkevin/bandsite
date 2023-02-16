@@ -36,14 +36,17 @@ formElem.addEventListener('submit',handleSubmit);
 // other func to update display of comments on the page
 function handleSubmit(event){
     event.preventDefault();
+
     
+    /**** FIX ALL OF THIS.  Don't need FormData object at all.  Can just access with event.target.fieldname.value!! */
+
     const data = new FormData(event.target);
 
     // Create & populate a new object with the submitted data
     const newEntry = {};
-    newEntry.name = data.get('form-name');
-    newEntry.date = "dummy-01"; // use new Date obj here
-    newEntry.comment = data.get('form-comment');
+    newEntry.name = event.target.name_form.value; // data.get('name-form');
+    newEntry.date = Date.now(); // "dummy-01"; // use new Date obj here
+    newEntry.comment = data.get('comment-form');
     console.log(newEntry);
 
     // add the new data object into the comments 'db'
@@ -53,6 +56,24 @@ function handleSubmit(event){
     // add posts to page display
     updateComments();
 }
+
+
+
+{/* 
+<div class="comments__item">
+    <img class="comments__image">
+    <div class="comments__copy">
+        <div class="comments__post-header">
+            <p class="comments__post-name">Connor Walton</p>
+            <p class="comments__post-date">02/17/2021</p>
+        </div>
+        <p class="comments__post-body">
+            This is art. This is inexplicable magic expresed in the purest way.
+        </p>
+    </div>
+</div> 
+*/}
+
 
 // Refreshes display of comments on page with latest comments
 function updateComments(){
@@ -71,8 +92,6 @@ function updateComments(){
             // apprend to comments list
         
         });
-
-
     } else {
         alert('no comments in the db!');
     }

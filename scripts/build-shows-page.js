@@ -125,7 +125,7 @@ function highlightClicked(event){
 
 /*** Setup the page ***/
 
-// iterate thru the array and turn each show into an element
+// iterate thru the array and turn each show into an element on the page
 concertList.forEach( aShow => {
     displayShow(aShow);
  });

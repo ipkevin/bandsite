@@ -614,6 +614,7 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
   font-weight: normal;
   color: #AFAFAF;
   text-transform: uppercase;
+  display: block;
 }
 .comments__input {
   margin-bottom: 1rem;
