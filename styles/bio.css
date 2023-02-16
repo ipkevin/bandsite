@@ -624,8 +624,17 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
   padding: 0.75rem;
   min-height: 36px;
   border: 1px solid #E1E1E1;
-  font-size: 0.8125rem;
   background-color: #FAFAFA;
+}
+.comments__input::-moz-placeholder {
+  font-size: 0.8125rem;
+  font-family: "AvenirNext";
+  font-weight: normal;
+}
+.comments__input::placeholder {
+  font-size: 0.8125rem;
+  font-family: "AvenirNext";
+  font-weight: normal;
 }
 @media screen and (min-width: 768px) {
   .comments__input {

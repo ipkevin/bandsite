@@ -28,7 +28,7 @@ formElem.addEventListener('submit', event => {
         // Create & populate a new comment object with the submitted data
         const newEntry = {};
         newEntry.name = event.target.name.value; // data.get('name-form');
-        newEntry.date = new Date().toLocaleDateString(); // .toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) ; // "dummy-01"; // use new Date obj here
+        newEntry.date = new Date(); //.toLocaleDateString(); // .toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) ; // "dummy-01"; // use new Date obj here
         newEntry.comment = event.target.message.value;
 
         // push the new comment object into the comments array
@@ -92,9 +92,33 @@ function updateComments(){
 
 
 
-// Takes in a comment object (eg from comments array) and adds it to the page
+// Takes in a comment object (eg from comments array) and adds it to the page.
+// If comment posted less than 4 days ago, the date shown will dynamically change to time elapsed since posting.
 function displayComment(element) {
     
+    // Checks a date against current date.  If diff is <= 4 days, then return diff in days, hours, mins, or seconds.  Else return date in mm/dd/yyyy.
+    function getDateElapsed(date) {
+        let time1 = new Date();
+        let time2 = new Date(date);
+        let timeDiff = time1 - time2;
+        let fourDays = 1000*60*60*24*4;
+        let oneDay = 1000*60*60*24;
+        let oneHour = 1000*60*60;
+        let oneMin = 1000*60;
+        let oneSec = 1000;
+
+        if (timeDiff < oneMin){
+            return `${Math.round(timeDiff / oneSec)} seconds ago`;
+        } else if (timeDiff < oneHour) {
+            return `${Math.round(timeDiff / oneMin)} minutes ago`;
+        } else if (timeDiff < oneDay) {
+            return `${Math.round(timeDiff / oneHour)} hours ago`;
+        } else if (timeDiff < fourDays) {
+            return `${Math.round(timeDiff / oneDay)} days ago`;
+        } else {
+            return time2.toLocaleDateString();
+        }
+    }
     // Create name & date elements & add them to their parent
     let elemA = document.createElement("div");
     elemA.classList.add("comments__post-header");
@@ -104,7 +128,7 @@ function displayComment(element) {
     elemA.appendChild(elemB);
     elemB = document.createElement("p");
     elemB.classList.add("comments__post-date");
-    elemB.innerText = element.date;
+    elemB.innerText = getDateElapsed(element.date); // use time elapsed fxn above to get time elapsed or date
     elemA.appendChild(elemB);
 
     // Create comment element, then add name/date/comment to new parent

@@ -294,8 +294,13 @@
         min-height: 36px;
         border: 1px solid $Mercury;
 
-        font-size: $p-font-size-mob;
         background-color: $Alabaster;
+
+        &::placeholder {
+            font-size: $p-font-size-mob;
+            font-family: "AvenirNext";
+            font-weight: normal;
+        }
 
         @include tablet-query {
             min-height: 48px;
