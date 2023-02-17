@@ -1,24 +1,3 @@
-// check what value returns on a non input element.  ANS: Somehting but not sure what.  It's def not the innerHTML or Text or anything like that. 
-// I believe value is really just accessing the "value" attribute from an input or what users have entered into it.
-
-let testEl = document.querySelector(".comments");
-let test2 = testEl.querySelector(".gallery__photo");
-console.log(test2);
-// can you use queryselector on an element (target) from a form event?  And then access it's .value?  ANS: Yes.  
-document.onclick = event => {
-  let test2 = event.target.querySelector(".comments__input-textarea");
-  console.log("from event querySelect: ",test2.value); // works as long as there is a value in the field.
-  console.log("from event eventtarget classname: ",event.target['messageid'].value); // works as long as there is a value in the field.
-//   console.log("from event: ", )
-};
-// event.target.somename.value == somename must be id.  'name' attrib won't work.  Class might work if no dashes or underscore.
-// event.target['somename'].value == somename can be id OR name.  Both work.   class does not work!
-
-
-// check if can access children of a non-form element using their class name
-
-
-/// ********** ERASE EVERYTHING ABOVE THIS LINE ******* ///
 
 // Comments Array
 let commentsDB = [
