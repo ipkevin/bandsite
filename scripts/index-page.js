@@ -24,11 +24,12 @@ const formElem = document.getElementById('comments-form');
 formElem.addEventListener('submit', event => {
     event.preventDefault();
 
-    if (isFormValid(event)) {
+    if (isFormValid(event)) { // validate input and if it's good, processing the data
+
         // Create & populate a new comment object with the submitted data
         const newEntry = {};
-        newEntry.name = event.target.name.value; // data.get('name-form');
-        newEntry.date = new Date(); //.toLocaleDateString(); // .toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) ; // "dummy-01"; // use new Date obj here
+        newEntry.name = event.target.name.value; 
+        newEntry.date = new Date(); 
         newEntry.comment = event.target.message.value;
 
         // push the new comment object into the comments array
@@ -51,7 +52,7 @@ function isFormValid(event){
     // Validate the name field
     if (event.target.name.value === "" || event.target.name.value.length < 2)  {
         errorMsg += "- Add a valid name (min 2 characters please)\n";
-        event.target.name.classList.add("comments__input--error");
+        event.target.name.classList.add("comments__input--error"); // add error color to form field
     } else {
         // if name field is fine, remove error color from field
         event.target.name.classList.remove("comments__input--error");

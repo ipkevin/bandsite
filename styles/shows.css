@@ -329,7 +329,6 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
   background: center/cover url("../assets/Images/hero-shows.jpg");
   background-color: rgba(50, 50, 50, 0.5);
   background-blend-mode: multiply;
-  max-height: 100%;
 }
 .hero-shows__wrapper {
   padding-top: 2rem;
