@@ -1,3 +1,24 @@
+// check what value returns on a non input element.  ANS: Somehting but not sure what.  It's def not the innerHTML or Text or anything like that. 
+// I believe value is really just accessing the "value" attribute from an input or what users have entered into it.
+
+let testEl = document.querySelector(".comments");
+let test2 = testEl.querySelector(".gallery__photo");
+console.log(test2);
+// can you use queryselector on an element (target) from a form event?  And then access it's .value?  ANS: Yes.  
+document.onclick = event => {
+  let test2 = event.target.querySelector(".comments__input-textarea");
+  console.log("from event querySelect: ",test2.value); // works as long as there is a value in the field.
+  console.log("from event eventtarget classname: ",event.target['messageid'].value); // works as long as there is a value in the field.
+//   console.log("from event: ", )
+};
+// event.target.somename.value == somename must be id.  'name' attrib won't work.  Class might work if no dashes or underscore.
+// event.target['somename'].value == somename can be id OR name.  Both work.   class does not work!
+
+
+// check if can access children of a non-form element using their class name
+
+
+/// ********** ERASE EVERYTHING ABOVE THIS LINE ******* ///
 
 // Comments Array
 let commentsDB = [
@@ -42,15 +63,15 @@ formElem.addEventListener('submit', event => {
     }
 });
 
-// Validate input from form. Highlight fields that have a problem.
+// Function to validate input from form. Highlight fields that have a problem.
 // Returns true if form fields are all valid, false otherwise
 function isFormValid(event){
 
     let errorMsg = "";
 
     // Validate the name field
-    if (event.target.name.value === "" || event.target.name.value.length < 2) {
-        errorMsg += "- Add a valid name (2 letters or more)\n";
+    if (event.target.name.value === "" || event.target.name.value.length < 2)  {
+        errorMsg += "- Add a valid name (min 2 characters please)\n";
         event.target.name.classList.add("comments__input--error");
     } else {
         // if name field is fine, remove error color from field
@@ -58,7 +79,7 @@ function isFormValid(event){
     }
     // Validate the message field
     if (event.target.message.value === "" || event.target.message.value.length < 4) {
-        errorMsg += "- Add a message (4 letters or more)\n";
+        errorMsg += "- Add a message (min 4 characters please)\n";
         event.target.message.classList.add("comments__input--error");
     } else {
         event.target.message.classList.remove("comments__input--error");
@@ -75,7 +96,7 @@ function isFormValid(event){
 }
 
 
-// Refreshes display of comments on page with latest comments
+// Function that refreshes display of comments on page with latest comments
 function updateComments(){
     if (commentsDB.length > 0) {
 
@@ -92,7 +113,7 @@ function updateComments(){
 
 
 
-// Takes in a comment object (eg from comments array) and adds it to the page.
+// Function that takes in a comment object (eg from comments array) and adds it to the page.
 // If comment posted less than 4 days ago, the date shown will dynamically change to time elapsed since posting.
 function displayComment(element) {
     
@@ -168,7 +189,7 @@ function displayComment(element) {
 
 
 
-// Removes comments from the page other than the input form 
+// Function to remove comments from the page other than the input form 
 function clearList(){
     const currComments = document.querySelectorAll('.comments__item');
 

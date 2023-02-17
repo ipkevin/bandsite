@@ -329,9 +329,15 @@
     }
     &__post-name {
         font-weight: 600;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     &__post-date {
         color: $Silver;
+    }
+    &__post-body {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
 }

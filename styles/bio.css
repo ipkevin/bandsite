@@ -663,7 +663,13 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
 }
 .comments__post-name {
   font-weight: 600;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .comments__post-date {
   color: #AFAFAF;
+}
+.comments__post-body {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }/*# sourceMappingURL=bio.css.map */

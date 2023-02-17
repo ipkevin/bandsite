@@ -36,7 +36,7 @@ const concertList = [
 
 
 
-// This builds a show info element and adds it to the existing list on the page
+// Function to build a show info element and add it to the existing list on the page
 function displayShow(show) {
 
     // The element/location in the doc where new shows will be appended to
@@ -91,7 +91,7 @@ function displayShow(show) {
     parentElem.appendChild(containerElem);
 }
 
-// Adds eventlisteners to the show elements to handle color change on click 
+// Function that adds eventlisteners to the show elements to handle color change on click 
 function addClickHandlers(){
     let shows = document.querySelectorAll('.shows__item');
     shows.forEach( (show) => {
@@ -99,7 +99,7 @@ function addClickHandlers(){
     });
 }
 
-// Adds & removes a highlight effect on any clicked row in shows list
+// Function that adds & removes a highlight effect on any clicked row in shows list
 function highlightClicked(event){
 
     const className = "shows__item--selected";
