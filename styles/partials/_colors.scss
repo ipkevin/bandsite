@@ -1,10 +1,11 @@
 // Colors used across site, named as per the styleguide
 
 $color-background-dark: #323232; // header & footer bkgrd // $BandSite-Black
-$Silver: #AFAFAF;
-$White: #FFFFFF;
-$BandSite-DarkBlack: #000000;
-$Mercury: #E1E1E1; // inactive links
-$Alabaster: #FAFAFA;
+
+$color-font-secondary: #AFAFAF; // $Silver
+$color-font-primary: #FFFFFF; // $White
+$color-cta-hover: #000000; // $BandSite-DarkBlack
+$color-divider-line: #E1E1E1; // $Mercury // inactive links
+$color-background-lightalt: #FAFAFA; // $Alabaster
 
 $color-errorField: #D22D2D;

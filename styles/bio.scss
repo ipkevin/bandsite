@@ -50,7 +50,7 @@
 
 /* MAIN ARTICLE STORY SECTION */
 .story {
-    background-color: $White;
+    background-color: $color-font-primary;
     
     &__wrapper {
         padding: 0 $space-mobile-between;
@@ -148,7 +148,7 @@
 
 /* GALLERY SECTION */
 .gallery {
-    background-color: $Alabaster;
+    background-color: $color-background-lightalt;
     
     &__wrapper { 
         padding: 0 $space-mobile-between;
@@ -211,7 +211,7 @@
 /* COMMENTS SECTION */
 
 .comments {
-    background-color: $White;
+    background-color: $color-font-primary;
 
     &__wrapper {
         padding: $space-mobile-between;
@@ -242,7 +242,7 @@
         align-items: flex-start;
         gap: $space-mobile-between;
 
-        border-bottom: 1px solid $Mercury;
+        border-bottom: 1px solid $color-divider-line;
         padding: $space-mobile-between 0;
 
         @include tablet-query {
@@ -253,7 +253,7 @@
     &__image {
         width: 2.2rem;
         height: 2.2rem;
-        background-color: $Mercury;
+        background-color: $color-divider-line;
         border-radius: 50%;        
         object-fit:cover;
 
@@ -280,7 +280,7 @@
         font-size: 0.7rem; 
         line-height: 1.25rem;
         font-weight: normal;
-        color: $Silver;
+        color: $color-font-secondary;
         text-transform: uppercase;
 
         display:block;
@@ -292,9 +292,9 @@
         padding: 0.75rem; // 12px;
         
         min-height: 36px;
-        border: 1px solid $Mercury;
+        border: 1px solid $color-divider-line;
 
-        background-color: $Alabaster;
+        background-color: $color-background-lightalt;
 
         &::placeholder {
             font-size: $p-font-size-mob;
@@ -333,7 +333,7 @@
         overflow-wrap: break-word;
     }
     &__post-date {
-        color: $Silver;
+        color: $color-font-secondary;
     }
     &__post-body {
         word-wrap: break-word;

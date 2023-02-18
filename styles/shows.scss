@@ -51,7 +51,7 @@
         margin-top: $space-mobile-prehead - 0.3rem;   
         margin-bottom: $space-mobile-posthead;   
         
-        color: $White;
+        color: $color-font-primary;
 
         @include tablet-query {
             width: 35rem;
@@ -63,7 +63,7 @@
         }
     }
     &__subtitle {
-        color: $White;
+        color: $color-font-primary;
     }
     &__embed {
         height: 30vw;
@@ -143,7 +143,7 @@
         font-size: 0.75rem; 
         line-height: 1.25rem;
         font-weight: 600;
-        color: $Silver;
+        color: $color-font-secondary;
         text-transform: uppercase;
 
         width: 25%;
@@ -176,21 +176,21 @@
         /* A block or row of show info (incl button) */
 
         list-style-type: none;
-        border-bottom: 2px solid $Mercury;
+        border-bottom: 2px solid $color-divider-line;
         // The styleguide says border-width 1px but the mockup is def 2px on shows page
 
         padding: $space-mobile-between;
 
         &:hover {
-            background-color: $Alabaster;
+            background-color: $color-background-lightalt;
         }
         &--selected {
-            background-color: $Mercury;
+            background-color: $color-divider-line;
 
             &:hover {
                 /* ensures highlighted bkgrd color isn't overridden 
                 by non-highlighted hover effect */
-                background-color: $Mercury;
+                background-color: $color-divider-line;
             }
         }
         @include tablet-query {            
@@ -213,7 +213,7 @@
             font-size: 0.65rem; // 0.75rem; 
             line-height: 1.25rem;
             font-weight: 600;
-            color: $Silver;
+            color: $color-font-secondary;
             text-transform: uppercase;
 
             margin-bottom: calc($space-mobile-between-reduced / 2);

@@ -130,7 +130,7 @@ p {
     
         text-align: center;
         text-decoration: none;
-        color: $Mercury;
+        color: $color-divider-line;
 
         @include tablet-query {
             padding-top: $space-desktab-between-reduced;
@@ -145,7 +145,7 @@ p {
     }
     &__item-link:hover, &__item-link--active {
         border-bottom-color: white;
-        color: $White;
+        color: $color-font-primary;
         font-weight: 600;
     }
 }
@@ -161,12 +161,12 @@ p {
     background-color: $color-background-dark;
 
     text-align: center;
-    color: $White;
+    color: $color-font-primary;
     font-weight: 600;
     text-decoration: none;
     text-transform: uppercase;
     &:hover {
-        background-color: $BandSite-DarkBlack;
+        background-color: $color-cta-hover;
     }
 }
 /* FOOTER SECTION */
