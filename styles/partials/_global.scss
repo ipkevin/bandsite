@@ -59,7 +59,7 @@ p {
 
 /* HEADER SECTION - logo & nav menu */
 .header {
-    background-color: $BandSite-Black;
+    background-color: $color-background-dark;
     
     &__wrapper {
         display: flex;
@@ -124,7 +124,7 @@ p {
         padding-bottom: $space-btwn-less-underline-mobile;
         
         // Use dark border instead of hiding to prevent the border from pushing down content when it appears
-        border-bottom: $menu-underline-mobile solid $BandSite-Black; 
+        border-bottom: $menu-underline-mobile solid $color-background-dark; 
 
         @extend p;
     
@@ -158,7 +158,7 @@ p {
     padding: 0.8rem 1.7rem; // 2rem matches styleguide but not mock
 
     border-radius: 0.25rem;
-    background-color: $BandSite-Black;
+    background-color: $color-background-dark;
 
     text-align: center;
     color: $White;
@@ -172,7 +172,7 @@ p {
 /* FOOTER SECTION */
 .footer {
 
-    background-color: $BandSite-Black;
+    background-color: $color-background-dark;
     
     &__wrapper {
         padding: 0 $space-mobile-between;
