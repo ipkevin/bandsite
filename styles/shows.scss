@@ -240,7 +240,7 @@
             }
 
             // Desktop Widths of these copy columns
-            // Must match desktop widths of the header columns
+            // Must match desktop widths of the header columns .shows__header-title
             &--date {
                 font-weight: 600;
                 @include desktop-query {
