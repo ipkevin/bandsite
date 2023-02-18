@@ -1,6 +1,6 @@
-# Band Site - Sprint 1
+# Band Site - Sprint 2
 
-Sprint 1 Band Site project from BrainStation Web Dev Bootcamp.  Vancouver Feb 2023.
+Band Site project from BrainStation Web Dev Bootcamp.  Vancouver Feb 2023.
 
 ## Note on Styling
 
