@@ -159,22 +159,27 @@ function displayComment(element) {
 
 
     // create like counter and add to container elem
-    const pReactionElem = document.createElement("p");
-    pReactionElem.appendChild(likeButton);
-    pReactionElem.innerHTML += " | Likes: ";
+    const likeContainerElem = document.createElement("p");
+    likeContainerElem.appendChild(likeButton);
+    /* 
+    //likeContainerElem.innerHTML += " | Likes: "; 
+    Don't use innerHTML. It clears references to any elements that were already inside. 
+    ie, likeButton will no longer refer to the button element (tho it still has a string representing it) 
+    Why does that matter?  You won't be able to addEventListener directly to likeButton.
+    Use insertAdjacentHTML in this case:
+    */
+    likeContainerElem.insertAdjacentHTML("beforeend", " | Likes: ");
     const likeValueElem = document.createElement("span");
     likeValueElem.classList.add("likes-value");
     likeValueElem.innerText = element.likes; // like count from api
-    pReactionElem.appendChild(likeValueElem);
-    reactionElem.appendChild(pReactionElem); // add like count & button to container
+    likeContainerElem.appendChild(likeValueElem);
+    reactionElem.appendChild(likeContainerElem); // add like count & button to container
     
     // create delete button and add to container elem
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("deleteButton");
     deleteButton.innerText = "Delete";
     reactionElem.appendChild(deleteButton);
-
-    // console.log("reactionelem: ", reactionElem);
 
     // add like, delete to the comment element
     elemB.appendChild(reactionElem);
@@ -228,6 +233,15 @@ function displayComment(element) {
             });
         }
     });
+    // likeButton.addEventListener("click", (event) => {
+    //     axios.put(`${apiUrl}/${element.id}/like?api_key=${apiKey}`).then( result => {
+                
+    //         //likeValueElem.innerText = result.data.likes;
+    //         event.target.nextElementSibling.innerText = result.data.likes;
+    //     }).catch( error => {
+    //         console.log("error updating the comment likes thru api: ", error);
+    //     });
+    // });
 
    
 }
