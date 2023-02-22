@@ -340,4 +340,11 @@
         overflow-wrap: break-word;
     }
 
+    &__reactions {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        margin-top: $space-mobile-between;
+    }
 }

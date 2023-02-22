@@ -1,3 +1,6 @@
+const apiKey = "271cb087-128b-444b-a96a-3a321e8ed19a";
+const apiUrl = "https://project-1-api.herokuapp.com/comments";
+
 
 // Comments Array
 let commentsDB = [
@@ -190,4 +193,4 @@ function clearList(){
 
 
 // On initial load of page, remove any dummy comments and post comments from the DB
-updateComments();
+//updateComments();
