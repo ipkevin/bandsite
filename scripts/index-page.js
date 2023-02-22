@@ -170,15 +170,6 @@ function displayComment(element) {
     elemA.innerText = element.comment;
     elemB.appendChild(elemA); // appended comment to parent
 
-    // Add delete & like buttons here
-    // likely will want to use unique vars for them to more easily add event listeners
-           /* 
-        <div class="comments__reactions">
-            <p><button class="likeButton">Like comment</button> 
-                | Likes: <span class="likes-value">0</span></p>
-            <button class="deleteButton">Delete</button>
-        </div>
-    */
     // Create container elem holding likes, like btn & delete btn
     const reactionElem = document.createElement("div");
     reactionElem.classList.add("comments__reactions");
@@ -186,7 +177,8 @@ function displayComment(element) {
     // create like button and add to container elem
     const likeButton = document.createElement("button");
     likeButton.classList.add("likeButton");
-    likeButton.innerText = "Like comment";
+    likeButton.innerText = "Like";
+
 
     // create like counter and add to container elem
     const pReactionElem = document.createElement("p");
@@ -221,37 +213,43 @@ function displayComment(element) {
     elemB.setAttribute("alt","commenter image");
     elemA.insertBefore(elemB, elemA.firstChild); // insert <img> before other comment elements as per html structure
 
- 
-
     // Page element to which we will add comments
     const commentsElem = document.querySelector(".comments__list");
 
     // Finally append new comment element to the list on the page
     commentsElem.appendChild(elemA);
 
+    // Add event listener on the area containing both delete & like buttons
+    // Depending on exactly what is clicked, change behavior
+    // NOTE: The like button is nested in a <p> tag which causes issues adding event listener to it. This method is best to capture it.
+    reactionElem.addEventListener('click', (event) => {
 
-    // Add event listener for delete.  
-    deleteButton.addEventListener("click", event => {
-        // Delete comment from remote DB. If works, then delete from page display as well.
-        let delComm = axios.delete(`${apiUrl}/${element.id}?api_key=${apiKey}`);
-        delComm.then( result => {
-            event.target.parentNode.parentNode.parentNode.remove();
-            console.log("success deleting comment using api: ", result);
-        }).catch( error => {
-            console.log("error deleting comment using api: ", error);
-            alert("error deleting comment from remote DB")
-        });
+        // Delete button clicked
+        if (event.target.classList.contains("deleteButton")) { 
+
+             // Delete comment from remote DB. If works, then delete from page display as well.
+            let delComm = axios.delete(`${apiUrl}/${element.id}?api_key=${apiKey}`);
+            delComm.then( result => {
+                event.target.parentNode.parentNode.parentNode.remove();
+                console.log("success deleting comment using api: ", result);
+            }).catch( error => {
+                console.log("error deleting comment using api: ", error);
+                alert("error deleting comment from remote DB")
+            });
+        }
+        // Like button clicked
+        if (event.target.classList.contains("likeButton")) {
+            
+            // Update likes on remote DB.  If successful, then update likes counter on the page.
+            axios.put(`${apiUrl}/${element.id}/like?api_key=${apiKey}`).then( result => {
+                likeValueElem.innerText = result.data.likes;
+            }).catch( error => {
+                console.log("error updating the comment likes thru api: ", error);
+            });
+        }
     });
 
-    /*
-    register handler for like
-     - axio.put to update comment' likes
-     - axios.get to pull newest comment total and add it to the element
-     - update like element
-    */
-    likeButton.addEventListener("click", event => {
-        //
-    })
+   
 }
 
 
