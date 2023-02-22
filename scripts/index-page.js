@@ -2,25 +2,25 @@ const apiKey = "271cb087-128b-444b-a96a-3a321e8ed19a";
 const apiUrl = "https://project-1-api.herokuapp.com/comments";
 
 
-// Comments Array
-let commentsDB = [
-    {
-        name: "Miles Acosta",
-        date: "12/20/2020",
-        comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
-    },
-    {
-    name: "Connor Walton",
-    date: "02/17/2021",
-    comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
-},
-{
-    name: "Emilie Beach",
-    date: "01/09/2021",
-    comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
-},
+// // Comments Array
+// let commentsDB = [
+//     {
+//         name: "Miles Acosta",
+//         date: "12/20/2020",
+//         comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
+//     },
+//     {
+//     name: "Connor Walton",
+//     date: "02/17/2021",
+//     comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
+// },
+// {
+//     name: "Emilie Beach",
+//     date: "01/09/2021",
+//     comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
+// },
 
-];
+// ];
 
 const formElem = document.getElementById('comments-form');
 
@@ -30,20 +30,34 @@ formElem.addEventListener('submit', event => {
 
     if (isFormValid(event)) { // validate input and if it's good, processing the data
 
+        
         // Create & populate a new comment object with the submitted data
         const newEntry = {};
         newEntry.name = event.target.name.value; 
-        newEntry.date = new Date(); 
+        newEntry.timestamp = new Date(); 
         newEntry.comment = event.target.message.value;
 
-        // push the new comment object into the comments array
-        commentsDB.unshift(newEntry);
+        // push the new comment object into the remote comments array
+        axios.post(`${apiUrl}?api_key=${apiKey}`, {
+            name: newEntry.name,
+            comment: newEntry.comment
+            // timestamp: newEntry.timestamp
+        }).then( (result) => {
+            console.log("result from post new comment to api: ", result);
 
-        // Refresh the comments on the page with all of the latest posts
-        updateComments();
+            // Refresh the comments on the page with all of the latest posts
+            updateComments();
 
-        // remove previously entered text from the form fields
-        event.target.reset();
+            // remove previously entered text from the form fields
+            event.target.reset();
+
+        }).catch( (error) => {
+            console.log("error result from post new comment to api: ", error);
+            alert("There was an error adding your comment to the DB. Please try again.");
+        })
+        //commentsDB.unshift(newEntry);
+
+
     }
 });
 
@@ -82,21 +96,21 @@ function isFormValid(event){
 
 // Function that refreshes display of comments on page with latest comments
 function updateComments(){
-    if (commentsDB.length > 0) {
-
-        // clear the comments__items already on the page outside of the form
-        clearList();
-
-        // Ensure the comments array is sorted with newest first
-        commentsDB.sort( (a,b) => {
-            return new Date(b.date) - new Date(a.date);
-        })
-        // Now iterate thru the comments array and display them to the page
-        commentsDB.forEach(displayComment);
-
-    } else {
-        alert('no comments in the db!');
-    }
+    const commentsRaw = axios.get(`${apiUrl}/?api_key=${apiKey}`);
+    commentsRaw.then((result) => {
+        clearList(); // remove any existing comments on the page
+        
+        let commentsArr = result.data;
+        commentsArr.sort((a,b) => { // sort comments newest first
+            return b.timestamp - a.timestamp;
+        });
+        
+        commentsArr.forEach(displayComment); // iterate thru comments and display them
+    
+    }).catch(error => {
+        console.log("Error in fetching comments: ", error);
+        alert("There was a problem fetching comments from the remote db")
+    });
 }
 
 
@@ -144,7 +158,7 @@ function displayComment(element) {
     elemA.appendChild(elemB);
     elemB = document.createElement("p");
     elemB.classList.add("comments__post-date");
-    elemB.innerText = getDateElapsed(element.date); // use time elapsed fxn above to get time elapsed or date
+    elemB.innerText = getDateElapsed(element.timestamp); // use time elapsed fxn above to get time elapsed or date
     elemA.appendChild(elemB);
 
     // Create comment element, then add name/date/comment to new parent
@@ -158,11 +172,44 @@ function displayComment(element) {
 
     // Add delete & like buttons here
     // likely will want to use unique vars for them to more easily add event listeners
-    let delBtn = document.createElement("button");
-    let likeBtn = document.createElement("button");
+           /* 
+        <div class="comments__reactions">
+            <p><button class="likeButton">Like comment</button> 
+                | Likes: <span class="likes-value">0</span></p>
+            <button class="deleteButton">Delete</button>
+        </div>
+    */
+    // Create container elem holding likes, like btn & delete btn
+    const reactionElem = document.createElement("div");
+    reactionElem.classList.add("comments__reactions");
     
+    // create like button and add to container elem
+    const likeButton = document.createElement("button");
+    likeButton.classList.add("likeButton");
+    likeButton.innerText = "Like comment";
 
-    // Add above element to the top level comments__item div
+    // create like counter and add to container elem
+    const pReactionElem = document.createElement("p");
+    pReactionElem.appendChild(likeButton);
+    pReactionElem.innerHTML += " | Likes: ";
+    const likeValueElem = document.createElement("span");
+    likeValueElem.classList.add("likes-value");
+    likeValueElem.innerText = element.likes; // like count from api
+    pReactionElem.appendChild(likeValueElem);
+    reactionElem.appendChild(pReactionElem); // add like count & button to container
+    
+    // create delete button and add to container elem
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("deleteButton");
+    deleteButton.innerText = "Delete";
+    reactionElem.appendChild(deleteButton);
+
+    // console.log("reactionelem: ", reactionElem);
+
+    // add like, delete to the comment element
+    elemB.appendChild(reactionElem);
+
+    // Add above comment element to the top level comments__item div
     elemA = document.createElement("div");
     elemA.classList.add("comments__item");
     elemA.appendChild(elemB); 
@@ -173,17 +220,38 @@ function displayComment(element) {
     elemB.setAttribute("src","./assets/Images/profile-blank.png");
     elemB.setAttribute("alt","commenter image");
     elemA.insertBefore(elemB, elemA.firstChild); // insert <img> before other comment elements as per html structure
-    
+
+ 
+
     // Page element to which we will add comments
     const commentsElem = document.querySelector(".comments__list");
 
     // Finally append new comment element to the list on the page
     commentsElem.appendChild(elemA);
 
-    // Add event listener for delete.  This works, but it's on the whole element rather than the button
-    // elemA.addEventListener("click", event => {
-    //     event.currentTarget.remove();
-    // })
+
+    // Add event listener for delete.  
+    deleteButton.addEventListener("click", event => {
+        // Delete comment from remote DB. If works, then delete from page display as well.
+        let delComm = axios.delete(`${apiUrl}/${element.id}?api_key=${apiKey}`);
+        delComm.then( result => {
+            event.target.parentNode.parentNode.parentNode.remove();
+            console.log("success deleting comment using api: ", result);
+        }).catch( error => {
+            console.log("error deleting comment using api: ", error);
+            alert("error deleting comment from remote DB")
+        });
+    });
+
+    /*
+    register handler for like
+     - axio.put to update comment' likes
+     - axios.get to pull newest comment total and add it to the element
+     - update like element
+    */
+    likeButton.addEventListener("click", event => {
+        //
+    })
 }
 
 
