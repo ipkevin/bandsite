@@ -156,6 +156,12 @@ function displayComment(element) {
     elemA.innerText = element.comment;
     elemB.appendChild(elemA); // appended comment to parent
 
+    // Add delete & like buttons here
+    // likely will want to use unique vars for them to more easily add event listeners
+    let delBtn = document.createElement("button");
+    let likeBtn = document.createElement("button");
+    
+
     // Add above element to the top level comments__item div
     elemA = document.createElement("div");
     elemA.classList.add("comments__item");
@@ -173,6 +179,11 @@ function displayComment(element) {
 
     // Finally append new comment element to the list on the page
     commentsElem.appendChild(elemA);
+
+    // Add event listener for delete.  This works, but it's on the whole element rather than the button
+    // elemA.addEventListener("click", event => {
+    //     event.currentTarget.remove();
+    // })
 }
 
 
@@ -193,4 +204,4 @@ function clearList(){
 
 
 // On initial load of page, remove any dummy comments and post comments from the DB
-//updateComments();
+updateComments();
