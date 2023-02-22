@@ -1,38 +1,27 @@
 
+const apiKey = "271cb087-128b-444b-a96a-3a321e8ed19a";
+const apiUrl = "https://project-1-api.herokuapp.com/showdates";
 
-// The shows data
-const concertList = [
-{
-    date: "Mon Sept 06 2021",
-    venue: "Ronald Lane",
-    location: "San Francisco, CA"
-},
-{
-    date: "Tue Sept 21 2021",
-    venue: "Pier 3 East",
-    location: "San Francisco, CA "
-},
-{
-    date: "Fri Oct 15 2021",
-    venue: "View Lounge",
-    location: "San Francisco, CA "
-},
-{
-    date: "Sat Nov 06 2021",
-    venue: "Hyatt Agency",
-    location: "San Francisco, CA"
-},
-{
-    date: "Fri Nov 26 2021",
-    venue: "Moscow Center",
-    location: "San Francisco, CA "
-},
-{
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA"
-}
-];
+// On page load, get the list of shows from the API 
+// and display them on the page
+const dataRaw = axios.get(`${apiUrl}/?api_key=${apiKey}`);
+
+dataRaw.then((result) => {
+    let concertList = result.data;
+
+     // sort shows array in ascending order
+    concertList.sort((a,b) => {
+        return a.date - b.date;
+    });
+    // add each show onto page
+    concertList.forEach( (show) => {
+        displayShow(show);
+    });
+    // add event handlers for clicking the rows
+    addClickHandlers();
+}).catch((error) => {
+    console.log("error in shows api call: ", error);
+});
 
 
 
@@ -53,14 +42,14 @@ function displayShow(show) {
     dateHeader.classList.add('shows__item-header');
     let dateData = document.createElement('li');
     dateData.classList.add('shows__item-copy','shows__item-copy--date');
-    dateData.innerText = show.date;
+    dateData.innerText = new Date(show.date).toLocaleDateString();
 
     // create venue header and data
     let venueHeader = document.createElement('li');
     venueHeader.classList.add('shows__item-header');
     let venueData = document.createElement('li');
     venueData.classList.add('shows__item-copy','shows__item-copy--venue');
-    venueData.innerText = show.venue;
+    venueData.innerText = show.place;
 
     // create location header and data
     let locationHeader = document.createElement('li');
@@ -120,14 +109,3 @@ function highlightClicked(event){
         event.currentTarget.classList.add('shows__item--selected');
     }   
 }
-
-
-
-/*** Setup the page ***/
-
-// iterate thru the array and turn each show into an element on the page
-concertList.forEach( aShow => {
-    displayShow(aShow);
- });
- // add the event listeners to all shows rows so that they'll highlight when clicked.
- addClickHandlers();
