@@ -2,26 +2,6 @@ const apiKey = "271cb087-128b-444b-a96a-3a321e8ed19a";
 const apiUrl = "https://project-1-api.herokuapp.com/comments";
 
 
-// // Comments Array
-// let commentsDB = [
-//     {
-//         name: "Miles Acosta",
-//         date: "12/20/2020",
-//         comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
-//     },
-//     {
-//     name: "Connor Walton",
-//     date: "02/17/2021",
-//     comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
-// },
-// {
-//     name: "Emilie Beach",
-//     date: "01/09/2021",
-//     comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
-// },
-
-// ];
-
 const formElem = document.getElementById('comments-form');
 
 // Add eventListener for form submit
@@ -55,8 +35,6 @@ formElem.addEventListener('submit', event => {
             console.log("error result from post new comment to api: ", error);
             alert("There was an error adding your comment to the DB. Please try again.");
         })
-        //commentsDB.unshift(newEntry);
-
 
     }
 });
@@ -221,7 +199,7 @@ function displayComment(element) {
 
     // Add event listener on the area containing both delete & like buttons
     // Depending on exactly what is clicked, change behavior
-    // NOTE: The like button is nested in a <p> tag which causes issues adding event listener to it. This method is best to capture it.
+    // NOTE: The like button is nested in a <p> tag which causes issues adding event listener to it directly. Below method is best to capture it.
     reactionElem.addEventListener('click', (event) => {
 
         // Delete button clicked
@@ -242,7 +220,9 @@ function displayComment(element) {
             
             // Update likes on remote DB.  If successful, then update likes counter on the page.
             axios.put(`${apiUrl}/${element.id}/like?api_key=${apiKey}`).then( result => {
-                likeValueElem.innerText = result.data.likes;
+                
+                //likeValueElem.innerText = result.data.likes;
+                event.target.nextElementSibling.innerText = result.data.likes;
             }).catch( error => {
                 console.log("error updating the comment likes thru api: ", error);
             });
