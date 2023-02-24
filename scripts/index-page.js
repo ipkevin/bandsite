@@ -157,7 +157,6 @@ function displayComment(element) {
     likeButton.classList.add("commentButton");
     likeButton.classList.add("likeButton");
     likeButton.innerText = "♥ Like";
-    // likeButton.innerHTML = "&hearts;" + " Like";
 
     // create like counter and add to container elem
     const likeContainerElem = document.createElement("p");
