@@ -196,8 +196,7 @@ function displayComment(element) {
     elemB.classList.add("comments__image");
     elemB.setAttribute("src","./assets/Images/profile-blank.png");
     elemB.setAttribute("alt","commenter image");
-    elemA.insertBefore(elemB, elemA.firstChild); // insert <img> before other comment elements as per html structure
-
+    elemA.insertAdjacentElement("afterbegin", elemB); // insert <img> before other comment elements as per html structure
     // Page element to which we will add comments
     const commentsElem = document.querySelector(".comments__list");
 
