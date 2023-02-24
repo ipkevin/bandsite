@@ -154,9 +154,10 @@ function displayComment(element) {
     
     // create like button and add to container elem
     const likeButton = document.createElement("button");
+    likeButton.classList.add("commentButton");
     likeButton.classList.add("likeButton");
-    likeButton.innerText = "Like";
-
+    likeButton.innerText = "♥ Like";
+    // likeButton.innerHTML = "&hearts;" + " Like";
 
     // create like counter and add to container elem
     const likeContainerElem = document.createElement("p");
@@ -177,6 +178,7 @@ function displayComment(element) {
     
     // create delete button and add to container elem
     const deleteButton = document.createElement("button");
+    deleteButton.classList.add("commentButton");
     deleteButton.classList.add("deleteButton");
     deleteButton.innerText = "Delete";
     reactionElem.appendChild(deleteButton);
@@ -204,7 +206,6 @@ function displayComment(element) {
 
     // Add event listener on the area containing both delete & like buttons
     // Depending on exactly what is clicked, change behavior
-    // NOTE: The like button is nested in a <p> tag which causes issues adding event listener to it directly. Below method is best to capture it.
     reactionElem.addEventListener('click', (event) => {
 
         // Delete button clicked
@@ -233,6 +234,9 @@ function displayComment(element) {
             });
         }
     });
+    // Below works to add click handler on like button, but it's less versatile. Requires likeButton var to always point to the right element 
+    // The above solution is more generic and could even be split into its own function
+    //
     // likeButton.addEventListener("click", (event) => {
     //     axios.put(`${apiUrl}/${element.id}/like?api_key=${apiKey}`).then( result => {
                 

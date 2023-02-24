@@ -678,4 +678,19 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
   flex-flow: row nowrap;
   justify-content: space-between;
   margin-top: 1rem;
+}
+
+.commentButton {
+  background-color: #323232;
+  color: white;
+  border-radius: 0.3rem;
+  padding: 0 0.3rem;
+}
+.commentButton:hover {
+  background-color: #000000;
+  color: #E1E1E1;
+}
+.commentButton:active {
+  background-color: cornflowerblue;
+  color: white;
 }/*# sourceMappingURL=bio.css.map */
