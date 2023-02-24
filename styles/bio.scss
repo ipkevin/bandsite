@@ -288,8 +288,8 @@
     &__input {
         // display: block;
         margin-bottom: $space-mobile-between;
-        border-radius: 0.25rem; // 4px;
-        padding: 0.75rem; // 12px;
+        border-radius: 0.25rem; 
+        padding: 0.75rem; 
         
         min-height: 36px;
         border: 1px solid $color-divider-line;
@@ -362,7 +362,6 @@
         color: $color-divider-line;
     }
     &:active {
-        // background-color: $color-font-secondary;
         background-color:cornflowerblue;
         color: white;
     }

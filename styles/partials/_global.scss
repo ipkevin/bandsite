@@ -10,7 +10,6 @@
 }
 
 body {
-    //font-size: 16px;
     font-family: "AvenirNext";
     font-weight: normal;
 }
@@ -28,7 +27,7 @@ h1 { // Page Header title in Hero
     }
 }
 h2 { // Section titles
-    font-size: 1.5rem; // 24px 
+    font-size: 1.5rem; 
     font-weight: 600; 
     
     @include tablet-query {
@@ -86,7 +85,6 @@ p {
         }
         @include desktop-query {
             padding-left: $space-desktop-sidepadding;
-            //padding-top: 0.3rem;
         }
     }
     &__menu {
@@ -153,7 +151,7 @@ p {
 /* GENERIC BUTTON */
 .button {
     display: inline-block;
-    min-width: 9.375rem; //150px
+    min-width: 9.375rem;
 
     padding: 0.8rem 1.7rem; // 2rem matches styleguide but not mock
 
