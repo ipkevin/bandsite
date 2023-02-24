@@ -128,25 +128,25 @@ function displayComment(element) {
     
 
     // Create name & date elements & add them to their parent
-    let elemA = document.createElement("div");
-    elemA.classList.add("comments__post-header");
-    let elemB = document.createElement("p");
-    elemB.classList.add("comments__post-name");
-    elemB.innerText = element.name;
-    elemA.appendChild(elemB);
-    elemB = document.createElement("p");
-    elemB.classList.add("comments__post-date");
-    elemB.innerText = getDateElapsed(element.timestamp); // use time elapsed fxn above to get time elapsed or date
-    elemA.appendChild(elemB);
+    const nameDateEl = document.createElement("div");
+    nameDateEl.classList.add("comments__post-header");
+    const nameEl = document.createElement("p");
+    nameEl.classList.add("comments__post-name");
+    nameEl.innerText = element.name;
+    nameDateEl.appendChild(nameEl);
+    const dateEl = document.createElement("p");
+    dateEl.classList.add("comments__post-date");
+    dateEl.innerText = getDateElapsed(element.timestamp); // use time elapsed fxn above to get time elapsed or date
+    nameDateEl.appendChild(dateEl);
 
     // Create comment element, then add name/date/comment to new parent
-    elemB = document.createElement("div");
-    elemB.classList.add("comments__copy");  // new parent
-    elemB.appendChild(elemA);  // appended name & date to parent
-    elemA = document.createElement("p");
-    elemA.classList.add("comments__post-body");
-    elemA.innerText = element.comment;
-    elemB.appendChild(elemA); // appended comment to parent
+    const commentBoxEl = document.createElement("div");
+    commentBoxEl.classList.add("comments__copy");  // new parent
+    commentBoxEl.appendChild(nameDateEl);  // appended name & date to parent
+    const commentTextEl = document.createElement("p");
+    commentTextEl.classList.add("comments__post-body");
+    commentTextEl.innerText = element.comment;
+    commentBoxEl.appendChild(commentTextEl); // appended comment to parent
 
     // Create container elem holding likes, like btn & delete btn
     const reactionElem = document.createElement("div");
@@ -176,24 +176,25 @@ function displayComment(element) {
     reactionElem.appendChild(deleteButton);
 
     // add like, delete to the comment element
-    elemB.appendChild(reactionElem);
+    // elemB.appendChild(reactionElem);
+    commentBoxEl.appendChild(reactionElem);
 
     // Add above comment element to the top level comments__item div
-    elemA = document.createElement("div");
-    elemA.classList.add("comments__item");
-    elemA.appendChild(elemB); 
+    const commentItemEl = document.createElement("div");
+    commentItemEl.classList.add("comments__item");
+    commentItemEl.appendChild(commentBoxEl); 
 
     // Add image element to top level div
-    elemB = document.createElement("img");
-    elemB.classList.add("comments__image");
-    elemB.setAttribute("src","./assets/Images/profile-blank.png");
-    elemB.setAttribute("alt","commenter image");
-    elemA.insertAdjacentElement("afterbegin", elemB); // insert <img> before other comment elements as per html structure
+    const commentImageEl = document.createElement("img");
+    commentImageEl.classList.add("comments__image");
+    commentImageEl.setAttribute("src","./assets/Images/profile-blank.png");
+    commentImageEl.setAttribute("alt","commenter image");
+    commentItemEl.insertAdjacentElement("afterbegin", commentImageEl); // insert <img> before other comment elements as per html structure
     // Page element to which we will add comments
     const commentsElem = document.querySelector(".comments__list");
 
     // Finally append new comment element to the list on the page
-    commentsElem.appendChild(elemA);
+    commentsElem.appendChild(commentItemEl);
 
     // Add event listener on the area containing both delete & like buttons
     // Depending on exactly what is clicked, change behavior

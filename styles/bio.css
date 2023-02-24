@@ -650,6 +650,7 @@ NOTE: If other *wrapper rules set width and come after this, then they will over
 }
 .comments__button {
   font-weight: normal;
+  border: 0;
 }
 @media screen and (min-width: 768px) {
   .comments__button {

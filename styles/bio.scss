@@ -316,6 +316,7 @@
     }
     &__button {
         font-weight: normal;
+        border: 0;
 
         @include tablet-query{
             align-self: flex-end;
