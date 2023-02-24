@@ -21,7 +21,6 @@ formElem.addEventListener('submit', event => {
         axios.post(`${apiUrl}?api_key=${apiKey}`, {
             name: newEntry.name,
             comment: newEntry.comment
-            // timestamp: newEntry.timestamp
         }).then( (result) => {
             console.log("result from post new comment to api: ", result);
 
@@ -92,41 +91,42 @@ function updateComments(){
 }
 
 
+// Checks a date against current date.  If diff is <= 4 days, then return diff in days, hours, mins, or seconds.  Else return date in mm/dd/yyyy.
+function getDateElapsed(date) {
+    let time1 = new Date();
+    let time2 = new Date(date);
+    let timeDiff = time1 - time2;
+    let fourDays = 1000*60*60*24*4;
+    let oneDay = 1000*60*60*24;
+    let oneHour = 1000*60*60;
+    let oneMin = 1000*60;
+    let oneSec = 1000;
+
+    if (timeDiff < oneMin){
+        return `${Math.round(timeDiff / oneSec)} seconds ago`;
+    } else if (timeDiff < oneHour) {
+        return `${Math.round(timeDiff / oneMin)} minutes ago`;
+    } else if (timeDiff < oneDay) {
+        return `${Math.round(timeDiff / oneHour)} hours ago`;
+    } else if (timeDiff < fourDays) {
+        return `${Math.round(timeDiff / oneDay)} days ago`;
+    } else {
+        // Return date in MM/DD/YYYY format,
+        // but first check if need leading 0 added to date
+        time2 = time2.toLocaleDateString();
+        if (time2.indexOf("/") === 1) {
+            return "0"+time2;
+        } else {
+            return time2;
+        }
+    }
+}
 
 // Function that takes in a comment object (eg from comments array) and adds it to the page.
 // If comment posted less than 4 days ago, the date shown will dynamically change to time elapsed since posting.
 function displayComment(element) {
     
-    // Checks a date against current date.  If diff is <= 4 days, then return diff in days, hours, mins, or seconds.  Else return date in mm/dd/yyyy.
-    function getDateElapsed(date) {
-        let time1 = new Date();
-        let time2 = new Date(date);
-        let timeDiff = time1 - time2;
-        let fourDays = 1000*60*60*24*4;
-        let oneDay = 1000*60*60*24;
-        let oneHour = 1000*60*60;
-        let oneMin = 1000*60;
-        let oneSec = 1000;
 
-        if (timeDiff < oneMin){
-            return `${Math.round(timeDiff / oneSec)} seconds ago`;
-        } else if (timeDiff < oneHour) {
-            return `${Math.round(timeDiff / oneMin)} minutes ago`;
-        } else if (timeDiff < oneDay) {
-            return `${Math.round(timeDiff / oneHour)} hours ago`;
-        } else if (timeDiff < fourDays) {
-            return `${Math.round(timeDiff / oneDay)} days ago`;
-        } else {
-            // Return date in MM/DD/YYYY format,
-            // but first check if need leading 0 added to date
-            time2 = time2.toLocaleDateString();
-            if (time2.indexOf("/") === 1) {
-                return "0"+time2;
-            } else {
-                return time2;
-            }
-        }
-    }
     // Create name & date elements & add them to their parent
     let elemA = document.createElement("div");
     elemA.classList.add("comments__post-header");
@@ -161,13 +161,6 @@ function displayComment(element) {
     // create like counter and add to container elem
     const likeContainerElem = document.createElement("p");
     likeContainerElem.appendChild(likeButton);
-    /* 
-    //likeContainerElem.innerHTML += " | Likes: "; 
-    Don't use innerHTML. It clears references to any elements that were already inside. 
-    ie, likeButton will no longer refer to the button element (tho it still has a string representing it) 
-    Why does that matter?  You won't be able to addEventListener directly to likeButton.
-    Use insertAdjacentHTML in this case:
-    */
     likeContainerElem.insertAdjacentHTML("beforeend", " | Likes: ");
     const likeValueElem = document.createElement("span");
     likeValueElem.classList.add("likes-value");
@@ -232,20 +225,6 @@ function displayComment(element) {
             });
         }
     });
-    // Below works to add click handler on like button, but it's less versatile. Requires likeButton var to always point to the right element 
-    // The above solution is more generic and could even be split into its own function
-    //
-    // likeButton.addEventListener("click", (event) => {
-    //     axios.put(`${apiUrl}/${element.id}/like?api_key=${apiKey}`).then( result => {
-                
-    //         //likeValueElem.innerText = result.data.likes;
-    //         event.target.nextElementSibling.innerText = result.data.likes;
-    //     }).catch( error => {
-    //         console.log("error updating the comment likes thru api: ", error);
-    //     });
-    // });
-
-   
 }
 
 

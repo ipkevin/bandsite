@@ -14,9 +14,7 @@ dataRaw.then((result) => {
         return a.date - b.date;
     });
     // add each show onto page
-    concertList.forEach( (show) => {
-        displayShow(show);
-    });
+    concertList.forEach( (show) => displayShow(show) );
     // add event handlers for clicking the rows
     addClickHandlers();
 }).catch((error) => {
