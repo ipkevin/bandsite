@@ -3,7 +3,7 @@
 Band Site project from BrainStation Web Dev Bootcamp.  Vancouver Feb 2023.
 
 ## Technologies Used
-React, Node, Express, HTML5, CSS3, Knex.js, SQL, Web APIs
+React, Javascript, Node, HTML5, CSS3, DOM APIs
 
 ## Note on Styling
 
